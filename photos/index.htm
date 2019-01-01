@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Galleries</title>
+    <style media="screen">
+      img{
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        padding: 5px;
+        margin: 10px;
+        max-width: 1280px;
+      }
+      #pics{
+        margin-left: 20px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+      }
+
+      a{
+        text-decoration: none;
+        color: cornflowerblue;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+  	<script type="text/javascript">
+  	Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+  	</script>
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@6.4.3/dist/pouchdb.min.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="top">
+      <h1></h1>
+      <select style="display: none;"><option value="">-- choose --</option></select>&nbsp;<span id="numPics"></span>&nbsp;<a style="font-size: 30px;" href="#" id="startSlick">Start slideshow</a><br>
+    </div>
+    <input type="text" id="downloadCode" style="width: 500px;" />&nbsp;
+    <button type="button" id="copyCmd">Copy to clipboard</button>
+    <div id="pics" class="fade"></div>
+    <script type="text/javascript" src="../inc/LS.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <script type="text/javascript">
+    const URL = 'https://7390b9d1-8ba0-4f7b-a302-f2a191635822-bluemix.cloudant.com/galleries';
+    const remoteDB = new PouchDB(URL, { skip_setup: true });
+    async function displayPictures(galName) {
+      if(galName.trim() != '') {
+        try{
+          //console.log(event.target.value);
+          const ipfsUrl = 'https://ipfs.infura.io/ipfs/';
+          const result = await remoteDB.get(galName);
+          document.querySelector('#numPics').innerHTML = `${result.hashs.length} photo(s)`;
+          let htmlPics = '';
+          let code = '';
+          result.hashs.forEach((hash, k) => {
+            htmlPics += `<div><a href="${ipfsUrl+hash}" target="_blank"><img style="max-height: 150px;" src="${ipfsUrl+hash}" /></a></div>`;
+            code += `wget ${ipfsUrl+hash} -O ${k+1}.jpg && `;
+          });
+          document.querySelector('#pics').innerHTML = htmlPics;
+          document.querySelector('#downloadCode').value = code.substr(0, code.length - 4);
+
+        }catch(e){
+          console.warn(e);
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlVars = new URLSearchParams(location.search);
+      try {
+        const result = await remoteDB.allDocs();
+        console.log(result);
+        document.querySelector('h1').innerHTML = `${result.rows.length} gallerie(s)`;
+        document.querySelector('select').innerHTML += result.rows.map(v => `<option value="${v.id}">${v.id}`).join('</option>');
+        document.querySelector('select').style.display = 'block';
+      } catch (e) {
+        console.warn(e);
+        document.querySelector('h1').innerHTML = e.toString();
+      }
+      //console.log('decodeURIComponent(urlVars.get(gal) ', decodeURIComponent(urlVars.get('gal')));
+      displayPictures(urlVars.get('gal') || 'Paradiso');
+
+      document.querySelector('select').addEventListener('change', event => {
+        displayPictures(event.target.value);
+        document.querySelector('#pics').classList.remove('slick-initialized', 'slick-slider', 'slick-dotted');
+      });
+      document.querySelector('#startSlick').addEventListener('click', _ => {
+      document.querySelectorAll('img').forEach(v => {
+        v.style.removeProperty('max-height');
+        v.style.removeProperty('max-width');
+      });
+      $('.fade').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+          });
+      });
+    });
+    document.querySelector('#copyCmd').addEventListener('click', e => {
+      const downloadCode = document.querySelector('#downloadCode');
+      const range = document.createRange();
+      range.selectNode(downloadCode);
+      window.getSelection().addRange(range);
+      try {
+        const successful = document.execCommand('copy');
+        const msg = successful ? 'successful' : 'unsuccessful';
+      } catch(err) {
+        console.log('Oops, unable to copy');
+      }finally{
+        window.getSelection().removeAllRanges();
+      }
+    });
+    </script>
+  </body>
+</html>

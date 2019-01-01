@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="search" type="application/opensearchdescription+xml" title="art" href="opensearch.xml" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="versatile full stack web developer"/>
+    <meta name="referrer" content="always" />
+    <title>versatile full stack web developer</title>
+    <link rel="icon" type="image/png" href="images/icon.png" />
+    <style>
+        @font-face
+        {
+            font-family: 'CaviarDreams';
+            src: url("fonts/CaviarDreams.ttf") format('truetype');
+        }
+
+        @font-face
+        {
+            font-family: 'santacarla';
+            src: url("fonts/santacarla.ttf") format('truetype');
+        }
+
+        body{
+            font-family: CaviarDreams;
+            font-size: 50px;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+
+        a{ text-decoration: none; color: #ccc; }
+
+        h1{ margin-top: 0; }
+
+        #theSpan{ font-family: 'santacarla'; opacity: 0; font-size: 75px; }
+
+    </style>
+    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+    </script>
+    <script type="text/javascript" src="inc/index.js"></script>
+    <script type="text/javascript" src="inc/locales.js"></script>
+    <script type="text/javascript" src="inc/github.js"></script>
+    <script type="text/javascript" src="onepage-scroll/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="onepage-scroll/jquery.onepage-scroll.js"></script>
+    <script type="text/javascript" src="inc/recordClientInfos.js" async></script>
+    <link href="onepage-scroll/onepage-scroll.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<ul class="onepage-pagination" style="width: 100px; height: 100%; position: absolute; left: 10px;">
+    <li>
+        <a data-index="1" href="#1">
+            <img src="images/pictos/github-logo.png" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="2" href="#2">
+            <img src="images/pictos/thumb-odesk.png" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="3" href="#3">
+            <img src="images/pictos/marker.png" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="4" href="#4">
+            <img src="images/pictos/logo-cam.png" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="5" href="#5">
+            <img src="images/pictos/flipbook.png" style="width: 100px;" />
+        </a>
+    </li>
+</ul>
+<ul class="onepage-pagination">
+    <li>
+        <a data-index="6" href="#6">
+            <img src="images/pictos/logo-live2.png" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="7" href="#7">
+            <img src="images/pictos/geek-logo.png" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="8" href="#8">
+            <img src="images/pictos/logo-www.png" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="9" href="#9">
+            <img src="images/pictos/logo-pop.png" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="10" href="#10">
+            <img src="images/pictos/music-lib-logo.jpg" style="width: 100px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="11" href="#11">
+            <img src="images/pictos/logo-loupe.png" style="width: 100px;" />
+        </a>
+    </li>
+</ul>
+<div id="main" class="main" style="display: block;">
+    <section class="logo-section">
+        <div id="test" style="margin-top: 20%;">
+            <span id="theSpan"><script>document.write(appLocales.get('intro'))</script>...</span>
+        </div>
+        <div id="topSection1" style="display: none;">
+
+          <script>document.write('<a style="font-size: 70px;" href="https://github.com/'+githubPseudo+'?tab=repositories" target="_blank">')</script>
+          <script>document.write(appLocales.get('github'))</script>
+          </a><br>
+
+              <script>document.write('<a href="https://github.com/'+githubPseudo+'?tab=repositories" target="_blank">')</script>
+              <img src="images/github-logo.png" style="border: none; height: 400px;" />
+            </a>
+        </div>
+        <script>
+
+            var myVar = setInterval(function(){myTimer()}, 200);
+            var i_sec = 0;
+            var i = 10;
+
+            function myTimer()
+            {
+                i_sec++;
+                i--;
+
+                if(i_sec > 10)
+                {
+                    myStopFunction();
+
+                }else
+                {
+                    try
+                    {
+                        var opacity = i_sec/10;
+                        console.log(opacity);
+                        document.getElementById("theSpan").style.opacity = opacity.toString();
+
+                    }catch(e)
+                    {
+                        console.log(e.toString());
+                    }
+
+                }
+            }
+
+            function myStopFunction()
+            {
+                clearInterval(myVar);
+
+                document.getElementById('topSection1').style.display = 'block';
+                document.getElementById('bottomSection1').style.display = 'block';
+                //document.getElementById('test').innerHTML += '';
+                document.getElementById('test').style.display = 'none';
+            }
+        </script>
+
+        <p id="bottomSection1" style="display: none;">
+            <script>
+                if(typeof sessionStorage != 'undefined') {
+
+                    console.log('localStorage.getItem(background)'+localStorage.getItem('background'));
+                    if(localStorage.getItem('background') === 'white'){
+
+                        document.write('<a href="#" id="black" onclick="switchMode(this.id);" id="return_from_switchMode">mode(NIGHT)</a>');
+
+                    }else{
+
+                        document.write('<a href="#" id="white" onclick="switchMode(this.id);" id="return_from_switchMode">mode(DAY)</a>');
+                    }
+                }
+            </script>
+            <br>
+            <a href="http://wiki.xn--grgoi-csa.re" style="font-size: 30px;" ><script>document.write(appLocales.get('wiki'))</script></a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><a href="contact" >/<script>document.write(appLocales.get('cv0'))</script></a>
+          <script>document.write(appLocales.get('cv1'))</script><br>
+          <script>document.write(appLocales.get('cv2'))</script> <a href="cv" >/<script>document.write(appLocales.get('cv3'))</script></a></h1>
+        <p>
+            <a href="cv" >
+                <img src="cv/100h-odesk.png" style="border: none; height: 400px;" />
+            </a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><script>document.write(appLocales.get('map0'))</script> <a href="map" >/<script>document.write(appLocales.get('map1'))</script></a></h1>
+        <p>
+            <a href="map" >
+                <img src="images/marker.png" style="border: none; height: 400px;" />
+            </a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><script>document.write(appLocales.get('pic0'))</script> <a href="photos" >/<script>document.write(appLocales.get('pic1'))</script></a></h1>
+        <p>
+            <a href="photos" >
+                <img src="https://s3-us-west-2.amazonaws.com/agreg0ire/website-datas/images/istb.JPG" style="border: none; width: 700px;" />
+            </a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><script>document.write(appLocales.get('flipbook0'))</script> <a href="flipBooks" >/<script>document.write(appLocales.get('flipbook1'))</script></a></h1>
+        <p>
+            <a href="flipBooks" >
+                <img src="images/flipbook.png" style="border: none;" />
+            </a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><script>document.write(appLocales.get('mp30'))</script> <a href="mp3" >/mp3</a></h1>
+        <p>
+            <a href="mp3" >
+                <img src="images/logo-live2.png" style="border: none; height: 400px;" />
+            </a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><script>document.write(appLocales.get('trick0'))</script> <a href="tips" >/<script>document.write(appLocales.get('trick1'))</script></a></h1>
+        <p>
+            <a href="tips" >
+                <img src="images/geek-logo.png" style="border: none; width: 600px;" />
+            </a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><script>document.write(appLocales.get('links0'))</script> <a href="links" >/<script>document.write(appLocales.get('links1'))</script></a></h1>
+        <p >
+            <a href="links" >
+                <img src="images/logo-www.png" style="border: none;" />
+            </a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><script>document.write(appLocales.get('film0'))</script> <a href="films" >/<script>document.write(appLocales.get('film1'))</script></a></h1>
+        <p >
+          <a href="films" >
+              <img src="images/logo-pop.png" style="border: none;" />
+          </a>
+        </p>
+    </section>
+    <section class="logo-section">
+        <h1><script>document.write(appLocales.get('musiclib0'))</script> <a href="musicLib" >/<script>document.write(appLocales.get('musiclib1'))</script></a></h1>
+        <p >
+          <a href="musicLib" >
+              <img src="images/music-lib-logo.jpg" style="border: none;" />
+          </a>
+        </p>
+    </section>
+    <section>
+        <h1><script>document.write(appLocales.get('search'))</script></h1>
+        <p>
+        <form method="get" name="searchform" id="searchform" action="search.htm">
+          <script>document.write(appLocales.get('type'))</script>
+        </form>
+        </p>
+        <a href="#" onclick="if(document.getElementById('return_from_numFilesInDomain').value.trim().length >= 3) document.getElementById('searchform').submit();">
+            <img src="images/logo-loupe.png" style="border: none;" />
+        </a>
+    </section>
+</div>
+<div id="anim"></div>
+<script type="text/javascript">
+
+    $(".main").onepage_scroll({
+        sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
+        easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
+                                         // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+        animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
+        pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+        updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+        beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
+        afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
+        loop: true,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+        keyboard: true,                  // You can activate the keyboard controls
+        responsiveFallback: false        // You can fallback to normal page scroll by defining the width of the browser in which
+                                         // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
+                                         // the browser's width is less than 600, the fallback will kick in.
+    });
+
+
+    if(localStorage.getItem('background') != '' || localStorage.getItem('background') != undefined || localStorage.getItem('background') != 'undefined'){
+
+        switchModeFromLS(localStorage.getItem('background') || 'black'); //localStorage must be call at the end of load bdody
+
+    }
+
+</script>
+</body>
+</html>

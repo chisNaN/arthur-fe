@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <link href="../images/icon.png" rel="icon" type=""/>
+	<title>tips</title>
+  <style>
+    *{ margin: 0; padding: 0; }
+    body{
+        font-family: verdana;
+        font-size: 14px;
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+
+    a{
+        text-decoration: none; color: cornflowerblue;
+    }
+
+    h1{ font-size: 20px; }
+
+    #containerTips{ display: flex; flex-flow: row wrap; justify-content: center; align-items: center; }
+
+    .containers{ width: 300px; border-radius: 3px; border: 1px solid #ccc; margin: 10px; padding: 5px; }
+	</style>
+	<script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+	</script>
+</head>
+<body>
+<h1>Contact me <a href="../contact">here</a> if you want to access to the contents of these tutos
+</h1>
+<h1 id="h"></h1>
+<div id="containerTips"></div>
+<script type="text/javascript" src="../inc/LS.js"></script>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', async () => {
+		try {
+			const tips = localStorage.getItem('tips');
+			if (tips) {
+				const parsedTips = JSON.parse(tips);
+				let html = '';
+
+				parsedTips.forEach((v, k) => {
+					if (k === 0) {
+						document.getElementById('h').innerHTML = parsedTips.length+' tip(s)';
+					}
+					html += `<div class="containers"><p><span style="font-size: 20px;" >${v.title}</span></p>
+					(${v.date})<br/>
+					<p><img src="https://s3-us-west-2.amazonaws.com/agreg0ire/website-datas/tips/${v.imgName}" style="border: none; max-height: 150px; max-width: 250px;"/></p></div>`;
+				});
+
+				document.getElementById('containerTips').innerHTML = html || "<h1>Did you try an unreachable id?</h1>" ;
+			} else {
+				const url = 'https://spreadsheets.google.com/feeds/list/123nOoeKpaURLZ49L3jP8SknfLZLwOdXPZPc9XHYovjw/od6/public/values?alt=json';
+				const response = await fetch(url);
+				const json = await response.json();
+				let html = '';
+				const a = [];
+				json.feed.entry.forEach((v, k) => {
+					a.push({ title: json.feed.entry[k]['gsx$_cn6ca']['$t'], date: json.feed.entry[k]['gsx$_cokwr']['$t'], imgName: json.feed.entry[k]['gsx$_cre1l']['$t']});
+						if (k === 0) {
+							document.getElementById('h').innerHTML = json.feed.entry.length+' tip(s)';
+						}
+						html += `<div class="containers"><p><span style="font-size: 20px;" >${json.feed.entry[k]['gsx$_cn6ca']['$t']}</span></p>
+						(${json.feed.entry[k]['gsx$_cokwr']['$t']})<br/>
+						<p><img src="https://s3-us-west-2.amazonaws.com/agreg0ire/website-datas/tips/${json.feed.entry[k]['gsx$_cre1l']['$t']}" style="border: none; max-height: 150px; max-width: 250px;"/></p></div>`;
+				});
+				document.getElementById('containerTips').innerHTML += html;
+				localStorage['tips'] = JSON.stringify(a);
+			}
+		}catch(e) {
+			alert(e);
+		}
+	});
+</script>
+</body>
+</html>

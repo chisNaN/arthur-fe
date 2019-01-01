@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>admin</title>
+    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+  	<script type="text/javascript">
+  	Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+  	</script>
+    <script src="https://unpkg.com/ipfs-api@17.5.0/dist/index.js" crossorigin="anonymous"></script>
+    <script src="../inc/buffer.min.js" ></script>
+    <script src="../inc/octokit-rest.min.js" ></script>
+  </head>
+  <body>
+    <h1>upload a new db file (json)</h1>
+    <input type="password" id="githubPasswd" placeholder="Github password">
+    <input type="file"/><br>
+    <a href="#" id="upload">upload</a>
+    <p id="output"></p>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', _ => {
+        document.querySelector('#upload').addEventListener('click', _ => {
+          const file = document.querySelector('input[type=file]').files[0];
+          if(file) {
+            console.clear();
+            document.querySelector('#upload').style.display = 'none';
+            document.querySelector('#output').innerHTML = '';
+              const reader = new FileReader();
+              reader.readAsArrayBuffer(file);
+              reader.addEventListener('load', async _ => {
+                try{
+                  const owner = 'chisNaN';
+                  const repo = 'arthur-fe';
+                  const buffer = Buffer.Buffer.from(reader.result);
+                  const ipfs = IpfsApi('ipfs.infura.io', '5001', {protocol: 'https'});
+                  const infura = await ipfs.add(buffer);
+                  const hash = infura[0].hash;
+                  const path = 'musicLib/ipfs-hash-db.txt';
+                  const pathInfo = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
+                  const { sha } = await pathInfo.json();
+                  const octokit = new Octokit();
+                  octokit.authenticate({ type: 'basic', username: 'chisNaN', password: document.querySelector('#githubPasswd').value.trim() });
+                  const author = { name: owner, email: 'artgreg@outlook.fr' };
+                  const committer = author;
+                  const config = { owner, repo, path,
+                                  message: 'commit from musicLib admin',
+                                  content: btoa(unescape(encodeURIComponent(hash))),
+                                  sha, committer, author };
+                              //{owner, repo, path, message, content, sha, branch, committer, author}
+                  const result = await octokit.repos.updateFile(config);
+                  console.log(result);
+                  document.querySelector('#upload').style.display = 'block';
+                  document.querySelector('#output').innerHTML = `Json uploaded to IPFS and ${hash} well committed in github repo`;
+                }catch(e){
+                  document.querySelector('#upload').style.display = 'block';
+                  document.querySelector('#output').innerHTML = e;
+                  console.warn(e);
+                }
+              }, false);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<title>mp3</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="../images/icon.png" rel="icon" type="image/png" />
+<style type="text/css" media="screen">
+
+	canvas{ display:  block; position fixed; }
+
+@font-face
+{
+	font-family: "HirukoBlackAlternate";
+	src: url("../fonts/HirukoBlackAlternate.ttf") format('truetype');
+}
+
+*{ margin: 0; padding: 0; }
+html{ width: 100%; height: 100%; }
+
+body
+{
+	background: transparent;
+	background-image: url('studio.jpeg');
+	background-position: top;
+	color: #FF0080;
+	background-attachment: fixed;
+	font-family: HirukoBlackAlternate;
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+	height: 100%;
+}
+
+a{ font-weight:bold; color: #FF0080; }
+
+#main{ position: absolute; width: 100%; top: 5px; text-align: center; }
+
+#titles{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px; margin-top: 30px; border-radius: 3px; background-color: #ffffff; opacity: 0.7; }
+
+#presentation{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px;  margin-top: 30px; border-radius: 3px; background-color: #ffffff; opacity: 0.7; }
+
+#flashContent{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px; margin-top: 30px; border-radius: 3px; background-color: #ffffff; }
+
+</style>
+<script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+</script>
+<script src="snowflakes.js"></script>
+</head>
+<body>
+<canvas id="canvas"><h1>Your browser does not support canvas</h1></canvas>
+<div id="main">
+	<div id="titles">
+		<h2>You can buy a first EP at <a href="https://aziora.bandcamp.com" target="_blank">Bandcamp</a></h2>
+	</div>
+	<div id="presentation" >
+		<p id="">
+			<i>"I have always loved music that has both elements: melancholy and sadness as a description of the current situation you are in,
+				but at the same time a hopeful, utopian element that reminds you of the possibility of a different life."</i><br><br>
+				 (<a href="https://en.wikipedia.org/wiki/Ulrich_Schnauss" target="_blank">Ulrich Schnauss</a>)
+				 <br>
+		</p>
+	</div>
+		<div id="flashContent">
+<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/55194964&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+</div>
+</div>
+</body>
+</html>

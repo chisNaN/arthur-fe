@@ -1,0 +1,108 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link href="../images/icon.png" rel="icon" type="image/png"/>
+    <title>map</title>
+    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+    </script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmzYGSPcapaYNJsMrQANNJNDje_oZioN4&sensor=false"></script>
+    <script type="text/javascript">
+    const customIcons = {
+    	restaurant: {
+    		icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+    		shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+    	},
+    	bar: {
+    		icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
+    		shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+    	}
+    };
+function bindInfoWindow(marker, map, infoWindow, html) {
+	google.maps.event.addListener(marker, 'click', function() {
+		infoWindow.setContent(html);
+		infoWindow.open(map, marker);
+	});
+}
+</script>
+<style type="text/css">
+@font-face
+{
+	font-family: "neuropol _x_free";
+	src: url("../fonts/neuropol _x_free.ttf") format('truetype');
+}
+
+*{ margin: 0px; padding: 0px; }
+
+html{ width: 100%; height: 100%; }
+
+body{
+  width: 100%;
+	height: 100%;
+	font-family: neuropol _x_free;
+	background-color: white;
+	color: black;
+}
+
+#map{
+	text-align: center; width: 100%; height: 100%;
+}
+</style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        if (self.fetch) {
+      		const url = 'https://spreadsheets.google.com/feeds/list/1R5M5fODJVW_O5GqFYdYBzQTF_avcvuQdmAXuTsEWWZo/od6/public/values?alt=json';
+          fetch(url).then(r => r.json())
+          .then(r2 => {
+            const map = new google.maps.Map(document.getElementById("map"), {
+        			center: new google.maps.LatLng(30, 30), zoom: 3, mapTypeId: 'roadmap'
+        		});
+        		const infoWindow = new google.maps.InfoWindow;
+        		infoWindow.width = 400;
+            const a = [];
+            let html = '';
+            for (const p in r2.feed.entry) {
+      				//make link if there is an associated gal
+              const hrefs = r2.feed.entry[p]['gsx$_cpzh4']['$t'];
+              const posEqual = hrefs.indexOf('=');
+      				if (~posEqual) {
+                const beforeEqual = hrefs.substr(0, posEqual+1);
+                const afterEqual = hrefs.substr(posEqual+1);
+      					html = `<b><a href="${beforeEqual+encodeURIComponent(afterEqual)}" >Watch photos</a></b>`;
+      				}else{
+      					 html = `<b>${hrefs}</b>`;
+      				}
+      				//a.push({ lat: data.feed.entry[p]['gsx$_cn6ca']['$t'], lng: data.feed.entry[p]['gsx$_cokwr']['$t'], info:  data.feed.entry[p]['gsx$_cpzh4']['$t']});
+      				const lat = r2.feed.entry[p]['gsx$_cn6ca']['$t'];
+      				const lng = r2.feed.entry[p]['gsx$_cokwr']['$t'];
+      				const icon = {};
+      				const position = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+
+      				const marker = new google.maps.Marker({
+      					map,
+      					position,
+      					icon: icon.icon,
+      					shadow: icon.shadow
+      				});
+
+      				bindInfoWindow(marker, map, infoWindow, html);
+
+      				if(p === '0') {
+      					infoWindow.setContent(html);
+      					infoWindow.open(map, marker);
+      				}
+      			}
+          }).catch(console.warn);
+        } else {
+          alert('Your browser does not support fetch() global!');
+        }
+      });
+    </script>
+  </body>
+</html>

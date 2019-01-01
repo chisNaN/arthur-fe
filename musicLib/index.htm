@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MusicLib</title>
+    <link rel="stylesheet" type="text/css" href="inc/style.css">
+    <link href="../images/icon.png" rel="icon" type="image/png"/>
+    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+  </script>
+    <script type="text/javascript" src="inc/MusicLib.js"></script>
+    <script type="text/javascript">
+    const musicLib = new MusicLib;
+    function displayAlbums(artist) {
+      let html = '';
+      let htmlTracks = '';
+      musicLib.displayAlbum(artist).forEach(v => html += `<a href="#">${v}</a>`);
+      document.querySelector('#albums').innerHTML = html;
+      document.querySelectorAll('#albums a').forEach(v => {
+        v.addEventListener('click', () => {
+          // if v.innerHTML 13 & God would be 13 &amp; God
+          document.querySelector('#tracks').innerHTML = musicLib.displayTracks(v.textContent).map(v => {
+            if(typeof v != 'string'){
+              return `<a href="#" onclick="displayTracks('${v.toString().replace(/'/g, "\\'")}')">${v}</a>`;
+            }else{
+              return `<span>${v}</span>`; // expected to be array (then tostring conversion)
+            }
+          }).join('')
+        });
+      });
+    }
+
+    function displayTracks(album) {
+      document.querySelector('#tracks').innerHTML = musicLib.displayTracks(album).map(v => {
+        if(typeof v != 'string'){
+          return `<a href="#" onclick="displayTracks('${v.toString().replace(/'/g, "\\'")}')">${v}</a>`;
+        }else{
+          return `<span>${v}</span>`; // expected to be array (then tostring conversion)
+        }
+      }).join('');
+    }
+    </script>
+</head>
+<body >
+<div id="top">
+    <div id="intro">
+        HQ Music Library (<span id="numArtists"></span> artists)
+    </div>
+    <div id="letters">
+      Wait please...
+    </div>
+    <div id="search">
+      <a href="#" id="searchByTrack">Search a track</a>
+        <input type="search" name="track" id="track" placeholder="Track or Artist Name" autofocus/>&nbsp;
+        <a href="#" id="searchByArtist">Search an artist</a>
+    </div>
+</div>
+    <div id="subSections">
+        <div id="artists" class="border"></div>
+        <div id="moreInfos">
+            <div id="albums" class="border"></div>
+            <div id="tracks" class="border"></div>
+        </div>
+    </div>
+<script type="text/javascript" src="../inc/LS.js"></script>
+<script type="text/javascript" src="inc/DOMContentLoaded.js">
+</script>
+</body>
+</html>

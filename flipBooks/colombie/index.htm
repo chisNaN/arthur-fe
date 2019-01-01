@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" class="noie">
+<head>
+<title>Colombie</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=1200" />
+<link rel="icon" type="image/png" href="../../images/icon.png" />
+<link type="text/css" rel="stylesheet" href="css/jquery.ui.css" />
+<link type="text/css" rel="stylesheet" href="css/default.css" />
+<script type="text/javascript" src="extras/all.js"></script>
+<script type="text/javascript" src="lib/turn.min.js"></script>
+<script type="text/javascript" src="lib/zoom.min.js"></script>
+<style type="text/css">
+
+body{ font-family: alamain1; font-size: 13px; background-color: black; text-align: center; }
+
+	.t{ text-align: center; }
+
+    .W{ color: white; }
+
+@font-face
+{
+	font-family: "alamain1";
+	src: url("../../fonts/alamain1.ttf") format('truetype');
+}
+</style>
+</head>
+<body onload="showSwipable();">
+<div class="sample" id="sample-viewer">
+	<!-- <a>Run code</a>-->
+</div>
+<script type="text/javascript">
+
+function goToLastChapter()
+{
+   var i_last_page = $(".sample-flipbook").turn("pages");
+
+   var timer = setInterval(function()
+    {
+
+        $(".sample-flipbook").turn("next");
+
+            if ($(".sample-flipbook").turn("page") === (i_last_page - 2))
+            {
+              window.clearInterval(timer);
+              //$(".sample-flipbook").turn("options", {turnCorners: "tl,tr"});
+            }
+
+    }, 100);
+
+}
+
+function goToFirstPage()
+    {
+        $(".sample-flipbook").turn('page', 1);
+    }
+
+function goToLastPage()
+{
+    var i_last_page = $(".sample-flipbook").turn("pages");
+
+    var timer = setInterval(function()
+    {
+
+        $(".sample-flipbook").turn("next");
+
+        if ($(".sample-flipbook").turn("page") === (i_last_page))
+        {
+            window.clearInterval(timer);
+            //$(".sample-flipbook").turn("options", {turnCorners: "tl,tr"});
+        }
+
+    }, 100);
+}
+
+function showSwipable()
+    {
+        $('.sample-flipbook').turn("peel", "tr");
+    }
+
+yepnope({
+	test : Modernizr.csstransforms,
+	nope : ['lib/turn.html4.min.js', 'css/jquery.ui.html4.css']
+});
+
+$(document).ready(function()
+{
+	$(this).hide();
+	yepnope({
+		test : Modernizr.csstransforms,
+		load: ['samples/basic/js/basic.js', 'samples/basic/css/basic.css'],
+		nope: 'samples/basic/css/basic.html4.css?'+Math.round(Math.random()*100)
+	});
+});
+</script>
+</body>
+</html>

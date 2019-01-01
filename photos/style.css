@@ -1,0 +1,54 @@
+*{  margin: 0; padding: 0;  }
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+@font-face
+{
+    font-family: "olivier_demo";
+    src: url("../../fonts/olivier_demo.ttf") format('truetype');
+}
+
+body
+{
+    font-family: olivier_demo; font-size: 30px;
+    background-color: black;
+    color: white;
+}
+
+a{ text-decoration: none; color: cornflowerblue; }
+
+h1{ margin: 0px; padding-top: 20px; text-align: center; }
+
+p{ flex-flow: row wrap; justify-content: center; }
+
+img{
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+#wall {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    visibility: hidden;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+#main{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerPic{
+
+    margin: 20px;
+}
+
+#top{ display: flex; flex-flow: row wrap; justify-content: center; }

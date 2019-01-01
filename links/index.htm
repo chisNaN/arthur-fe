@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Links</title>
+<link href="../images/icon.png" rel="icon" type="image/png"/>
+<style type="text/css" media="screen">
+    *{ margin: 0; padding: 0; }
+
+    @font-face
+    {
+        font-family: "HirukoBlackAlternate";
+        src: url("../fonts/HirukoBlackAlternate.ttf") format('truetype');
+    }
+
+    body {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        font-family: 'HirukoBlackAlternate';
+        font-size: 20px;
+        background-color: white;
+        color: black;
+    }
+
+    a{ text-decoration: none; color: cornflowerblue;
+    }
+
+    div{ display: flex; flex-flow: column wrap; margin: 20px; }
+</style>
+<script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+</script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.44.min.js"></script>
+<script type="text/javascript" src="../inc/aws-cred.js"></script>
+<script>
+    function strrchr(haystack, needle) {
+        var pos = 0;
+
+        if (typeof needle !== 'string') {
+            needle = String.fromCharCode(parseInt(needle, 10));
+        }
+        needle = needle.charAt(0);
+        pos = haystack.lastIndexOf(needle);
+        if (pos === -1) {
+            return false;
+        }
+        return haystack.substr(pos + 1); //to avoid first slash
+    }
+</script>
+</head>
+<body>
+<img src="../images/spinner.gif" border="none" />
+<script type="text/javascript" src="../inc/LS.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    var prefix = 'website-datas/images/links/';
+    var bucketName = 'agreg0ire';
+    var bucket = new AWS.S3({params: {Bucket: bucketName, Delimiter: '/', Prefix: prefix }});
+    var html = '';
+
+    bucket.listObjects(function (err, data) {
+        if (err) {
+            document.getElementById('status').innerHTML =
+                    'Could not load objects from S3';
+        } else {
+
+            for (var i = 1; i < data.Contents.length; i++)
+            {
+                var afterSlash = strrchr(data.Contents[i].Key, '/');
+                var posLastPoint = afterSlash.lastIndexOf('.');
+                var url = afterSlash.substr(0, posLastPoint);
+
+                html += '<div><a href="http://'+url+'">'+url+'</a><a href="http://'+url+'" target="_blank" >';
+                html += '<img src="https://s3-us-west-2.amazonaws.com/'+bucketName+'/'+prefix+afterSlash+'" style="border: none; max-width: 300px;"/></a></div>';
+            }
+          document.body.innerHTML = html;
+        }
+    });
+  });
+</script>
+</body>
+</html>

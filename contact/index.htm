@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="../images/icon.png" rel="icon" type="image/png"/>
+<style>
+	@font-face
+	{
+		font-family: "olivier_demo";
+		src: url("../fonts/olivier_demo.ttf") format('truetype');
+	}
+body{
+  text-align: center;
+	font-family: 'olivier_demo';
+	font-size: 30px;
+	background-color: black;
+	color: white;
+}
+
+input {
+	height: 40px; font-size: 30px; margin-bottom: 10px;
+}
+
+textarea { font-size: 30px; }
+
+a{ text-decoration: none; color: cornflowerblue; }
+</style>
+<script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+</script>
+<script type="text/javascript" src="../inc/locales.js"></script>
+	<script>
+		function sendForm(e) {
+			e.preventDefault(); //to abort submit form event
+			document.querySelector('#the_button').style.display = 'none';
+			var oOutput = document.getElementById('return_from_senForm');
+			oOutput.innerHTML = '...';
+
+				//if (self.fetch) {
+					const url = 'https://script.google.com/macros/s/AKfycbwgjRtsuphmgtPtKQnBbneAkqyxN_z27WwLOOPMGy8uCcB1vVZf/exec';
+					const headers = { method: 'POST',
+														// headers: { 'Content-Type': 'text/plain' },
+														// when using FormData NO Content-Type headers should be set to retrieve the values
+														body: new FormData(document.getElementById('form_contact'))
+													};
+
+					fetch(url, headers).then(r => r.json())
+					.then(r2 => {
+						oOutput.innerHTML = appLocales.get('thx');
+						console.log(r2);
+					}).catch(e => {
+						oOutput.innerHTML = e.toString();
+						console.warn(e);
+					});
+				// } else {
+				// 	alert('your browser does not suppot fetch() global')
+				// }
+		}
+	</script>
+<title>contact</title>
+</head>
+<body>
+<h3><script type="text/javascript">document.write(appLocales.get('leavemsg'))</script>!</h3>
+    <form id="form_contact" method="post" >
+			<script type="text/javascript">document.write('<input type="text" id="name"  name="name" placeholder="'+appLocales.get('name')+'" required autofocus=""/><br/><input type="email"  id="email"  name="email" placeholder="'+appLocales.get('mail')+'" required/> <br /><textarea rows="5" cols="20" id="msg"  name="msg" placeholder="'+appLocales.get('msg')+'" required></textarea> <br />')
+    </script>
+		<button id="the_button" style="font-size: 30px; border-radius: 5px;" type="submit" onclick="if(document.querySelector('#email').validity.valid) sendForm(event);" >
+			<script type="text/javascript">document.write(appLocales.get('send'))</script>
+		</button>
+    </form>
+<br />
+<p id="return_from_senForm">
+</p>
+<script type="text/javascript" src="../inc/LS.js"></script>
+</body>
+</html>

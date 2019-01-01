@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Films</title>
+    <style media="screen">
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: black;
+      color: #ccc;
+      font-family: verdana
+    }
+    a{
+      color: cornflowerblue;
+    }
+      img{
+        max-width: 200px;
+        max-height: 200px;
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #ccc;
+      }
+      #movies{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .movie{
+        margin: 5px;
+      }
+      progress{
+        background-color: #eee;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+      }
+      .switchVisibility{
+        color: black; visibility: hidden; position: absolute; width: 100%; height: 100%; opacity: 0.9; background-color: white;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/webtorrent@latest/webtorrent.min.js"></script>
+    <script type="text/javascript">
+    let client = null
+    function stopStream() {
+      document.querySelector('#forVideo').style.visibility = 'hidden'
+      document.querySelector('progress').value = 0
+      document.querySelector('span').innerHTML = ''
+      document.querySelector('h3').innerHTML = '0 peer'
+      console.log('client', client)
+      client.destroy(e => {
+        document.querySelector('video').src = ''
+        console.warn(e)
+      })
+    }
+      function startStream(name, magnetURI) {
+        document.querySelector('#forVideo').style.visibility = 'visible'
+        client = new WebTorrent
+        client.on('error', err => {
+          console.warn(err)
+        })
+        console.log('client', client)
+        if (WebTorrent.WEBRTC_SUPPORT) {
+          // const searchParams = new URLSearchParams(location.search)
+          // const magnetURI = searchParams.get('magnet') || 'magnet:?xt=urn:btih:D9EC87584C2A39E0CAA317BF94F0346FDB6078ED' // solo star wars
+          document.querySelector('#film').href = magnetURI
+          document.querySelector('marquee').innerHTML = name
+          const urlTrackerWebTor = '&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'
+          client.add(magnetURI+urlTrackerWebTor, torrent => {
+            torrent.on('metadata', _ => console.log('metadata', _))
+            torrent.on('download', bytes => {
+              const downloaded = torrent.downloaded / 1e6
+              // console.log(`total downloaded: ${downloaded.toFixed(2)} in megabytes`)
+              const downloadSpeed = torrent.downloadSpeed / 1e6
+              // console.log(`download speed: ${downloadSpeed.toFixed(2)} megabytes/sec`)
+              const progress = (torrent.progress * 100).toFixed(2)
+              document.querySelector('progress').value = progress
+              document.querySelector('span').innerHTML = `Download progress: ${progress} %`
+              document.querySelector('h3').innerHTML = torrent._peersLength+' peer(s)'
+            })
+            console.log('Client is downloading:', torrent)
+            torrent.files.forEach(console.log)
+            const file = torrent.files.find(file => file.name.endsWith('.mp4'))
+            // Display the file by adding it to the DOM.
+            // Supports video, audio, image files, and more!
+            if (file) {
+              console.log('file => ', file)
+              file.renderTo('video')
+            } else {
+              // category movie and yify to help
+              const msg = `<br><font color="red">This video is not an mp4 and will not be readable<br>
+              you may try to paste "manually" another magnet in the URL bar above</font><br>
+              Search on <a href="http://kickasstorrents.to/search/${searchParams.get('name')}%20yify/category/movies" target="_blank">kickasstorrents</>`
+              document.body.insertAdjacentHTML('beforeEnd', msg)
+            }
+          })
+          } else {
+            alert('WebRTC is NOT supported')
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="browsers" class="switchVisibility" style="text-align: center;">
+      <a href="#" onclick="document.querySelector('#browsers').style.visibility = 'hidden'" style="font-size: 40px">CLOSE the window</a>
+      <h2>Desktop</h2>
+      <ul>
+        <li>Best experience with <a href="https://www.opera.com" target="_blank">Opera browser</a></li>
+        <li>Works with Firefox (but sometimes WebRTC peer connection will fail to start)</li>
+        <li>Does <font color="red">NOT WORK</font> with version <b>71.0.3578</b> of Chrome (due to a regression in the core about not reading corrupted audio file...)</li>
+        <li>But works on <a href="https://www.google.com/chrome/canary" target="_blank">Chrome Canary</a></li>
+        <li>Does <font color="red">NOT WORK</font> on Safari macOS</li>
+      </ul>
+      <hr>
+      <h2>Mobile</h2>
+      <ul>
+        <li>Work out of the box with Chrome <font color="red">for Android</font></li>
+        <li>Download works <b>ONLY</b> on Safari iOS but <font color="red">streaming does not work, need to wait download complete(((</font></li>
+      </ul>
+      <hr>
+      If the video is "lagging", please enable the <b>FULL SCREEN mode</b>
+    </div>
+    <div id="forVideo" class="switchVisibility">
+      <a href="#" onclick="stopStream()" style="margin-left: 33%; font-size: 40px">CLOSE the window</a>
+      <h1>At least 1 peer is needed to start the streaming</h1>
+      <h3>0 peer</h3>
+      <span></span>
+      <progress style="width: 800px;" value="0" max="100"></progress>
+      <br>
+      <marquee></marquee>
+      <video controls></video>
+      <h1>If the streaming is not starting <br>
+        please <a id="film" target="_blank">DOWNLOAD the movie</a><br>
+        with<a href="https://webtorrent.io/desktop" target="_blank" ><img src="https://ipfs.infura.io/ipfs/QmNaCgr5w825Hb8496qjd8ZGfQqkqLgB4Wc3wD7RhoZwbN" style="border: none; width: 200px;" /></a>
+        client
+      </h1>
+      You will then <font color="red">seed thru webtorrent trackers</font> and
+      <br>
+      let someone else the possibility to <font color="red">watch from within the browser</font>
+      <br>
+      This torrent client is free of <s>malwares</s> (you can check the <a href="https://github.com/webtorrent/webtorrent" target="_blank">code source on Github</a>)
+    </div>
+    <form id="the_form" style="text-align: center;">
+      <input id="search" type="search" list="films" placeholder="WAIT PLEASE..." style="width: 400px;" autofocus>
+      <datalist id="films"></datalist>
+      <a href="#" onclick="document.querySelector('#browsers').style.visibility = 'hidden' ? document.querySelector('#browsers').style.visibility = 'visible' : document.querySelector('#browsers').style.visibility = 'hidden'">Check browsers compatibility</a>
+      <input type="submit" style="display: none;" />
+    </form>
+    <div id="movies"></div>
+    <script type="text/javascript">
+    let page = 1;
+    async function loadMovies(page = 1) {
+      try {
+        console.log('page ', page);
+        const responseAPI = await fetch(`https://movies-v2.api-fetch.website/movies/${page}?sort=trending&limit=50&genre=All&order=-1`);
+        const jsonMovies = await responseAPI.json();
+        jsonMovies.sort((a, b) => b.year - a.year);
+        console.log(jsonMovies);
+        document.querySelector('#movies').innerHTML += jsonMovies.map(v => {
+          if(Object.keys(v.torrents.en).length > 0) {
+            let poster = '';
+            if (v.images.poster && v.images.poster.includes('http')) {
+              poster = v.images.poster.replace(/https/i, 'http');
+            } else {
+              poster = 'https://ipfs.infura.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9';
+            }
+            const title = v.title.length > 15 ? `${v.title.substr(0, 13)}...` : v.title;
+            if(v.torrents.en['720p']) {
+              if(v.torrents.en['720p'].provider === 'YTS') {
+                return `<div class="movie">${title}<br>${v.year}<br>
+                <a href="#" onclick="startStream('${v.title}', '${v.torrents.en['720p'].url}')"><img src="${poster}" /></a><br>
+                <a href="#" onclick="startStream('${v.title}', '${v.torrents.en['720p'].url}')">WebTorrent Player</a><br>
+                <a target="_blank" href="http://www.ytssubtitles.org/search?name=${v.title.toLowerCase()}">Search subtitles</a>
+                </div>`
+              }else {
+                return `<div class="movie">${title}<br>${v.year}<br>
+                <a href="#" onclick="startStream('${v.title}', '${v.torrents.en['720p'].url}')"><img src="${poster}" /></a><br>
+                <a href="#" onclick="startStream('${v.title}', '${v.torrents.en['720p'].url}')">WebTorrent Player</a><br>
+                <a target="_blank" href="https://www.google.fr/search?q='${v.title}'+720p+${v.torrents.en['720p'].provider}+subtitles+english">Search subtitles</a>
+                </div>`
+              }
+
+            }else{
+              if(v.torrents.en['1080p'].provider === 'YTS') {
+                return `<div class="movie">${title}<br>${v.year}<br>
+                <a href="#" onclick="startStream('${v.title}', '${v.torrents.en['1080p'].url}')"><img src="${poster}" /></a><br>
+                <a href="#" onclick="startStream('${v.title}', '${v.torrents.en['1080p'].url}')">WebTorrent Player</a><br>
+                <a target="_blank" href="http://www.ytssubtitles.org/search?name=${v.title.toLowerCase()}">Search subtitles</a>
+                </div>`
+              }else {
+                return `<div class="movie">${title}<br>${v.year}<br>
+                <a href="#" onclick="startStream('${v.title}', '${v.torrents.en['1080p'].url}')"><img src="${poster}" /></a><br>
+                <a href="#" onclick="startStream('${v.title}', '${v.torrents.en['1080p'].url}')">WebTorrent Player</a><br>
+                <a target="_blank" href="https://www.google.fr/search?q='${v.title}'+1080p+${v.torrents.en['1080p'].provider}+subtitles+english">Search subtitles</a>
+                </div>`
+              }
+            }
+          }
+        }).join('');
+      }catch(e){
+        console.warn(e);
+      }
+    }
+    async function checkBottomScroll() {
+      const offset = window.scrollY + window.innerHeight;
+      const height = document.documentElement.offsetHeight;
+      if (offset === height) {
+        console.log('At the bottom');
+         await loadMovies(++page);
+      }
+    }
+    async function makeDB() {
+      if(!sessionStorage.getItem('films')) {
+        try{
+          const urlAPI = 'https://movies-v2.api-fetch.website/';
+          const responseAPI = await fetch(`${urlAPI}movies`);
+          const jsonPages = await responseAPI.json();
+          const moviesDatas = await jsonPages.reduce(async (promiseAcc, curr) => {
+            try {
+              const acc2 = await promiseAcc;
+              const responseByPage = await fetch(`${urlAPI}${curr}?sort=trending&limit=50&genre=All&order=-1`);
+              const currPage = +curr.match(/\d+/)
+              document.querySelector('#search').placeholder = `${(currPage * 100 / (jsonPages.length + 1)).toFixed(2)} %`;
+              const jsonPage = await responseByPage.json();
+              /*
+              ----------- This tips is to avoid make a one level flatten after -----------
+              https://medium.com/@thakur.khyati70/using-reduce-with-nested-async-await-8fc9c4dcbff1
+              Since the result of ‘createNewData’ function is a Promise, our accumulator should be a Promise, that we can concatenate and return the resolved result.
+              */
+              return Promise.resolve(Object.assign(acc2, ...jsonPage.map((v2, k2) => {
+                // using object assign and computed property to skip duplicated
+                /*if(v2.title.toLowerCase().includes('venom')) {
+                  console.log(v2);
+                }
+                */
+               if(Object.keys(v2.torrents.en).length > 0) {
+                 return { [v2._id]: { n: v2.title, p: v2.images && v2.images.poster ? v2.images.poster.replace(/https/i, 'http') : false, y: v2.year, t: v2.torrents.en['720p'] ? v2.torrents.en['720p'].url : v2.torrents.en['1080p'].url } };
+               }else{
+                 return { [v2._id]: { n: v2.title, p: v2.images && v2.images.poster ? v2.images.poster.replace(/https/i, 'http') : false, y: v2.year, t: v2.torrents } };
+               }
+             })));
+            } catch (e) {
+              console.warn(e);
+              return promiseAcc;
+            }
+          }, Promise.resolve({}));
+          //console.log('moviesDatas', moviesDatas);
+          document.querySelector('#films').innerHTML = Object.values(moviesDatas).map(v => `<option value="${v.n}"></option>`).join('');
+          sessionStorage.setItem('films', JSON.stringify(moviesDatas));
+          document.querySelector('#search').placeholder = 'Search (on PopCornTime and YTS api)';
+          console.log('saved films to sessionStorage');
+        }catch(e) {
+          console.warn(e);
+        }
+      }else{
+        document.querySelector('#films').innerHTML = Object.values(JSON.parse(sessionStorage.getItem('films'))).map(v => `<option value="${v.n}"></option>`).join('');
+        document.querySelector('#search').placeholder = 'Search (on PopCornTime and YTS api)';
+        console.log('fetch films from sessionStorage');
+      }
+    }
+
+    </script>
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+      makeDB();
+      loadMovies();
+      document.querySelector('#the_form').addEventListener('submit', async event => {
+        event.preventDefault();
+        const inputSearch = document.querySelector('#search').value.trim();
+        if(inputSearch.length > 2) {
+          // fetching directly from https://yts.am/api/v2
+          // its better to start this async request in background first and not block it with await
+          const response = await fetch(`https://yts.am/api/v2/list_movies.json?query_term=${inputSearch}`)
+          const json = await response.json()
+          if (json.data.movie_count > 0) {
+            const html = Object.values(json.data.movies).reduce((acc, curr) => {
+              const title = curr.title.length > 15 ? `${curr.title.substr(0, 13)}...` : curr.title
+              // priority to 720p
+              const movie = curr.torrents.find(v => v.quality.includes('720') || v.quality.includes('1080'))
+              acc += `<div>${title}<br>${curr.year}<br><a href="#" onclick="startStream('${curr.title}', 'magnet:?xt=urn:btih:${movie.hash}')">`
+              if (curr.medium_cover_image && curr.medium_cover_image.includes('http') ) {
+                acc += `<img src="${curr.medium_cover_image}" />`
+              }else {
+                acc += '<img src="https://ipfs.infura.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9" />'
+              }
+              return acc += `</a><br><a href="#" onclick="startStream('${curr.title}', 'magnet:?xt=urn:btih:${movie.hash}')">WebTorrent Player</a></div>`
+            }, new String()) // end of reduce
+            document.querySelector('#movies').innerHTML = html
+          } else {
+            document.querySelector('#movies').innerHTML = '' // we need to set to empty if previous search succeeded
+          }
+          // fetching from sessionStorage popcorntime api
+          const films = sessionStorage.getItem('films');
+          if(films) {
+            const results = Object.values(JSON.parse(films)).filter(v => {
+              if(v.n.toLowerCase().includes(inputSearch.toLowerCase())) {
+                return v;
+              }
+            });
+            if(results.length > 0){
+              document.querySelector('#movies').innerHTML += results.map(v => {
+                const title = v.n.length > 15 ? `${v.n.substr(0, 13)}...` : v.n;
+                let img = ''
+                if(v.p && v.p.includes('http')) {
+                  img = v.p
+                }else{
+                  img = 'https://ipfs.infura.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9'
+                }
+                console.log('img ', img);
+                return `<div style="margin: 5px;">${title}<br>
+                        ${v.y}<br><a href="#" onclick="startStream('${v.n}', '${v.t}')"><img src="${img}" /></a><br>
+                        <a href="#" onclick="startStream('${v.n}', '${v.t}')">WebTorrent Player</a><br>
+                        </div>`;
+              }).join('');
+            }else{
+              if (json.data.movie_count === 0) {
+                document.querySelector('#movies').innerHTML = '<font color="red">Did not yield any results!</font>';
+              }
+            }
+          }
+        } // end of 3 chars search min
+      }); // end of submit form
+    }); // end of DOMContentLoaded
+    window.addEventListener('scroll', _ => {
+      // infinite scroll only if search is empty
+       if (document.querySelector('#search').value.trim() === '') {
+         checkBottomScroll()
+       }
+    });
+    window.onbeforeunload = _ => "Do you want to exit this page?"
+    </script>
+  </body>
+</html>
