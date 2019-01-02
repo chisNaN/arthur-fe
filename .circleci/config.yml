@@ -1,0 +1,62 @@
+version: 2
+jobs:
+  # build job omitted for brevity
+  deploy:
+    docker:
+      - image: agreg0ire/circleci-node
+    working_directory: ~/arthur-fe
+    steps:
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
+      # Restore cache from the build job which contains the
+            # dist folder that needs to be deployed
+      - restore_cache:
+          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+      #- run:
+       #   name: Install aws cli
+          # this aws cli version will fail with: "error: the following arguments are required: --invalidation-batch"
+          #command: sudo apt-get -y -qq install awscli
+        #  command: |
+         #  sudo apt-get install python-dev python-pip
+          # sudo pip install awscli
+           #aws --version
+      # if you dont give the appropriate region you will have the following error:
+      # A client error (PermanentRedirect) occurred when calling the ListObjects operation: The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.
+      - run:
+          name: set region
+          command: aws configure set region us-west-2
+      - run:
+          name: set preview cloudfront
+          command: aws configure set preview.cloudfront true
+      - run:
+          name: set preview invalidaiton
+          command: aws configure set preview.create-invalidation true
+      # Set the signature version for the S3 auth
+      - run:
+          name: Setting Signature Version 4 for S3 Request Authentication
+          command: aws configure set default.s3.signature_version s3v4
+      - run:
+          name: Deploy to the S3 bucket corresponding to the current branch
+          command: |
+              if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                  aws s3 sync dist s3://arthur.xn--grgoi-csa.re/ --delete
+              elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
+                  aws s3 sync dist s3://arthur.xn--grgoi-csa.re/ --delete
+              elif [ "${CIRCLE_BRANCH}" == "dev" ]; then
+                  aws s3 sync dist s3://arthur.xn--grgoi-csa.re/ --delete
+              fi
+      - run:
+          name: create invalidation
+          command: aws cloudfront create-invalidation --distribution-id E1N1DD9PMOWH7F --paths "/*"
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
