@@ -10,7 +10,7 @@ jobs:
       - checkout
       - persist_to_workspace:
           root: ~/arthur-fe
-          paths: ~/arthur-fe
+          paths: .
   deploy:
     <<: *defaults
     steps:
