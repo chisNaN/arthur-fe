@@ -12,7 +12,9 @@ jobs:
           root: ~/arthur-fe
           paths: .
   deploy:
-    <<: *defaults
+    docker:
+      - image: agreg0ire/circleci-node
+    working_directory: ~/arthur-fe
     steps:
       - attach_workspace :
           at: ~/arthur-fe
