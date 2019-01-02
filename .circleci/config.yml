@@ -9,13 +9,13 @@ jobs:
     steps:
       - checkout
       - persist_to_workspace:
-          root: dist
+          root: arthur-fe
           paths: ./
   deploy:
     <<: *defaults
     steps:
       - attach_workspace :
-          at: ~/arthur-fe/dist
+          at: ~/arthur-fe/
       - run:
           name: show source var
           command: echo ${source}
@@ -51,7 +51,7 @@ jobs:
           command: aws configure set default.s3.signature_version s3v4
       - run:
           name: Deploy to the S3 bucket corresponding to the current branch
-          command: aws s3 sync dist s3://arthur.xn--grgoi-csa.re/ --delete
+          command: aws s3 sync arthur-fe s3://arthur.xn--grgoi-csa.re/ --delete
       - run:
           name: create invalidation
           command: aws cloudfront create-invalidation --distribution-id E1N1DD9PMOWH7F --paths "/*"
