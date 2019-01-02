@@ -9,13 +9,13 @@ jobs:
     steps:
       - checkout
       - persist_to_workspace:
-          root: arthur-fe
-          paths: ./
+          root: ~/arthur-fe
+          paths: ~/arthur-fe
   deploy:
     <<: *defaults
     steps:
       - attach_workspace :
-          at: ~/arthur-fe/
+          at: ~/arthur-fe
       - run:
           name: show source var
           command: echo ${source}
