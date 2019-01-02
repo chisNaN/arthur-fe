@@ -1,0 +1,71 @@
+#https://discuss.circleci.com/t/error-locating-workspace-root-directory-stat/13709/2
+version: 2.0
+jobs:
+  checkout_code:
+    working_directory: ~/tmp
+    docker:
+      - image: circleci/clojure:lein-2.7.1
+    steps:
+      - checkout
+      - run:
+          name: post checkout check
+          command: |
+            echo $PWD
+            ls -aslh .
+            ls -aslh ~
+            ls -aslh ~/tmp
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  build_site:
+    working_directory: ~/tmp
+    docker:
+      - image: circleci/clojure:lein-2.7.1
+    steps:
+      - attach_workspace:
+          at: ~/tmp
+
+      - run:
+          name: build
+          command: |
+            lein run
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - resources/public
+
+  deploy:
+    working_directory: ~/tmp
+    machine:
+        enabled: true
+
+    steps:
+      - attach_workspace:
+          at: ~/tmp/resources/public
+
+      - run:
+          name: Are my assets here?
+          command: |
+            pwd
+            ls -lrt
+
+      - run:
+          name: Is awscli here?
+          command: |
+            aws -v
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - checkout_code
+      - build_site:
+          requires:
+            - checkout_code
+      - deploy:
+          requires:
+            - checkout_code
+            - build_site
