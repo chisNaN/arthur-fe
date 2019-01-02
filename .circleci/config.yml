@@ -43,14 +43,7 @@ jobs:
           command: aws configure set default.s3.signature_version s3v4
       - run:
           name: Deploy to the S3 bucket corresponding to the current branch
-          command: |
-              if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                  aws s3 sync dist s3://arthur.xn--grgoi-csa.re/ --delete
-              elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                  aws s3 sync dist s3://arthur.xn--grgoi-csa.re/ --delete
-              elif [ "${CIRCLE_BRANCH}" == "dev" ]; then
-                  aws s3 sync dist s3://arthur.xn--grgoi-csa.re/ --delete
-              fi
+          command: aws s3 sync arthur-fe s3://arthur.xn--grgoi-csa.re/ --delete
       - run:
           name: create invalidation
           command: aws cloudfront create-invalidation --distribution-id E1N1DD9PMOWH7F --paths "/*"
