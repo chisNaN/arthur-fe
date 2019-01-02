@@ -1,6 +1,11 @@
 version: 2
 jobs:
-  # build job omitted for brevity
+  build:
+    docker:
+      - image: circleci/node:7.10
+    working_directory: ~/arthur-fe
+    steps:
+      - checkout
   deploy:
     docker:
       - image: agreg0ire/circleci-node
@@ -11,8 +16,8 @@ jobs:
           command: echo ${CIRCLE_BRANCH}
       # Restore cache from the build job which contains the
             # dist folder that needs to be deployed
-      - restore_cache:
-          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+      # - restore_cache:
+      #     key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       #- run:
        #   name: Install aws cli
           # this aws cli version will fail with: "error: the following arguments are required: --invalidation-batch"
