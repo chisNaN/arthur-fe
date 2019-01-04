@@ -3,7 +3,7 @@
 ### Technologies used for this project
 
 - [AWS s3](https://aws.amazon.com/s3/) to store application files
-- [Travis-ci](https://travis-ci.org/) to deploy to s3 thru Github
+- [Circle-ci](https://circleci.com) to deploy to s3 thru Github
 - [Sentry](https://sentry.io) to report "potential" JavaScript errors
 - [Google Apps Script](https://developers.google.com/apps-script/) to send emails
 - Google Spreadsheet as database
