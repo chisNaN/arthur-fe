@@ -33,29 +33,24 @@ Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').instal
 	<script>
 		function sendForm(e) {
 			e.preventDefault(); //to abort submit form event
-			document.querySelector('#the_button').style.display = 'none';
+			const btn = document.querySelector('button')
+			btn.style.visibility = 'hidden'
+			//btn.style.display = 'none';
 			var oOutput = document.getElementById('return_from_senForm');
 			oOutput.innerHTML = '...';
-
-				//if (self.fetch) {
-					const url = 'https://script.google.com/macros/s/AKfycbwgjRtsuphmgtPtKQnBbneAkqyxN_z27WwLOOPMGy8uCcB1vVZf/exec';
-					const headers = { method: 'POST',
-														// headers: { 'Content-Type': 'text/plain' },
-														// when using FormData NO Content-Type headers should be set to retrieve the values
-														body: new FormData(document.getElementById('form_contact'))
-													};
-
-					fetch(url, headers).then(r => r.json())
-					.then(r2 => {
-						oOutput.innerHTML = appLocales.get('thx');
-						console.log(r2);
-					}).catch(e => {
-						oOutput.innerHTML = e.toString();
-						console.warn(e);
-					});
-				// } else {
-				// 	alert('your browser does not suppot fetch() global')
-				// }
+			const url = 'https://script.google.com/macros/s/AKfycbwgjRtsuphmgtPtKQnBbneAkqyxN_z27WwLOOPMGy8uCcB1vVZf/exec';
+			const body = new FormData(document.getElementById('form_contact'))
+			const headers = { method: 'POST', body }
+			fetch(url, headers).then(r => r.json())
+			.then(r2 => {
+				oOutput.innerHTML = r2
+			}).catch(e => {
+				oOutput.innerHTML = e.toString();
+				console.warn(e);
+			}).finally(_ => {
+				btn.style.visibility = 'visible'
+				//btn.style.display = 'block'
+			});
 		}
 	</script>
 <title>contact</title>

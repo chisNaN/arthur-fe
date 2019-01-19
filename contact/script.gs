@@ -1,3 +1,11 @@
+/*
+- This is the script that will send the email to your box received by the crossdomain ajax.
+- Set your email in the "to" value
+- Links for more informations
+https://developers.google.com/apps-script/reference/mail/mail-app#sendemailrecipient-subject-body
+https://developers.google.com/apps-script/guides/web#url_parameters
+*/
+
 function doPost(e) {
 
   try {
@@ -20,14 +28,9 @@ function doPost(e) {
                        subject: 'My website Contact form',
                        htmlBody: htmlBody
                       });
-
-      return ContentService.createTextOutput(JSON.stringify({ msg: "Mail sent thanks :~)" })).setMimeType(ContentService.MimeType.JSON);
-
-    }else{
-      return ContentService
-          .createTextOutput(JSON.stringify({ "error": "There was an empty field in the form!" }))
-          .setMimeType(ContentService.MimeType.JSON);
     }
+      return ContentService.createTextOutput(JSON.stringify(isEmptyField ? 'All fields are mandatory!' : 'Thanks for contacting me)'))
+      .setMimeType(ContentService.MimeType.JSON);
 
   } catch(error) { // if error return this
     Logger.log(error);
@@ -36,3 +39,8 @@ function doPost(e) {
           .setMimeType(ContentService.MimeType.JSON);
   }
 }
+
+function doGet(){
+return ContentService
+          .createTextOutput(JSON.stringify({ "get request": "hello world" }))
+          .setMimeType(ContentService.MimeType.JSON);}
