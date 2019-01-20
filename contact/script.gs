@@ -29,7 +29,8 @@ function doPost(e) {
                        htmlBody: htmlBody
                       });
     }
-      return ContentService.createTextOutput(JSON.stringify(isEmptyField ? 'All fields are mandatory!' : 'Thanks for contacting me)'))
+      return ContentService
+      .createTextOutput(JSON.stringify(isEmptyField ? LanguageApp.translate('All fields are mandatory!', 'en', e.parameter.lang) : LanguageApp.translate('Thanks for contacting me.', 'en', e.parameter.lang)))
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch(error) { // if error return this

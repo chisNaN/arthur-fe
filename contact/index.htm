@@ -40,6 +40,7 @@ Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').instal
 			oOutput.innerHTML = '...';
 			const url = 'https://script.google.com/macros/s/AKfycbwgjRtsuphmgtPtKQnBbneAkqyxN_z27WwLOOPMGy8uCcB1vVZf/exec';
 			const body = new FormData(document.getElementById('form_contact'))
+			body.append('lang', navigator.language.substr(0, 2))
 			const headers = { method: 'POST', body }
 			fetch(url, headers).then(r => r.json())
 			.then(r2 => {
