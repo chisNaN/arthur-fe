@@ -59,6 +59,7 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%' }
 <p style="padding-top: 10px;">Snarky Puppy, Skate U<br><span style="font-style: italic; font-size: 12px;">Introductive track</span><br><audio src="${awsUrl}04+-+skate_u.mp3" preload="none" type="audio/mp3"  controls title="Skate U"></p>
 <p style="padding-top: 10px;">Beth Hirsch, Wholehearted<br><span style="font-style: italic; font-size: 12px;">Warm bossanova from AIR singer</span><br><audio src="${awsUrl}Wholehearted.mp3" preload="none" type="audio/mp3"  controls title="Wholehearted"></p>
 <p style="padding-top: 10px;">Kommode, Lady-logic<br><span style="font-style: italic; font-size: 12px;">Eirik Glambek Bøe</span><br><audio src="${awsUrl}03-kommode-lady-logic.mp3" preload="none" type="audio/mp3"  controls title="Lady-logic"></p>
+<p style="padding-top: 10px;">Donald Byrd, I feel like loving you today<br><span style="font-style: italic; font-size: 12px;">Donald byrd trumpet on a stunning Isaac Hayes production</span><br><audio src="${awsUrl}03+I+Feel+Like+Loving+You+Today.mp3" preload="none" type="audio/mp3"  controls title="I feel like loving you today"></p>
 <p style="padding-top: 10px;">Safri Duo, Baya Baya<br><span style="font-style: italic; font-size: 12px;">Percussions</span><br><audio src="${awsUrl}08+-+Baya+Baya.mp3" preload="none" type="audio/mp3"  controls title="Baya Baya"></p>
 		<a onclick="goToLastPage();">(Aller à la dernière page)</a></p></div>
 				<div>${htmlOutput}</div><div>${htmlOutput2}</div><div>${htmlOutput3}</div>`);
