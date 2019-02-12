@@ -138,7 +138,7 @@ var s_amazon_p12 = "<p>Le lendemain dimanche 5 octobre était le jour de mon ann
 
 var s_amazon_p13 = "<p>Mon voyage s'arrête là car le lendemain j'ai pris l'avion à mi journée pour Bogota mais je suis tombé malade d'une part en mangeant quelque chose de pas très sain la dernière journée et d'autre part avec le changement de température car les nuits sont très fraîches à partir d'octobre à Bogota: en deçà de 10 degrés et je rappelle qu'il n'y a pas de chauffage. J'ai oublié de mentionné qu'une troisième fois un incident est survenu lors d'un trajet en amazonie lorsqu'un bus allant du km 11 à Léticia a crevé à 2km de l'entrée de la ville et que j'avais déjà payé avant: il faut toujours payer en sortant car sinon le trajet parcouru jusqu'à l'in-accident est offert.</p>";
 
-var container = $('<div />', {css: {margin: 'auto', width: 1300, height: 660} }).appendTo($('#sample-viewer'));
+var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'} }).appendTo($('#sample-viewer'));
 
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
@@ -235,7 +235,7 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: 660} })
 
 $('.sample-flipbook').turn({
 	width: 1300,
-	height: 660,
+	height: '95%',
 	autoCenter: true,
 	shadows: $.isTouch,
 	acceleration: $.isTouch
