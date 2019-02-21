@@ -13,7 +13,7 @@
 		{ artist: 'Crazy Penis', title: 'Last Knockers', descr: 'One of the best funky and groovy Crazy P tune', name: 'Crazy+P+-+Last+Knockers.mp3'},
 		];
 
-		const bestSongs2 = [{ artist: 'Donald Byrd', title: 'Design a Nation', descr: 'Gary bart\'s improvisation on a Mizell brother\'s production', name: '02+-+Design+A+Nation.mp3'},
+		const bestSongs2 = [{ artist: 'Donald Byrd', title: 'Design a Nation', descr: 'Gary bartz\'s improvisation on a Mizell brother\'s production', name: '02+-+Design+A+Nation.mp3'},
 		{ artist: 'Celso Fonseca', title: 'Ficar', descr: 'A modern, original and soulful MPB', name: '11+Celso+Fonseca+-+Ficar.mp3'},
 		{ artist: 'Kings of Convenience', title: 'Summer On The Westhill', descr: 'Meditative and nostalgic folk from Norway', name: 'Summer+On+The+Westhill.mp3'},
 		{ artist: 'Manual and Syntaks', title: 'A Perfect Solitude', descr: 'One can feel like in "Atlantis" listening this track', name: '11+-+A+Perfect+Solitude.mp3'},
