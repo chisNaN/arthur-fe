@@ -9,7 +9,7 @@ function addFromBuffer() {
         return new Promise((resolve, reject) => {
           reader2.addEventListener('load', async () => {
             try{
-              const buffer = ipfs.Buffer.from(reader2.result);
+              const buffer = IpfsHttpClient.Buffer.from(reader2.result);
               const infura = await ipfs.add(buffer);
               resolve(infura[0].hash);
             }catch(e){
@@ -67,7 +67,7 @@ async function addFromBufferRecursive(inc = 0, files = null, ipfsHashs = []) {
       const P = await new Promise((resolve, reject) => {
         reader.addEventListener('load', async _ => {
           try{
-            const buffer = ipfs.Buffer.from(reader.result);
+            const buffer = IpfsHttpClient.Buffer.from(reader.result);
             const infura = await ipfs.add(buffer);
             resolve(infura[0].hash);
           }catch(e){
