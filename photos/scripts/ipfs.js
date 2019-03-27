@@ -108,7 +108,7 @@ async function addFromBufferRecursive(inc = 0, files = null, ipfsHashs = []) {
   }
 }
 document.addEventListener('DOMContentLoaded', async _ => {
-  const URL = 'https://7390b9d1-8ba0-4f7b-a302-f2a191635822-bluemix.cloudant.com/galleries';
+  const URL = 'https://sleepy-bartik-4640.arukascloud.io/galleries';
   const remoteDB = new PouchDB(URL, { skip_setup: true });
   const galNames = await remoteDB.allDocs();
   with(document.querySelector('#chosenGal')){
