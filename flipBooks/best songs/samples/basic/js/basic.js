@@ -34,6 +34,8 @@
 {artist: 'Spotlights', title: 'Seismic', descr: 'Most "explosive" track ever heard!', name: '01+-+Seismic.mp3'},
 {artist: 'Sparklehorse', title: 'Cow', descr: 'Our world is sadder and less beautiful without Mark Linkous', name: '08+-+Cow.mp3'}];
 
+const lastPage = [{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 lyrical track', name: '11+-+Brian+Bennett+-+Image.mp3'}]
+
 let htmlOutput = '';
 let htmlOutput2 = '';
 let htmlOutput3 = '';
@@ -63,7 +65,9 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%' }
 <p style="padding-top: 10px;">Safri Duo, Baya Baya<br><span style="font-style: italic; font-size: 12px;">Percussions</span><br><audio src="${awsUrl}08+-+Baya+Baya.mp3" preload="none" type="audio/mp3"  controls title="Baya Baya"></p>
 <p style="padding-top: 10px;">Lars Bartkuhn Tokyo Burning<br><span style="font-style: italic; font-size: 12px;">Dynamic groove from german multi-instrumentist</span><br><audio src="${awsUrl}Lars+Bartkuhn+-+Tokyo+Burning.mp3" preload="none" type="audio/mp3"  controls title="Tokyo Burning"></p>
 		<a onclick="goToLastPage();">(Aller à la dernière page)</a></p></div>
-				<div>${htmlOutput}</div><div>${htmlOutput2}</div><div>${htmlOutput3}</div>`);
+				<div>${htmlOutput}</div><div>${htmlOutput2}</div><div>${htmlOutput3}</div>
+				<div>${lastPage.map(o => '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+awsUrl+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>').join('</div>')}`
+);
 // Wait until it renders
 
 $('.sample-flipbook').turn({
