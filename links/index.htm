@@ -33,22 +33,71 @@
 <script type="text/javascript">
 Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
 </script>
-<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.44.min.js"></script>
-<script type="text/javascript" src="../inc/aws-cred.js"></script>
 <script>
-    function strrchr(haystack, needle) {
-        var pos = 0;
+const ipfsHashs = [
+    "QmZNigm4qP4FobYZUfmJp2AMxfHGCSDEw1ioFmc8xikKZh",
+    "QmZNfcQhjeTJ1bjM5yLNYyzBmYfN3hW7o8BM49jWefEWfm",
+    "QmQ12ZbgX8iQftj2V6wVcy7F6jc7W1Abh7NrehHsBiC5bn",
+    "QmaEPcRePcyLqWQ5uStrhhvowPJd8VybxDMLBubSUYN9ND",
+    "QmNqkhAeP2vX1xBBpiXNDYaaRkCjeFsNgbseAp47JNcwum",
+    "QmXTu2BLmcNvpSY6d5LLbNPtyCxuWZt4Ts61orgot1WaU6",
+    "QmU22qZrsD35hfoohYj61pjSx93tLZD4T3jaYXp3h1RQtG",
+    "QmfA6jEnXUXqwMFS4KZ8U2p28kqwdESZRMfTVGsT5J3meX",
+    "QmbJjmBxAAnid6Ms2hn3G6bGPwqmkFweiGFK1ioXTxBuCj",
+    "QmbV2yyLWif9GYPTZbGaq4j1F87aVstEhCK3KC23oZAmSy",
+    "QmWD848Cbx6MDN79J9VcCNRoUQCvBgNUAqPoaVqKZxdswT",
+    "QmYcgTz3ZcWt2e7n9UnBrUf5FkAwkGX4PSrgzQusuoHwvH",
+    "QmXfsPVKaX6eoNxZC2H2TMtxCzyQ265bicR4z95CUhUVr5",
+    "QmXNi1y7RrCizvBQ8Nk8gQ6B11i49zbRw9M8Jpos2dcyP5",
+    "QmcDMwg6g1U6YsqBVHb1E37SvnRAanVbzW4PmzgP7d45cz",
+    "Qmbd5ySz6uErjCPUTJ6b9RQaza3Ppd1QgMCNj6LjxFEhBk",
+    "QmQ8BYouQEck9eF8oyLDCAuYiEMg4ZPWgyqdo2spxz5d5y",
+    "QmdLkGkoG2yBSnUFYhFtGKz5WtTPHkGfPSRzJe3opDCWjV",
+    "QmfWPKYEsBv33K84GybLsCYt2w82SoDmwa8Kztoue4r2Fb",
+    "QmSXDXCJcNEbdwV8n6evYjoE7f34YwpPniVNoMgBjPGFKJ",
+    "QmTBfAg1rZaZjoWGWxcEd3mFd1xzRV66cUhLrkqxtCkobA",
+    "Qmecug8JfJBeq1AjL9vqyvPwb4mbM97F3rBS181yUMLMEh",
+    "QmQcj7dpFYYynA9J7wRrnywUAT9eRreLv4sUHJUL4hFtL5",
+    "QmNkndUk9MiAjcUWhGT4TqvMbqLk6Gsq7UAqfCQd6bkthY",
+    "QmPGTkyEhEm9wonqDECnWGXvhJuDe26ThQac9RqdEGiUwg",
+    "QmQR1R8NfU7pddFWxFtb5EuAvAMiSJtX9ThMJXpbCug67y",
+    "QmSJmferghxV6FoH3fxgqgASMXj6oQW9mf57U5TeCQcD1d",
+    "QmVa27PgvfB5rdDAw6JU8GknLRbdG61VPzdRA6U4CaPXdp",
+    "QmW8RzK1T5ff8rjKNf9jmBs2SwJ9pTFr3rDdfb6jxsPnwv",
+    "QmXpsFrs3ouGezwdiWF2RBFHaH7XSPRVYLFFHqw5sHt5s4",
+    "QmX8L82FUQNRN34DmSbpbR97ZM7puvHezTYtZ4qtjczTC2",
+    "QmZoXeL6Bw4gHia3YaMtL6uDyQZTESy1PXfveWnAWJvmwv",
+    "Qmajb5XynTUhT8SswvpGzBgXExVvdYD2dVJTPG2HF5oVGb",
+    "QmP9wWQYCGTGgPtwXW9YYapCfu9mwzyRBheFETPDuWkZMb",
+    "QmSRtVkXE4QEGqLPe4b41j7HCAZ2Ve1YU9DggFqdQeysar",
+    "QmWrmt94yTuLgCzfi7GYbhYBR2jsCkA1a8vZPAARXRrNnK",
+    "QmRkPhEVabPJptjfZ4JhC6wH6xPeA4L1oREGtLY85NT8TB",
+    "QmU7EmwFwU2LFV4t4Pqt6GimW3hAqinPK9ZX6b7DSmB1ce",
+    "QmY7Woh9qEATuUeN7drW8yfNFYhFpvGQCKeRREMfmPCVzp",
+    "QmcESwnNin5YX7YiX8GeQYQ5RZbbwpRB3BsNPus4hQ8B6g",
+    "QmZ86NQBbRHbKMeABcxFshghC4AQg2McKWh4iM1PhpXeip",
+    "QmT86BH9yepy8raztET3oZExmBPFAzm3yCUZzsVtrnvXxk",
+    "QmSULkQHno3djnXNbAzTnbfvwydPMWCwNxaskG4JSkPkAT",
+    "QmTKn2zQR34tyLYf4q1bRbUzwXHpwGva9aaJZbuUcWpMff",
+    "QmYXQaKFvdvQFP81dcabxWfw2SF5huSLqHR52gQ1g4pVks",
+    "QmbQhokeqpUBrEn4Jzqz6UoJn1NubgfmKEwNMBFVTiwCWe",
+    "QmWfsoGkgm9fw1FaZAE6Vwtik4mtYC6ufXgx3cWef1qxMf",
+    "QmdHV5HqFP8hm3Y7VH8kujZtpWZLSK5Cuga7jyqQeaaKNq",
+    "QmSnGUriyBTUxu9QraNjh57n5sYPs4x3iNPu1Td7aiLgjL",
+    "QmdrXb3ZjkFAKnFwLbvAi1jPn11uw14AcERk6in6VUF2wt",
+    "QmQs5bqM4UzfpUACmLXqeLdUZRAkQCGpafUNA6ENEKoL9E",
+    "QmaSgUGvg92PcbVaMnG9vvLqvHDKbSic6FEv9qaV6sHq2L",
+    "QmVoTwn4SEVYdEwH67AbodqHGDS4tGELknbPmnbBN9AQ7y",
+    "QmUxaRsUiVZ7Q76HV1pJoFn6r27H1TjtajLVffz42ot39P",
+    "QmR4FpCTAbg4mWAG8mqG3miwmx98d2jeSKsADrPKkd1U5Q",
+    "QmW9M37ys2ECTbx4FcYb9yFb2C1Y27UymM6dyphFbo1i2D"
+  ]
+  const urls = ["24timezones.com","acid3.acidtests.org","aircrack-ng.org","allmusic.com","alsacreations.com","audiofanzine.com","bitbucket.org","bitnami.org","blog.xebia.fr","bonpatron.com","boursorama.com","cryptocalendar.pro","cyberpresse.ca","dnswatch.info","downloadfontsfree.net","eslint.org","everynoise.com","fr.flightaware.com","github.com","glosbe.com","hidemyass.com","html5rocks.com","http2.akamai.com",
+  "junodownload.com","kangax.github.io","larousse.fr","makinguse.com","map.norsecorp.com","mega.co.nz","melodycenta.com","metiers.internet.gouv.fr","nattyware.com","networking4all.com","odesk.com","passportindex.org","phpdocker.io","remixjobs.com","rutracker.org","soundcloud.com","spdycheck.org","speedtest.net","sslshopper.com","terminal.com","themaninblue.com","thomann.de","tools.keycdn.com","torrentsoda.com","tsssaver.1conan.com",
+  "utrace.de","w3schools.com","whatsmydns.net","whatsmyuseragent.com","wikinvest.com","windguru.com","www.unsimpleclic.com","y-soft.org"]
 
-        if (typeof needle !== 'string') {
-            needle = String.fromCharCode(parseInt(needle, 10));
-        }
-        needle = needle.charAt(0);
-        pos = haystack.lastIndexOf(needle);
-        if (pos === -1) {
-            return false;
-        }
-        return haystack.substr(pos + 1); //to avoid first slash
-    }
+console.log(ipfsHashs.length);
+console.log(urls.length);
 </script>
 </head>
 <body>
@@ -56,30 +105,12 @@ Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').instal
 <script type="text/javascript" src="../inc/LS.js"></script>
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', () => {
-    var prefix = 'website-datas/images/links/';
-    var bucketName = 'agreg0ire';
-    var bucket = new AWS.S3({params: {Bucket: bucketName, Delimiter: '/', Prefix: prefix }});
-    var html = '';
-
-    bucket.listObjects(function (err, data) {
-        if (err) {
-            document.getElementById('status').innerHTML =
-                    'Could not load objects from S3';
-        } else {
-
-            for (var i = 1; i < data.Contents.length; i++)
-            {
-                var afterSlash = strrchr(data.Contents[i].Key, '/');
-                var posLastPoint = afterSlash.lastIndexOf('.');
-                var url = afterSlash.substr(0, posLastPoint);
-
-                html += '<div><a href="http://'+url+'">'+url+'</a><a href="http://'+url+'" target="_blank" >';
-                html += '<img src="https://s3-us-west-2.amazonaws.com/'+bucketName+'/'+prefix+afterSlash+'" style="border: none; max-width: 300px;"/></a></div>';
-            }
-          document.body.innerHTML = html;
-        }
-    });
-  });
+    document.body.innerHTML = urls.map((url, k) => {
+      return `<div><a href="http://${url}" target="_blank">${url}</a><a href="http://${url}" target="_blank" >
+     <img src="https://ipfs.infura.io/ipfs/${ipfsHashs[k]}" style="border: none; max-width: 300px;"/></a>
+     `
+   }).join('</div>')
+  }); // end DOMContentLoaded
 </script>
 </body>
 </html>
