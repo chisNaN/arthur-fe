@@ -6,9 +6,9 @@
 
 var B = 'Bogota';
 
-var s3_url = 'https://s3-us-west-2.amazonaws.com/agreg0ire/website-datas/images/flipBooks/colombia/';
+var s3_url = 'img/';
 
-var s_hammock_song_gdrive = 'https://s3-us-west-2.amazonaws.com/agreg0ire/website-datas/music/03+-+Still+Secrets+Remaining.mp3';
+var s_hammock_song_gdrive = 'https://doc-10-80-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/adstljk9onbfpgan1c5fe6un3d5vc838/1554472800000/17286551385290304284/*/0ByZkBrrzUJN_R2dKNDJqZFk2VTQ';
 
 var s_day_1 = "<p class='t'>09/02/14</p><p>Après avoir passé mes deux vols aux places situées aux sorties de secours en compagnie d'une maman hispanocolombienne lors du second vol, j'arrive comme une « abstraction » dans un pays où je suis autant colombien qu'un local administrativement parlant mais non pas culturellement et linguistiquement.</p><p>Ma première impression concerne la météo : je m'attendais à ce qu'il fasse plus frais mais il fait relativement bon pour au moins 3 raisons probablement: humidité, pollution et chaleur générée et préservée par le bitume après que le soleil d'équateur eut tapé dessus tout au long de la journée. Le rythme solaire est simple : 06:30 am -> 6:30 pm. La langue parlée semble être très proche de l'espagnol de madrid mise à part des mots différents et les doubles L se prononcent « dj ».</p><p>La pauvreté est encore bien présente : on peut passer d'une rue très fréquentée avec des boutiques modernes à une ruelle très sale où des mendiants fouillent dans les poubelles. L'altitude rend plus difficile les efforts physiques (monter une pente). Logement dans un hôtel au concept auberge espagnole (avec des jeunes venus d'europe et amérique latine) dans la Candelaria qui est un quartier typique populaire du centre sud-est de "+B+"</p>";
 
