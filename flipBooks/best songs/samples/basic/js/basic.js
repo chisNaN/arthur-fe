@@ -1,6 +1,45 @@
 (function($) {
 
 let	awsUrl = ''
+const ipfsHttpsEndpoint = 'https://ipfs.infura.io/ipfs/'
+const hashs = [
+    "QmYSQWB7S9TgiXrNWDzM4Z5HZZ2J7LrbwX1r48wjjUa1fe",
+    "QmSZjjpcJASxid1ZA9pcMiBRvo6JGdZrHy19gApkk3CGjx",
+    "QmVvJdiLGThABSCRGY3vckF7vsG6aQziYD2m8E7T1AD6hX",
+    "QmQEKhTMs5Rn1zk2Z6aG7rR6qscJbpX5G5g6hjiCueGMjK",
+    "QmNsu7ZUVTpikLnaV8LAm9p36d3NBLdJ8t74AkH5psBE2k",
+    "QmXX7mm9qhdRRqdpydGq5JEjmQxpDd7K7bRqKghnk9CxPn",
+    "QmTohg1QfGxUoniDbsqv46fGXa8mpjhVQnzFUgs4oqaa87",
+    "QmYHoqTxuqZmmxzSMs7RrN75979TE54o64XJYeLkQo8Ad5",
+    "QmXnGQF85AHvcNrqfgaRxeWbM6pu7QYK7E2kb4u2jEsXMz",
+    "QmZQ6Ngtwpe6m5k4x5BQkEuxN8ZoxmjTi7NvabE7j3ost9",
+    "QmQMXEmeqBnJFisbQCPgLMJz8JQPELdK52idR1z9R3tfEZ",
+    "QmVnDDJCEzSaMZfv8mfxnXQp8a4GwM6oMavKXK4DC2KqhP",
+    "Qmc6DL26JphigXCyzHRxVc2mKPG2NXmH7YYZGmxwor1RaT",
+    "Qma3MLp65Uy7a6S4NiZQXTfMLNJQhBTAGB2Mm3ikGj21b5",
+    "QmYcGDBGmFfQSHFxGz8fL871Nq4PvRJTPryGHoT5iDMLTx",
+    "QmUQDHBeLWstRtu55SWTiTALTfEYQgohjY34LFEg67JHVc",
+    "QmawB7KZYpCrdX54S6dCxfLMmtRr8wzHEEc5CQPdRCG5gq",
+    "QmTHDtxepUs1fTSsuxjWzFudajSjcQrp5cc3vPewx67cqi",
+    "QmXQgw14ArtQML5D72qinFYe7ZxmmcyVTEzi12uiUfAfMG",
+    "Qma2jEst6ppfnHCAiWptboomtq1u7YmL7aes6odieYrzrd",
+    "QmawqUK9P9tgqNm4vEF5HFHzMjuK9UzXiSfTo982a5fGgf",
+    "QmVBFUtkCKDhYJDciHMT4Zozpz4BcesFJ15UrAQbd1es3f",
+    "QmbZPcfozQwxLi54VE5KXUv9FhQzBV2TUswqMRXwX6MsUs",
+    "QmUAid9QqQp2DrtxEDo9mPiM6Anr4hQQFyxVfuXrPfwQ26",
+    "QmaMERaT8yqNGL3qrVnT8WtyXgVwGBdVyiPbB4nJKnviEQ",
+    "QmRoKxtqjee1tcsNrvQKwW6mse4VyuHPmDGRu8XQVbtWZR",
+    "QmPKwdhxKJwiMKATL8cy9dHoDLSzQdmpiN8GUj7yZ9eQ3V",
+    "QmV9Py4eqFJhj3F9B28H4V53oXSAArD3EQmyMcgYqFHC2Y",
+    "QmbNY9xcFGE5f7da8pKE9U73SXHKw1cYL2ENE8yku9Sw81",
+    "QmSj6zWPLLBKNokFEgHein88TySr7GuFeMeKT9TH4ibZDd",
+    "QmUTVdDuS5yVzS4kWp5eVLETUZkXhTZ8w77zZmmKrVEHPv",
+    "QmdeA52ugEypoxorcA3ZVK9LWKAfJhCskCjvJuV4UnHUkm",
+    "QmfJnFkjqC7HGie6q7jpdbvz6hU32DnTFwqVGev4Zs8hd2",
+    "QmRDWLVdtWLdBmWEedWfvBGZocv2wuriCfCfdxFbqKtx62",
+    "Qmf7jz4LB3NdHHrZ61Zg9wCqeWoux4UrVJp9eAPYaq9vSu",
+    "Qmda636PrZLN4HpfBGoVaQY6ptEGufTwEZoUqurPDR8zNe"
+  ]
 
 	const bestSongs = [{artist: 'Zero7', title: 'Morning Song', descr: 'A faithful expression of what one can feel during the morning.', name: 'https://doc-0s-80-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/ticcmbamhmbeshp47fdc3h4e7htr5091/1554472800000/17286551385290304284/*/0ByZkBrrzUJN_TDZ2eVo5Nm53TG8'},
 		{ artist: 'Muki', title: 'Quiet Riot', descr: 'A good introductive James Bond song.', name: 'https://doc-0g-80-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/ri2146vgbs9eg839l1qhto2c74gk75fi/1554472800000/17286551385290304284/*/0ByZkBrrzUJN_ZVl1VjJ4XzlkbzQ'},
@@ -57,7 +96,7 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%' }
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
 		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (33 years old)</p>
-<p >Binkbeats, Little Nerves (Live)<br><span style="font-style: italic; font-size: 12px;">Aerial lyric and powerful track</span><br><audio src="https://doc-0s-80-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/edhsv54jp2m6r4qov4m9m7g0c97hi92g/1554458400000/17286551385290304284/*/0ByZkBrrzUJN_Z21URndaVlY5ZW8" preload="none" type="audio/mp3"  controls title="Little Nerves (Live)"></p>
+<p >Binkbeats, Little Nerves (Live)<br><span style="font-style: italic; font-size: 12px;">Aerial lyric and powerful track</span><br><audio src="${ipfsHttpsEndpoint+hashs[0]}" preload="none" type="audio/mp3"  controls title="Little Nerves (Live)"></p>
 <p style="padding-top: 10px;">Snarky Puppy, Skate U<br><span style="font-style: italic; font-size: 12px;">Introductive track</span><br><audio src="https://doc-10-80-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/eed40nf361kv309iqttqpfl893jsnvv0/1554472800000/17286551385290304284/*/0ByZkBrrzUJN_LWtaWWpZcUI0RzQ" preload="none" type="audio/mp3"  controls title="Skate U"></p>
 <p style="padding-top: 10px;">Beth Hirsch, Wholehearted<br><span style="font-style: italic; font-size: 12px;">Warm bossanova from AIR singer</span><br><audio src="https://doc-14-80-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/m1o2r14d12cof3ts2s319nggedu6js73/1554458400000/17286551385290304284/*/0ByZkBrrzUJN_M3NKMnVVdUNyQUE" preload="none" type="audio/mp3"  controls title="Wholehearted"></p>
 <p style="padding-top: 10px;">Kommode, Lady-logic<br><span style="font-style: italic; font-size: 12px;">Eirik Glambek Bøe</span><br><audio src="https://doc-0o-80-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/6vq0jup4b2ueqac2d8b4vi2nqah93fge/1554472800000/17286551385290304284/*/11F8LKVtMVJoZNaCFQuKJW2yYHo968btu" preload="none" type="audio/mp3"  controls title="Lady-logic"></p>
