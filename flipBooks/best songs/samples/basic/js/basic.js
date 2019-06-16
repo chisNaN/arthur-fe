@@ -37,7 +37,9 @@ const hashs = [
     "QmfJnFkjqC7HGie6q7jpdbvz6hU32DnTFwqVGev4Zs8hd2",
     "QmRDWLVdtWLdBmWEedWfvBGZocv2wuriCfCfdxFbqKtx62",
     "Qmf7jz4LB3NdHHrZ61Zg9wCqeWoux4UrVJp9eAPYaq9vSu",
-    "Qmda636PrZLN4HpfBGoVaQY6ptEGufTwEZoUqurPDR8zNe"
+    "Qmda636PrZLN4HpfBGoVaQY6ptEGufTwEZoUqurPDR8zNe",
+		"QmTHu2RNw3xewWbxiQyYvtL5zs4Tsr4ki53G7U3agB4BL9",
+		"QmarZa21giuNDjPtCbqVCxcjyidT6muDgTGqVBTFx4VeYN"
   ]
   let i = 0
   const bestSongs0 = [{artist: 'Binkbeats', title: 'Little Nerves (Live)', descr: 'Aerial lyric and powerful track.', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -82,7 +84,9 @@ const hashs = [
 ]
 
 const lastPage = [{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 lyrical track', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Talvin Singh', title: 'Butterfly', descr: 'Soulful indian vibes', name: ipfsHttpsEndpoint+hashs[i++]}]
+{artist: 'Talvin Singh', title: 'Butterfly', descr: 'Soulful indian vibes', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Alphonse Mouzon', title: 'Take Your Troubles Away', descr: '"Togetherness" track', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Still Corners', title: 'The trip', descr: 'New start in life feeling', name: ipfsHttpsEndpoint+hashs[i++]}]
 
 let htmlOutput0 = bestSongs0.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
