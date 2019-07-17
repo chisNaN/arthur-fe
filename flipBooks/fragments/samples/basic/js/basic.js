@@ -47,7 +47,8 @@ const other_p2 = `<p>Dans le sac à main des femmes, il y a tout mais on n'a acc
 
 const other_p3 = `<p>Nous sommes juste des 'surrogates' de vie, d'amour, d'inspiration etc.</p><p>Most important is not the place but the 'togetherness'</p><p>Le monde des adultes est conflictuel. Le monde de l'artiste est une évasion du monde adulte, un retour au monde de l'enfance.</p>
 <p>Très souvent plus un problème est traité en amont plus sa solution est simple rapide et efficace.</p>
-<p>Se marier plusieurs fois ne devrait pas être possible, comme on ne peut pas nous enterrer plusieurs fois (dans une même vie en tout cas pour ceux qui croiraient à la réincarnation). Tous les autres mariage d’une personne sont des fausses unions des pseudos mariages.</p>`;
+<p>Se marier plusieurs fois ne devrait pas être possible, comme on ne peut pas nous enterrer plusieurs fois (dans une même vie en tout cas pour ceux qui croiraient à la réincarnation). Tous les autres mariage d’une personne sont des fausses unions des pseudos mariages.</p>
+<p>Aux pôles, une année passe comme une journée, tandis qu’à l équateur en altitude une journée peut passer comme une année (avec toutes les saisons)</p>`;
 
 const internet_risks = `<p class='t'><u>Internet, virtuel, risques</u><p><u>L'empêchement de l'accomplissement de soi.</u></p><p>Accorder trop de temps au virtuel c'est empêcher de s'accomplir réellement. On a tendance à oublier cette évidence originelle.
 On ne vit plus que par l'image qu'on souhaite véhiculer de soi. On est trop dans la communication, peu dans la création et l'accomplissement. Sans même subir d'harcèlement extérieur c'est parfois et même souvent un jeu auquel on s'invite premièrement paradoxalement.</p>
@@ -96,7 +97,9 @@ Quand est-ce que ça va s'arrêter ? Pourrais-je redevenir comme avant ? (Ou ré
 <p>De l'oppression naît l'expression et de l'expression naît une certaine forme de guérison.</p><p>Il y a peur quand il y a complexe d'infériorité et il y a complexe d'infériorité quand il y a abscence de connaissance.</p>
 <p>L'opposé symétrique du rêve lucide (état inconscient contrôlé) est la "décompensation" (état incontrôlé conscient): elle est comme un cauchemar éveillé.</p>`;
 
-const psy2 = `<p>Quand vous vous engagez dans une période de temps où vous prenez des risques (cumulés ?), soyez toujours prêts à pouvoir vous accrocher à quelque chose de la même manière que vous vous accrochez quand vous montez à l'arrière d'une moto.</p>`;
+const psy2 = `<p>Quand vous vous engagez dans une période de temps où vous prenez des risques (cumulés ?), soyez toujours prêts à pouvoir vous accrocher à quelque chose de la même manière que vous vous accrochez quand vous montez à l'arrière d'une moto.</p>
+<p>Se sentir réel passe par toucher quelque chose ou quelqu’un par la totalité de la surface de sa main, et surtout avec sa paume</p>
+<p>Le vrai lâcher prise ne peut commencer que sans internet, smartphone et ordinateur</p>`;
 
 const lastChapter = `<p class='t'><u>A mon propos</u></p><p>Mon cynisme est la manière de révéler les contradictions dans le comportement des gens et souvent de s'en moquer.</p>
 <p>Lorsque je voyage en Colombie je voyage dans mon inconscient, en Russie dans mon âme, en Inde dans mon coeur et en France dans mon esprit.</p>
