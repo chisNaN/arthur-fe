@@ -26,7 +26,8 @@ const sciences = `<p class='t'><u>Remarques pour diverses sciences</u></p><p>La 
 <p>​Il n'y a rien de plus ridicule de soutenir que l'art est inutile et ridicule car c'est peut-être la seule activité qui séparera les générations à venir d'avec les machines.</p>
 <p>Le geste écologique par excellence est de ne pas avoir d’enfants. À la rigueur même adopter un enfant n’est pas écologique car c’est dans la majorité des cas le soustraire à une vie où le total de sa production carbone aurait été moins importante que dans sa nouvelle vie.</p>
 <p>On ne s’intéressera (« aidera ») pas correctement aux gens tant quand on ne se sera pas d’abord bien d’abord intéressé  (« étudier » ) aux choses.</p>
-<p>Ce qu’il faut comprendre avec la théorie de la relativité restreinte et générale est qu’on ne peut que RALENTIR le temps pour soi. Ralentir son cadre temporel.</p>`;
+<p>Ce qu’il faut comprendre avec la théorie de la relativité restreinte et générale est qu’on ne peut que RALENTIR le temps pour soi. Ralentir son cadre temporel.</p>
+<p>La mécanique quantique est la vraie magie</p>`;
 
 const others = `<p class='t'><u>Autres</u></p><p>Le vivant n'est vraiment ce qu'il est que lorsqu'il prend des risques.</p><p>Les morts-vivants ne sont pas de la fiction, on en côtoie tous les jours: les virus!</p>
 <p>Les gens intéressants sont simplement ceux ou celles qui s'intéressent à une foultitude de choses et sont capables de les faire partager avec passion.</p>
