@@ -39,7 +39,9 @@ const hashs = [
     "Qmf7jz4LB3NdHHrZ61Zg9wCqeWoux4UrVJp9eAPYaq9vSu",
     "Qmda636PrZLN4HpfBGoVaQY6ptEGufTwEZoUqurPDR8zNe",
 		"QmTHu2RNw3xewWbxiQyYvtL5zs4Tsr4ki53G7U3agB4BL9",
-		"QmarZa21giuNDjPtCbqVCxcjyidT6muDgTGqVBTFx4VeYN"
+		"QmarZa21giuNDjPtCbqVCxcjyidT6muDgTGqVBTFx4VeYN",
+    "QmX42agAv4yLxu5vo3TGm5KPJGFqJWxiyMuiBgYnzq5tgS",
+    "QmUL9yeJcXfYgQWXiwrE42RQsNdJoCBXPBZt2rrM3kPZG9"
   ]
   let i = 0
   const bestSongs0 = [{artist: 'Binkbeats', title: 'Little Nerves (Live)', descr: 'Aerial lyric and powerful track.', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -86,7 +88,9 @@ const hashs = [
 const lastPage = [{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 lyrical track', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Talvin Singh', title: 'Butterfly', descr: 'Soulful indian vibes', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Alphonse Mouzon', title: 'Take Your Troubles Away', descr: '"Togetherness" track', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Still Corners', title: 'The trip', descr: 'New start in life feeling', name: ipfsHttpsEndpoint+hashs[i++]}]
+{artist: 'Still Corners', title: 'The trip', descr: 'New start in life feeling', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'The vogado projects', title: 'Mas Fuerte Que El Sol', descr: 'Late summer track', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Moe Hairlines', title: 'What We Had Loved', descr: 'Nostalgia of loneliness', name: ipfsHttpsEndpoint+hashs[i++]}]
 
 let htmlOutput0 = bestSongs0.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
@@ -112,7 +116,7 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
 
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
-		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (33 years old)</p>
+		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (34 years old)</p>
 				${htmlOutput0}</div>
         <div>${htmlOutput1}</div>
         <div>${htmlOutput2}</div>
