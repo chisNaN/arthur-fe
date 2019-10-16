@@ -41,7 +41,8 @@ const hashs = [
 		"QmTHu2RNw3xewWbxiQyYvtL5zs4Tsr4ki53G7U3agB4BL9",
 		"QmarZa21giuNDjPtCbqVCxcjyidT6muDgTGqVBTFx4VeYN",
     "QmX42agAv4yLxu5vo3TGm5KPJGFqJWxiyMuiBgYnzq5tgS",
-    "QmUL9yeJcXfYgQWXiwrE42RQsNdJoCBXPBZt2rrM3kPZG9"
+    "QmUL9yeJcXfYgQWXiwrE42RQsNdJoCBXPBZt2rrM3kPZG9",
+    "QmQefYKnvxDP3XB41SHQinktR8YymcHQ9DoRccKDoP6wbV"
   ]
   let i = 0
   const bestSongs0 = [{artist: 'Binkbeats', title: 'Little Nerves (Live)', descr: 'Aerial lyric and powerful track.', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -90,7 +91,8 @@ const lastPage = [{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 
 {artist: 'Alphonse Mouzon', title: 'Take Your Troubles Away', descr: '"Togetherness" track', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Still Corners', title: 'The trip', descr: 'New start in life feeling', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'The vogado projects', title: 'Mas Fuerte Que El Sol', descr: 'Late summer track', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Moe Hairlines', title: 'What We Had Loved', descr: 'Nostalgia of loneliness', name: ipfsHttpsEndpoint+hashs[i++]}]
+{artist: 'Moe Hairlines', title: 'What We Had Loved', descr: 'Nostalgia of loneliness', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Tassel and Naturel', title: 'Smile', descr: 'Soulful drum and bass', name: ipfsHttpsEndpoint+hashs[i++]}]
 
 let htmlOutput0 = bestSongs0.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
