@@ -108,7 +108,7 @@ async function addFromBufferRecursive(inc = 0, files = null, ipfsHashs = []) {
   }
 }
 document.addEventListener('DOMContentLoaded', async _ => {
-  const URL = 'https://sleepy-bartik-4640.arukascloud.io/galleries';
+  const URL = 'https://couchdb.ga:6984/galleries';
   const remoteDB = new PouchDB(URL, { skip_setup: true });
   const galNames = await remoteDB.allDocs();
   with(document.querySelector('#chosenGal')){
