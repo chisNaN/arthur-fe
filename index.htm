@@ -32,10 +32,9 @@
 
         a{ text-decoration: none; color: #ccc; }
 
-        h1{ margin-top: 0; }
+        h3{ margin-top: 0; }
 
         #theSpan{ font-family: 'santacarla'; opacity: 0; font-size: 75px; }
-
     </style>
     <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
@@ -52,60 +51,65 @@
 <body>
 <ul class="onepage-pagination" style="width: 100px; height: 100%; position: absolute; left: 10px;">
   <li>
-      <a data-index="1" href="#2">
-          <img src="images/pictos/thumb-odesk.png" style="width: 100px;" />
+      <a data-index="1" href="#1">
+          <img src="images/pictos/thumb-odesk.png" style="width: 80px;" />
       </a>
   </li>
     <li>
-        <a data-index="2" href="#1">
-            <img src="images/pictos/github-logo.png" style="width: 100px;" />
+        <a data-index="2" href="#2">
+            <img src="images/pictos/github-logo.png" style="width: 90px;" />
         </a>
     </li>
     <li>
         <a data-index="3" href="#3">
-            <img src="images/pictos/marker.png" style="width: 100px;" />
+            <img src="images/pictos/udemy.png" style="width: 90px;" />
         </a>
     </li>
     <li>
         <a data-index="4" href="#4">
-            <img src="images/pictos/logo-cam.png" style="width: 100px;" />
+            <img src="images/pictos/marker.png" style="width: 50px;" />
         </a>
     </li>
     <li>
         <a data-index="5" href="#5">
-            <img src="images/pictos/flipbook.png" style="width: 100px;" />
+            <img src="images/pictos/logo-cam.png" style="width: 90px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="6" href="#6">
+            <img src="images/pictos/flipbook.png" style="width: 90px;" />
         </a>
     </li>
 </ul>
 <ul class="onepage-pagination">
     <li>
-        <a data-index="6" href="#6">
-            <img src="images/pictos/logo-live2.png" style="width: 100px;" />
-        </a>
-    </li>
-    <li>
         <a data-index="7" href="#7">
-            <img src="images/pictos/geek-logo.png" style="width: 100px;" />
+            <img src="images/pictos/logo-live2.png" style="width: 90px;" />
         </a>
     </li>
     <li>
         <a data-index="8" href="#8">
-            <img src="images/pictos/logo-www.png" style="width: 100px;" />
+            <img src="images/pictos/geek-logo.png" style="width: 90px;" />
         </a>
     </li>
     <li>
         <a data-index="9" href="#9">
-            <img src="images/pictos/logo-pop.png" style="width: 100px;" />
+            <img src="images/pictos/logo-www.png" style="width: 90px;" />
         </a>
     </li>
     <li>
         <a data-index="10" href="#10">
-            <img src="images/pictos/music-lib-logo.jpg" style="width: 100px;" />
+            <img src="images/pictos/logo-pop.png" style="width: 90px;" />
         </a>
     </li>
     <li>
         <a data-index="11" href="#11">
-            <img src="images/pictos/logo-loupe.png" style="width: 100px;" />
+            <img src="images/pictos/music-lib-logo.jpg" style="width: 90px;" />
+        </a>
+    </li>
+    <li>
+        <a data-index="12" href="#12">
+            <img src="images/pictos/logo-loupe.png" style="width: 90px;" />
         </a>
     </li>
 </ul>
@@ -114,12 +118,12 @@
         <!--<div id="test" style="">
             <span id="theSpan"><script>document.write(appLocales.get('intro'))</script>...</span>
         </div>-->
-        <h1><a href="contact" >/<script>document.write(appLocales.get('cv0'))</script></a>
+        <h3><a href="contact" >/<script>document.write(appLocales.get('cv0'))</script></a>
           <script>document.write(appLocales.get('cv1'))</script><br>
-          <script>document.write(appLocales.get('cv2'))</script> <a href="cv" >/<script>document.write(appLocales.get('cv3'))</script></a></h1>
-        <p>
+          <script>document.write(appLocales.get('cv2'))</script> <a href="cv" >/<script>document.write(appLocales.get('cv3'))</script></a></h3>
+        <p style="margin: 0;">
             <a href="contact" >
-                <img src="cv/100h-odesk.png" style="border: none; height: 200px;" />
+                <img src="cv/100h-odesk.png" style="border: none; height: 300px;" />
             </a>
         </p>
       <!--  <script>
@@ -161,7 +165,7 @@
             }
         </script>-->
 
-        <p id="bottomSection1">
+
             <script>
                 if(typeof sessionStorage != 'undefined') {
 
@@ -178,12 +182,12 @@
             </script>
             <br>
             <!--<a href="http://wiki.xn--grgoi-csa.re" style="font-size: 30px;" ><script>document.write(appLocales.get('wiki'))</script></a>-->
-        </p>
+
     </section>
     <section class="logo-section">
       <div id="topSection1">
 
-        <script>document.write('<a style="font-size: 70px;" href="https://github.com/'+githubPseudo+'?tab=repositories" target="_blank">')</script>
+        <script>document.write('<a style="font-size: 60px;" href="https://github.com/'+githubPseudo+'?tab=repositories" target="_blank">')</script>
         <script>document.write(appLocales.get('github'))</script>
         </a><br>
 
@@ -194,15 +198,19 @@
 
     </section>
     <section class="logo-section">
-        <h1><script>document.write(appLocales.get('map0'))</script> <a href="map" >/<script>document.write(appLocales.get('map1'))</script></a></h1>
+      <h3>Suivez mes formations </h3>
+        <a target="_blank" href="https://www.udemy.com/course/reussir-son-entretien-javascript/"><img src="images/udemy-logo.jpg" style="border: none; height: 400px;" /></a>
+    </section>
+    <section class="logo-section">
+        <h3><script>document.write(appLocales.get('map0'))</script> <a href="map" >/<script>document.write(appLocales.get('map1'))</script></a></h3>
         <p>
             <a href="map" >
-                <img src="images/marker.png" style="border: none; height: 400px;" />
+                <img src="images/map.png" style="border: none; height: 400px;" />
             </a>
         </p>
     </section>
     <section class="logo-section">
-        <h1><script>document.write(appLocales.get('pic0'))</script> <a href="photos" >/<script>document.write(appLocales.get('pic1'))</script></a></h1>
+        <h3><script>document.write(appLocales.get('pic0'))</script> <a href="photos" >/<script>document.write(appLocales.get('pic1'))</script></a></h3>
         <p>
             <a href="photos" >
                 <img src="https://ipfs.infura.io/ipfs/Qmf4SSCjkjajCe3RwhXsmaQT6fRdcjCwCFuxWif9tZLrrR" style="border: none; width: 700px;" />
@@ -210,7 +218,7 @@
         </p>
     </section>
     <section class="logo-section">
-        <h1><script>document.write(appLocales.get('flipbook0'))</script> <a href="flipBooks" >/<script>document.write(appLocales.get('flipbook1'))</script></a></h1>
+        <h3><script>document.write(appLocales.get('flipbook0'))</script> <a href="flipBooks" >/<script>document.write(appLocales.get('flipbook1'))</script></a></h3>
         <p>
             <a href="flipBooks" >
                 <img src="images/flipbook.png" style="border: none;" />
@@ -218,7 +226,7 @@
         </p>
     </section>
     <section class="logo-section">
-        <h1><script>document.write(appLocales.get('mp30'))</script> <a href="mp3" >/mp3</a></h1>
+        <h3><script>document.write(appLocales.get('mp30'))</script> <a href="mp3" >/mp3</a></h3>
         <p>
             <a href="mp3" >
                 <img src="images/logo-live2.png" style="border: none; height: 400px;" />
@@ -226,7 +234,7 @@
         </p>
     </section>
     <section class="logo-section">
-        <h1><script>document.write(appLocales.get('trick0'))</script> <a href="tips" >/<script>document.write(appLocales.get('trick1'))</script></a></h1>
+        <h3><script>document.write(appLocales.get('trick0'))</script> <a href="tips" >/<script>document.write(appLocales.get('trick1'))</script></a></h3>
         <p>
             <a href="tips" >
                 <img src="images/geek-logo.png" style="border: none; width: 600px;" />
@@ -234,7 +242,7 @@
         </p>
     </section>
     <section class="logo-section">
-        <h1><script>document.write(appLocales.get('links0'))</script> <a href="links" >/<script>document.write(appLocales.get('links1'))</script></a></h1>
+        <h3><script>document.write(appLocales.get('links0'))</script> <a href="links" >/<script>document.write(appLocales.get('links1'))</script></a></h3>
         <p >
             <a href="links" >
                 <img src="images/logo-www.png" style="border: none;" />
@@ -242,7 +250,7 @@
         </p>
     </section>
     <section class="logo-section">
-        <h1><script>document.write(appLocales.get('film0'))</script> <a href="films" >/<script>document.write(appLocales.get('film1'))</script></a></h1>
+        <h3><script>document.write(appLocales.get('film0'))</script> <a href="films" >/<script>document.write(appLocales.get('film1'))</script></a></h3>
         <p >
           <a href="films" >
               <img src="images/logo-pop.png" style="border: none;" />
@@ -250,7 +258,7 @@
         </p>
     </section>
     <section class="logo-section">
-        <h1><script>document.write(appLocales.get('musiclib0'))</script> <a href="musicLib" >/<script>document.write(appLocales.get('musiclib1'))</script></a></h1>
+        <h3><script>document.write(appLocales.get('musiclib0'))</script> <a href="musicLib" >/<script>document.write(appLocales.get('musiclib1'))</script></a></h3>
         <p >
           <a href="musicLib" >
               <img src="images/music-lib-logo.jpg" style="border: none;" />
@@ -258,7 +266,7 @@
         </p>
     </section>
     <section>
-        <h1><script>document.write(appLocales.get('search'))</script></h1>
+        <h3><script>document.write(appLocales.get('search'))</script></h3>
         <p>
         <form method="get" name="searchform" id="searchform" action="search.htm">
           <script>document.write(appLocales.get('type'))</script>
