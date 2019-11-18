@@ -51,14 +51,14 @@
 </head>
 <body>
 <ul class="onepage-pagination" style="width: 100px; height: 100%; position: absolute; left: 10px;">
+  <li>
+      <a data-index="1" href="#2">
+          <img src="images/pictos/thumb-odesk.png" style="width: 100px;" />
+      </a>
+  </li>
     <li>
-        <a data-index="1" href="#1">
+        <a data-index="2" href="#1">
             <img src="images/pictos/github-logo.png" style="width: 100px;" />
-        </a>
-    </li>
-    <li>
-        <a data-index="2" href="#2">
-            <img src="images/pictos/thumb-odesk.png" style="width: 100px;" />
         </a>
     </li>
     <li>
@@ -111,32 +111,27 @@
 </ul>
 <div id="main" class="main" style="display: block;">
     <section class="logo-section">
-        <div id="test" style="margin-top: 20%;">
+        <!--<div id="test" style="">
             <span id="theSpan"><script>document.write(appLocales.get('intro'))</script>...</span>
-        </div>
-        <div id="topSection1" style="display: none;">
-
-          <script>document.write('<a style="font-size: 70px;" href="https://github.com/'+githubPseudo+'?tab=repositories" target="_blank">')</script>
-          <script>document.write(appLocales.get('github'))</script>
-          </a><br>
-
-              <script>document.write('<a href="https://github.com/'+githubPseudo+'?tab=repositories" target="_blank">')</script>
-              <img src="images/github-logo.png" style="border: none; height: 400px;" />
+        </div>-->
+        <h1><a href="contact" >/<script>document.write(appLocales.get('cv0'))</script></a>
+          <script>document.write(appLocales.get('cv1'))</script><br>
+          <script>document.write(appLocales.get('cv2'))</script> <a href="cv" >/<script>document.write(appLocales.get('cv3'))</script></a></h1>
+        <p>
+            <a href="contact" >
+                <img src="cv/100h-odesk.png" style="border: none; height: 200px;" />
             </a>
-        </div>
-        <script>
-
+        </p>
+      <!--  <script>
             var myVar = setInterval(function(){myTimer()}, 200);
             var i_sec = 0;
             var i = 10;
 
-            function myTimer()
-            {
+            function myTimer(){
                 i_sec++;
                 i--;
 
-                if(i_sec > 10)
-                {
+                if(i_sec > 10){
                     myStopFunction();
 
                 }else
@@ -164,9 +159,9 @@
                 //document.getElementById('test').innerHTML += '';
                 document.getElementById('test').style.display = 'none';
             }
-        </script>
+        </script>-->
 
-        <p id="bottomSection1" style="display: none;">
+        <p id="bottomSection1">
             <script>
                 if(typeof sessionStorage != 'undefined') {
 
@@ -182,18 +177,21 @@
                 }
             </script>
             <br>
-            <a href="http://wiki.xn--grgoi-csa.re" style="font-size: 30px;" ><script>document.write(appLocales.get('wiki'))</script></a>
+            <!--<a href="http://wiki.xn--grgoi-csa.re" style="font-size: 30px;" ><script>document.write(appLocales.get('wiki'))</script></a>-->
         </p>
     </section>
     <section class="logo-section">
-        <h1><a href="contact" >/<script>document.write(appLocales.get('cv0'))</script></a>
-          <script>document.write(appLocales.get('cv1'))</script><br>
-          <script>document.write(appLocales.get('cv2'))</script> <a href="cv" >/<script>document.write(appLocales.get('cv3'))</script></a></h1>
-        <p>
-            <a href="cv" >
-                <img src="cv/100h-odesk.png" style="border: none; height: 400px;" />
-            </a>
-        </p>
+      <div id="topSection1">
+
+        <script>document.write('<a style="font-size: 70px;" href="https://github.com/'+githubPseudo+'?tab=repositories" target="_blank">')</script>
+        <script>document.write(appLocales.get('github'))</script>
+        </a><br>
+
+            <script>document.write('<a href="https://github.com/'+githubPseudo+'?tab=repositories" target="_blank">')</script>
+            <img src="images/github-logo.png" style="border: none; height: 400px;" />
+          </a>
+      </div>
+
     </section>
     <section class="logo-section">
         <h1><script>document.write(appLocales.get('map0'))</script> <a href="map" >/<script>document.write(appLocales.get('map1'))</script></a></h1>
