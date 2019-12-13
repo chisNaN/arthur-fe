@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
   // listeners on letters
   document.querySelectorAll('#letters a').forEach(v => {
     v.addEventListener('click', () => {
-      const html = musicLib.displayArtistsByLetter(v.textContent).map(v => `<a href="#" onclick="displayAlbums('${v.replace(/'/g, "\\'")}');">${v.substr(0, 20)}</a>`).join('');
+      const html = musicLib.displayArtistsByLetter(v.textContent).map(v => `<a href="#" title="${v}" onclick="displayAlbums('${v.replace(/'/g, "\\'")}');">${v.substr(0, 20)}</a>`).join('');
       document.querySelector('#artists').innerHTML = html;
     });
   });// end foreach letters a
