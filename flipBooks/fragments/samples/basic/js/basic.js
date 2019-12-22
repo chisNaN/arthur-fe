@@ -101,7 +101,7 @@ Quand est-ce que ça va s'arrêter ? Pourrais-je redevenir comme avant ? (Ou ré
 const psy2 = `<p>Quand vous vous engagez dans une période de temps où vous prenez des risques (cumulés ?), soyez toujours prêts à pouvoir vous accrocher à quelque chose de la même manière que vous vous accrochez quand vous montez à l'arrière d'une moto.</p>
 <p>Se sentir réel passe par toucher quelque chose ou quelqu’un par la totalité de la surface de sa main, et surtout avec sa paume</p>
 <p>Le vrai lâcher prise ne peut commencer que sans internet, smartphone et ordinateur</p>
-<p>Il y a echo la où il y a obsession</p>`;
+<p>Il y a écho la où il y a obsession</p>`;
 
 const lastChapter = `<p class='t'><u>A mon propos</u></p><p>Mon cynisme est la manière de révéler les contradictions dans le comportement des gens et souvent de s'en moquer.</p>
 <p>Lorsque je voyage en Colombie je voyage dans mon inconscient, en Russie dans mon âme, en Inde dans mon coeur et en France dans mon esprit.</p>
