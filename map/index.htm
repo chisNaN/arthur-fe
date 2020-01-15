@@ -57,6 +57,7 @@ body{
     <script type="text/javascript">
       document.addEventListener('DOMContentLoaded', () => {
         if (self.fetch) {
+          const ipfsHttpEndpoint = 'https://ipfs.infura.io/ipfs/'
       		const url = 'https://spreadsheets.google.com/feeds/list/1R5M5fODJVW_O5GqFYdYBzQTF_avcvuQdmAXuTsEWWZo/od6/public/values?alt=json';
           fetch(url).then(r => r.json())
           .then(r2 => {
@@ -74,10 +75,20 @@ body{
       				if (~posEqual) {
                 const beforeEqual = hrefs.substr(0, posEqual+1);
                 const afterEqual = hrefs.substr(posEqual+1);
-      					html = `<b><a href="${beforeEqual+encodeURIComponent(afterEqual)}" >Watch photos</a></b>`;
+      					html = `<b><a target="_blank" href="${beforeEqual+encodeURIComponent(afterEqual)}" >Watch photos</a></b>`;
       				}else{
       					 html = `<b>${hrefs}</b>`;
       				}
+              if (r2.feed.entry[p].gsx$_cre1l) {
+                console.log(r2.feed.entry[p].gsx$_cre1l)
+                if (r2.feed.entry[p].gsx$_cre1l.$t.includes(',')) {
+                  html += r2.feed.entry[p].gsx$_cre1l.$t.split(',').map((v, k) => {
+                    return `<br><a target="_blank" href="${ipfsHttpEndpoint + v}">music ${k + 1}</a>`
+                  }).join('')
+                } else {
+                  html += `<br><audio src="${ipfsHttpEndpoint + r2.feed.entry[p].gsx$_cre1l.$t}" preload="none" type="audio/mp3" controls>`
+                }
+              }
       				//a.push({ lat: data.feed.entry[p]['gsx$_cn6ca']['$t'], lng: data.feed.entry[p]['gsx$_cokwr']['$t'], info:  data.feed.entry[p]['gsx$_cpzh4']['$t']});
       				const lat = r2.feed.entry[p]['gsx$_cn6ca']['$t'];
       				const lng = r2.feed.entry[p]['gsx$_cokwr']['$t'];
