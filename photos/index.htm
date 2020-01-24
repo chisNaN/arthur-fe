@@ -43,7 +43,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="slick/slick.min.js"></script>
     <script type="text/javascript">
-    const URL = 'https://couchdb.ga:6984/galleries';
+    const URL = 'http://couchdb.ga:5984/galleries';
     const remoteDB = new PouchDB(URL, { skip_setup: true });
     async function displayPictures(galName) {
       if(galName.trim() != '') {
