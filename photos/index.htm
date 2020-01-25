@@ -22,6 +22,11 @@
         text-decoration: none;
         color: cornflowerblue;
       }
+      #top {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+      }
     </style>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
@@ -33,7 +38,6 @@
   </head>
   <body>
     <div id="top">
-      <h1></h1>
       <select style="display: none;"><option value="">-- choose --</option></select>&nbsp;<span id="numPics"></span>&nbsp;<a style="font-size: 30px;" href="#" id="startSlick">Start slideshow</a><br>
     </div>
     <input type="text" id="downloadCode" style="width: 500px;" />&nbsp;
@@ -73,7 +77,6 @@
         // const result = await remoteDB.allDocs()
         const result = await fetch(`${ipfsUrl}QmVSSyxw7uvfCsGfSAdi2d5eEcDChwbonfSj4AAPsix4Dx`)
         json = await result.json()
-        document.querySelector('h1').innerHTML = `${json.docs.length} gallerie(s)`
         document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
         document.querySelector('select').style.display = 'block'
       } catch (e) {
