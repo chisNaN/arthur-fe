@@ -29,7 +29,7 @@
   	<script type="text/javascript">
   	Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
   	</script>
-    <script src="https://cdn.jsdelivr.net/npm/pouchdb@6.4.3/dist/pouchdb.min.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/pouchdb@6.4.3/dist/pouchdb.min.js" crossorigin="anonymous"></script> -->
   </head>
   <body>
     <div id="top">
@@ -43,44 +43,45 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="slick/slick.min.js"></script>
     <script type="text/javascript">
-    const URL = 'http://couchdb.ga:5984/galleries';
-    const remoteDB = new PouchDB(URL, { skip_setup: true });
+    // const URL = 'http://couchdb.ga:5984/galleries';
+    // const remoteDB = new PouchDB(URL, { skip_setup: true });
+    let json = ''
+    const ipfsUrl = 'https://ipfs.infura.io/ipfs/'
     async function displayPictures(galName) {
       if(galName.trim() != '') {
         try{
-          //console.log(event.target.value);
-          const ipfsUrl = 'https://ipfs.infura.io/ipfs/';
-          const result = await remoteDB.get(galName);
-          document.querySelector('#numPics').innerHTML = `${result.hashs.length} photo(s)`;
-          let htmlPics = '';
-          let code = '';
+          const result = json.docs.find(v => v._id === galName)
+          // const result = await remoteDB.get(galName);
+          document.querySelector('#numPics').innerHTML = `${result.hashs.length} photo(s)`
+          let htmlPics = ''
+          let code = ''
           result.hashs.forEach((hash, k) => {
-            htmlPics += `<div><a href="${ipfsUrl+hash}" target="_blank"><img style="max-height: 150px;" src="${ipfsUrl+hash}" /></a></div>`;
-            code += `wget ${ipfsUrl+hash} -O ${k+1}.jpg && `;
-          });
-          document.querySelector('#pics').innerHTML = htmlPics;
-          document.querySelector('#downloadCode').value = code.substr(0, code.length - 4);
-
+            htmlPics += `<div><a href="${ipfsUrl+hash}" target="_blank"><img style="max-height: 150px;" src="${ipfsUrl+hash}" /></a></div>`
+            code += `wget ${ipfsUrl+hash} -O ${k+1}.jpg && `
+          })
+          document.querySelector('#pics').innerHTML = htmlPics
+          document.querySelector('#downloadCode').value = code.substr(0, code.length - 4)
         }catch(e){
-          console.warn(e);
+          console.warn(e)
         }
       }
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-      const urlVars = new URLSearchParams(location.search);
+      const urlVars = new URLSearchParams(location.search)
       try {
-        const result = await remoteDB.allDocs();
-        console.log(result);
-        document.querySelector('h1').innerHTML = `${result.rows.length} gallerie(s)`;
-        document.querySelector('select').innerHTML += result.rows.map(v => `<option value="${v.id}">${v.id}`).join('</option>');
-        document.querySelector('select').style.display = 'block';
+        // const result = await remoteDB.allDocs()
+        const result = await fetch(`${ipfsUrl}QmVSSyxw7uvfCsGfSAdi2d5eEcDChwbonfSj4AAPsix4Dx`)
+        json = await result.json()
+        document.querySelector('h1').innerHTML = `${json.docs.length} gallerie(s)`
+        document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
+        document.querySelector('select').style.display = 'block'
       } catch (e) {
-        console.warn(e);
-        document.querySelector('h1').innerHTML = e.toString();
+        console.warn(e)
+        document.querySelector('h1').innerHTML = e.toString()
       }
       //console.log('decodeURIComponent(urlVars.get(gal) ', decodeURIComponent(urlVars.get('gal')));
-      displayPictures(urlVars.get('gal') || 'Paradiso');
+      displayPictures(urlVars.get('gal') || 'Paradiso')
 
       document.querySelector('select').addEventListener('change', event => {
         displayPictures(event.target.value);
