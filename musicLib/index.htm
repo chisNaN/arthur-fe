@@ -15,6 +15,9 @@
     function displayAlbums(artist) {
       let html = '';
       let htmlTracks = '';
+      if (document.querySelector('#tracks').innerHTML !== '') {
+        document.querySelector('#tracks').innerHTML = ''
+      }
       musicLib.displayAlbum(artist).forEach(v => html += `<a href="#">${v}</a>`);
       document.querySelector('#albums').innerHTML = html;
       document.querySelectorAll('#albums a').forEach(v => {
