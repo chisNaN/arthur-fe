@@ -73,7 +73,7 @@ class MusicLib {
   getTracks(searchedTrack = '', jsonSection = this.json) {
     return Object.values(jsonSection).reduce((acc, curr) => {
       if(typeof curr == 'string') {
-        if(/flac|wav|ape|aif/i.test(curr)) {
+        if(/flac|wav|ape|aif|dsf/i.test(curr)) {
           if(curr.toLowerCase().includes(searchedTrack)) { // will return true for empty string
             return acc.concat(curr);
             //return [...acc, curr];
