@@ -75,12 +75,11 @@ body{
       				if (~posEqual) {
                 const beforeEqual = hrefs.substr(0, posEqual+1);
                 const afterEqual = hrefs.substr(posEqual+1);
-      					html = `<b><a target="_blank" href="${beforeEqual+encodeURIComponent(afterEqual)}" >Watch photos</a></b>`;
+      					html = `<b><a target="_blank" href="${beforeEqual+encodeURIComponent(afterEqual)}" >${afterEqual}</a></b>`;
       				}else{
       					 html = `<b>${hrefs}</b>`;
       				}
               if (r2.feed.entry[p].gsx$_cre1l) {
-                console.log(r2.feed.entry[p].gsx$_cre1l)
                 if (r2.feed.entry[p].gsx$_cre1l.$t.includes(',')) {
                   html += r2.feed.entry[p].gsx$_cre1l.$t.split(',').map((v, k) => {
                     return `<br><a target="_blank" href="${ipfsHttpEndpoint + v}">music ${k + 1}</a>`
