@@ -21,6 +21,8 @@ const p7 = `<p>En outre, le phénomène peut se produire avec autre chose qu'une
 Plus rarement, il arrive qu'on rêve des paysages d'un lieu sans jamais l'avoir vu en photo/vidéo ou de quelques autres manières à l’avance (que par ses rêves) et la stupéfaction est inexplicable lorsqu’on se retrouve dans ce lieu pour la première fois et qu'il corresponde très fidèlement à nos rêves.
 (Cela m'est arrivé une seule fois pour un voyage à madère)</p>`
 
+const p7bis = `<p>En somme, on pourrait dire, pour s'"approprier" les mots de <a href="https://fr.wikipedia.org/wiki/Jean-Pierre_Petit" target="_blank">Jean-Pierre Petit</a> que le monde intermédiaire des rêves "<i>amène des éléments diachrone et antichrone à exister et interagir</i>" ensemble.</p>`
+
 const p8 = `<p>Enfin, les rêves absolus sont ceux de créations musicales (non pas de composition au sens strict qui implique un état conscient)
 La création musicale nocturne inconsciente est tirée, provient involontairement de cet hyperspace ou monde synthétique où toutes les âmes sont d'ailleurs interconnectées.
 Certaines personnes rapportent avoir le même phénomène d'évidence/stupeur harmonique de manière consciente en plein jour.</p>`
@@ -43,7 +45,7 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
 					<p>Corps et âme, l'enfant prodige (Frank CONROY)</p>
           <p><br><a onclick="goToLastPage();">(Aller à la dernière page)</a></p></div>
             <div>${p1+p2+p3+p4+p5}</div>
-						<div>${p6+p7+p8+p9+p10}</div>
+						<div>${p6+p7+p7bis+p8+p9+p10}</div>
 						<div>${p11}</div>`);
 
 // Wait until it renders
