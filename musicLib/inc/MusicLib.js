@@ -25,7 +25,7 @@ class MusicLib {
   }
 
   displayArtistsByLetter(currentLetter) {
-    const [, json] = Object.entries(this.json).filter(v => v[0] === currentLetter)[0];
+    const [, json] = Object.entries(this.json).find(v => v[0] === currentLetter);
     this.currentArtists = json;
     return Object.keys(json);
   }
@@ -40,7 +40,7 @@ class MusicLib {
       this.currentTracks = this.currentAlbums[whichAlbum];
     }else{
       if(Array.isArray(this.currentTracks)) {
-        const tracksOneAlbum = this.currentTracks.filter(v =>  v[whichAlbum])[0];
+        const tracksOneAlbum = this.currentTracks.find(v =>  v[whichAlbum]);
         this.currentTracks = Object.values(tracksOneAlbum)[0];
       }else{
         // Brian eno -> no pussyfooting
