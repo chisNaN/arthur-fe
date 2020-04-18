@@ -8,18 +8,19 @@ class MusicLib {
   }
 
   async loadJson() {
-    let hash;
     try{
-      const githubInfo = await fetch('https://raw.githubusercontent.com/chisNaN/arthur-fe/master/musicLib/ipfs-hash-db.txt');
-      hash = await githubInfo.text();
-      // trying with INFURA gateway
-      // see this repo if need more gateways https://github.com/ipfs/public-gateway-checker
-      const response =  await fetch(`https://ipfs.infura.io/ipfs/${hash}`);
-      return this.json = await response.json();
+      let library = localStorage.getItem('musicLib')
+      if (library) {
+        library = JSON.parse(library)
+      } else {
+        const url = 'https://ipfs.infura.io/ipfs/QmYjHzawvLrk3rbeFbMg9sgkNBxFBqkMcyV3ab6BThiQuj'
+        library = await (await fetch(url)).json()
+        localStorage.setItem('musicLib', JSON.stringify(library))
+      }
+      return this.json = library
     }catch(e){
      console.warn(e);
-     const response =  await fetch(`https://ipfs.io/ipfs/${hash}`);
-     return this.json = await response.json();
+     document.querySelector('top').innerHTML = e.toString()
     }
   }
 
