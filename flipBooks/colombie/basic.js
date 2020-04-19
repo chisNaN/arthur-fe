@@ -5,8 +5,8 @@
 	}
 
 var B = 'Bogota';
-
-var s3_url = 'img/';
+const ipfsHashs = ["QmeTpNYFSHvWVGU7sbrVGuqyhFTAK89g1BCtTqqZ4jCrFY","QmUgUtwcKEG3gf7GsAukF8ozThbEeND3Hp3C5MbDpwCGae","QmbYveXPifjs4PUytYrCGdcwhukXzuyZnKtAmwT3xWKejP","QmeMEUBJri52evzcw6Ru9Fw3eeXVgkSG2VAg8XMyUo6Wue","Qmah2PVcsrHRFJuehchPTbofbGaLgmtg9LifqQgSEeJDV2","QmdfMx2561kDPKNWcFKeCkBbxwxDoBsZwU72QspE3u7YYg","QmULP3PBSkWKoYmcYC1Ej3PzGPjTqiVJ1G6R1i4FGppttj","QmbhZEx11kFfJLT5dNfieywxdzDbWZudbcJehxNcPqFvXq","QmQZHcLFbgYWFMfMsg6SbtJzK28ssjUG9ZWiGTuFKgcTJF","QmSKec5CCffkfM5YXBNpyrZfc944hojmKNx5R9hUC82dFq","QmZDb4Lwj7jKxxf7wjaNcv1Tcc6UG24sXeF4sUDAhx1PL7","QmakrqFujPFzpfCyaVcsCh7uySBZ6P1rDynCNuYWqDbho9","QmQkqvMsTurxYez4cV1dvCKY45nimbUQaXHutrVR2eHcPU","QmNXcGWcURmoWN9roXxjJ5tCF6FErzEF6E1i2C77eYSCWt","QmUMWHr5XtqQeGsRgjTnXfdLKjpHtRfVqVoEkPKbSADYqq","QmZSNMfXS1qby2J1XaP1TA8AdH1GxNWNGcL8rK2R9VwaeR","QmXszZoYkNpAaCKeXjupw89CfPPMg55DW1MgX43n9cfGRr","QmWJAqcLvu9otMaiZT21M1DThFQvzNrDmWiabhePzbgufB","QmYPusgJP3KYYivH9sapMe2BQDpfVwFMFNSLeqRnsCAPdo","QmeYPRi9bGUrtb7Pz6DNHDeLCiWjn3LgbFaUs6NTRZWx5m","QmZkWnb3hXT9u2xaLvChtmwp5gLNV2PRjbqWq5BCzf7bU4","Qmen6i3ktysMUDW6ukRPM6Znx6GjptSxT8Tyu5Bd2J75EB","QmfV9FRgBqQaGG9nYHZE8mdW65p5rfiVaeUbF98sDtBoUN","QmaMt4wgaN55qfLbjujF5AKUTshfPR2guzt4UgkdBKXUk6","QmZzJGi78iiqE4FCJErP4HyqaNhttxHU3Q4cLwrXSvUZYa","Qmd51CA5Ga5B8HmTrCYVdeb2pksCCxbRFsw5Q4hYw4iHWD","QmQni7xUoL2dSPmNLg1iNRooKu7h4YHziX7yw673KnRAaR","QmdbkMJ1gFUk7gNPZP6ALrVE8ZseGc58NPfvX5uD76CH7i","Qmaray4cjH2cYBYkjcWgTCYBxY84oaQixhDk1Vq7NYj7NJ","QmcCNfmmDU6rPDPUXeWTn9VDRGhCky98jSt4bSdixX5TuA","Qmf3V76Yq2kxq8vuB5Re194EBY2nQLCawGbFitbQ3XT98D","QmZoWSVZvTMgoGeQnXiRoY4oYuySU1GHySwEDCxknLuea1","QmPT9HTVzrYAWhQ23r24G2oRrdWDBohkYibbiTYVn8LeDU","Qma7WHQ6ixgUuCtt4MDbwPfkgHWSVzJhDXLyXtLyfduycX","QmQ9jFu7axKzPqQQEZJtwcyFGYYaLknSmVhrcDjeuABLXe","QmWmSJivCi6XZfAQHPAjovmHxwm2vSyBCkzUXbyiKR8jK7","QmdZXpzk5P5Lp8W4zddW5P27WvBaFUrTbGFFJ3T92EA9vk","Qmde8icyLnkTGsP4H4pGcXapgjye8JLSVtyKz8BmptibDW","QmSV6JDoiezX7CNATPKgMWHPtTRQKLdDLLF4nCqYPhupNz","QmVfRQQ7Md6uC3YLdPcgyHU9EfYcb3Uc2eGZpmvH8rhRZM","QmNSspMb1igT7bcjhpE1DtwhoKysnHsRZ9RzLtmDnLtp3b","QmcgNszveKwBNWUUGSgid16wE5hApFF39knEe1NhkrHDSt","QmVuQ6qFwWmFmqiHKuyTHQGivtMfCukxXFLjdAzR2ce98b","QmR2gTXfXTzVDkY26A3z57Av9sipkCNYc5TXJpdCbfNjL9","QmZbTQKnY5UjdS3nLMVDEpRE4WxNTHR8UDP4xszhKc9L2M","QmZhZopoXsRGS8Yt9EznV9BQ4y6Tum1gDLFkYVHFFSVoKE","QmWmz6LVVDvrjcx29hkbGsbMbYavRxxabmxTwXkNFHjTrF","QmNNwEknB7BPdgz7bsH2bKYKDqgvWWfohNKfiinuw7Fxjj","QmSw4WNmV4RvB6Q1LkWMFXdnDUBUp4gkHntzFSmcxMj4ma","Qmb2r2wjrdQuAgE5VAnRwkKNdTdMiMjX2cnGQHyoFwZm2f","QmUGJQykiFPtEX8C99JRHL267FkpM5hK9KD2UAYzqCyAKK","QmQZ1rfpJrdVbRdSF2pTMx9aMmCTaNFcXjgfHGA5LT4qpo","QmSNnMGs9yND3QT3MuhJZaMJHxeeDCJ8tW64EMTTGocCCo","QmcLicHbxate3G5L1aCv9tduDivWo1g5rPKuLnNNwrizWM","Qmb9y11btTRaHqMH37aExeimFYy1RAhypoVn3oVoFV4Xqv","QmWVP7uxf3Ph4pi5ZU8Ss78ZCMeNseNMwxGND5b6swWnab"]
+var s3_url = 'https://ipfs.infura.io/ipfs/';
 
 var s_hammock_song_gdrive = 'https://ipfs.infura.io/ipfs/QmeBYoWFw5LVbVS7VesDmqmbWdV1wUGcer3ZNELB3HZ8LM';
 
@@ -114,7 +114,7 @@ var s_amazon_p1 = "<p>Le voyage en avion pour Leticia n'est pas long depuis Bogo
 
 var s_amazon_p2 = "<p>Je me balade un peu dans la ville et après avoir constaté qu'il n'y a pas grand chose à voir je demande où je peux prendre le bus pour le kilomètre 11 et le parc tanimboca. Il n'y a pas 36 bus: un pour tabatinga au brésil, un autre pour lagos et un autre pour km 11 ou 20 et après il faut aller au pérou en bateau ou remonter le fleuve amazone en bateau. En revanche il vaut mieux utiliser le bus qui coûte au maximum 2400 pesos pour 25 minutes alors alors qu'un taxi peut facturer 10 fois plus. Au km 11 se trouve à part plusieurs restaurants et une boulangerie, une communauté indigène huitoto, le fleuve Tacana, le parc Tanimboca et le camping <a href='http://omshanty.com' target='_blank'>omshanty</a> tenu par un espagnol, Enrique répondant au surnom de kiké où j'ai passé toutes mes nuits.</p><p>La lumière commence a faiblir à partir de 5:30pm et il fait presque nuit noire une demie heure plus tard donc je n'ai pas fait grand chose cette après-midi si ce n'est prendre des informations sur ce que je pouvais faire le lendemain. Je suis allé à l'entrée du parc Tanimboca pour réserver mon premier dîner trop cher: 15 mille pesos pour une pizza et un jus puis réserver une expédition d'une demie journée pour la matinée suivante. Certains soirs, comme le premier, des villageois regardaient des programmes télévisés à la boulangerie et j'y ai participé en faisant la connaissance de certains. Omshanty et de manière générale le km 11 ont une très bonne ambiance, agréable à vivre car dans la jungle et pas cher du tout. Ce fût une très bonne recommandation d'un ami indirect de mes parents.</p>";
 
-var s_amazon_p3 = "<p>Quand je suis arrivé vers 3h de l'après midi certains indigènes étaient déjà saouls à la bière. Cela me faisait un peu de peine mais c'est en fait assez occasionnel qu'ils soient saouls à cette heure-ci même si les premières bières de la journée sont souvent à 7h du mat et même avant! J'ai aussi goûté au mambé ce premier soir <p><img src='"+s3_url+"mambe.jpg' style='border: 1px solid #ccc; height:200px; border-radius: 3px; padding: 5px;' /></p> qui soit disant sert à couper la sensation de faim et soif pour travailler plus longtemps et 'aide à penser'. J'ai surtout eu l'impression que cela les abrutissait pas mal quand un des indigènes qui était déjà ivre à ce moment là m'a invité pour rencontrer sa famille. Il a bien rigolé de ma petite blague quand j'ai parlé de la communauté 'hui-toNto' (tonto = stupide) au lieu de huitoto.Il faut prendre une cuillèrée de mambé qu'on garde dans la bouche et l'inhaler au fur et à mesure. C'est à base de la feuille de coca.</p>";
+var s_amazon_p3 = "<p>Quand je suis arrivé vers 3h de l'après midi certains indigènes étaient déjà saouls à la bière. Cela me faisait un peu de peine mais c'est en fait assez occasionnel qu'ils soient saouls à cette heure-ci même si les premières bières de la journée sont souvent à 7h du mat et même avant! J'ai aussi goûté au mambé ce premier soir <p><img src='"+s3_url+ipfsHashs[26]+"' style='border: 1px solid #ccc; height:200px; border-radius: 3px; padding: 5px;' /></p> qui soit disant sert à couper la sensation de faim et soif pour travailler plus longtemps et 'aide à penser'. J'ai surtout eu l'impression que cela les abrutissait pas mal quand un des indigènes qui était déjà ivre à ce moment là m'a invité pour rencontrer sa famille. Il a bien rigolé de ma petite blague quand j'ai parlé de la communauté 'hui-toNto' (tonto = stupide) au lieu de huitoto.Il faut prendre une cuillèrée de mambé qu'on garde dans la bouche et l'inhaler au fur et à mesure. C'est à base de la feuille de coca.</p>";
 
 var s_amazon_p4 = "<p>Au fur et à mesure du voyage on réalise que l'amazonie est peut-être l'endroit où les gens sont les plus accueillants de Colombie et les indigènes vivant près de la ville sont des gens comme vous et moi vivant avec eau et électricité mais dans des petites cabanes ou parfois des familles de 5 personnes peuvent dormir dans un seul lit double comme je l'ai vu une fois. Leticia détient par ailleurs les meilleurs statistiques en terme de sécurité. Les dangers viennent plutôt des animaux et des maladies et bien sûr si l'on s'avanture seul dans un endroit trop reculé. Cette semaine là il y eut un nauffrage laissant un mort et un disparu dans un bâteau qui se rendait trop tôt le matin au Pérou alors qu'il faisait encore nuit...</p><p>Avant j'ai pris connaissance de ma chambre qui est en fait constituée de lits individuels avec moustiquaire. J'ai dormi seul le premier soir puis avec 2 polonais tout le reste de la semaine et nous fîmes rejoins par une allemande et un colombien pendant 2 ou 3 nuits. La vie en communauté s'est bien déroulée, on ne s'entend pas ronfler car le bruit des insectes et parfois de la pluie dans la jungle couvre les autres bruits et berçent bien. C'est la première fois de ma vie où j'ai pu être directement et simultanément au contact des 4 autres langues que je pratique ou ai pratiqué à un moment donné de ma vie, l'espagnol bien sûr, l'anglais et parfois même le russe avec les polonais qui savent parler russe et le portugais car la majorité des frontaliers parlent portugais. Je ne parlais pas portugais mais par exemple un soir où un jeune brésilien est venu passé une nuit à omshanty il me parlait principalement en portugais et je lui répondais en espagnol. De cette manière on arrivait à se comprendre. Dans le même registre il est assez fréquent de rencontrer des gens qui ont une triple nationalité ici comme Noémie, cuisinière d'un restaurant ou j'allais petit-déjeuner et dîner au début. Brésilienne par sa mère, péruvienne par son père et colombienne par son mari. J'ai passé une très bonne première nuit et le bruit des insectes de la forêt est vraiment élevé. Il fait même assez frais dans la jungle la nuit, au moins 4 degrés de moins qu'en ville.</p>";
 
@@ -142,94 +142,94 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'} 
 
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
-		.html('<div><p style="font-size: 50px; margin-top: 10%; margin-bottom: 30px;">Colombie</p><p><a onclick="goToLastPage();">Aller à la dernière page</a></p>'+displayImages({src: s3_url+'gates.jpg', w: null, h: '450px' })+'</div>' +
+		.html('<div><p style="font-size: 50px; margin-top: 10%; margin-bottom: 30px;">Colombie</p><p><a onclick="goToLastPage();">Aller à la dernière page</a></p>'+displayImages({src: s3_url+ipfsHashs[17], w: null, h: '450px' })+'</div>' +
 			'<div>'+s_day_1+'</div>' +
-			'<div><p style="margin-top: 50px; display: flex;">'+displayImages({ src: s3_url+'seats.jpg', w: null, h: '400px' })+displayImages({ src: s3_url+'golf.jpg', w: null, h: '400px' })+"</p><p>C'est bien un terrain de golf qu'on aperçoit en arrivant!</p></div>" +
+			'<div><p style="margin-top: 50px; display: flex;">'+displayImages({ src: s3_url+ipfsHashs[41], w: null, h: '400px' })+displayImages({ src: s3_url+ipfsHashs[18], w: null, h: '400px' })+"</p><p>C'est bien un terrain de golf qu'on aperçoit en arrivant!</p></div>" +
 			'<div>'+s_day_2+'</div>' +
-			'<div><div style="margin-top: 30px; ">'+displayImages({src: s3_url+'cook.jpg', w: '550px', h: null})+'</div></div>'+
-			'<div>'+s_day_3+'<p>'+displayImages({src: s3_url+'archive.jpg', w: null, h: '370px' })+'</p></div>'+
+			'<div><div style="margin-top: 30px; ">'+displayImages({src: s3_url+ipfsHashs[10], w: '550px', h: null})+'</div></div>'+
+			'<div>'+s_day_3+'<p>'+displayImages({src: s3_url+ipfsHashs[1], w: null, h: '370px' })+'</p></div>'+
 			'<div>'+s_day_3_bis+'</div>'+
-			'<div>'+s_day_4+'<p style="display: flex;">'+displayImages({src: s3_url+'soldier.jpg', w: null, h: '330px' })+displayImages({src: s3_url+'serrate.jpg', w: null, h: '330px' })+'</p></div>'+
-			'<div>'+s_day_4_bis+displayImages({src: s3_url+'botero.jpg', w: '425px', h: null})+s_day_4_bis_p2+'</div>'+
-			'<div>'+s_day_5+displayImages({src: s3_url+'masaya.jpg', w: '400px', h: null})+s_day_5_bis+'</div>'+
-			'<div>'+s_day_5_bis_p2+displayImages({src: s3_url+'wox.jpg', w: null, h: '450px' })+'</div>'+
+			'<div>'+s_day_4+'<p style="display: flex;">'+displayImages({src: s3_url+ipfsHashs[45], w: null, h: '330px' })+displayImages({src: s3_url+ipfsHashs[44], w: null, h: '330px' })+'</p></div>'+
+			'<div>'+s_day_4_bis+displayImages({src: s3_url+ipfsHashs[3], w: '425px', h: null})+s_day_4_bis_p2+'</div>'+
+			'<div>'+s_day_5+displayImages({src: s3_url+ipfsHashs[27], w: '400px', h: null})+s_day_5_bis+'</div>'+
+			'<div>'+s_day_5_bis_p2+displayImages({src: s3_url+ipfsHashs[55], w: null, h: '450px' })+'</div>'+
 			'<div>'+s_day_6+'</div>'+
-			'<div><p style="display: flex">'+displayImages({src: s3_url+'jacqueline.jpg', w: null, h: '300px' })+displayImages({src: s3_url+'rain.jpg', w: null, h: '300px' })+s_day_6_bis+'</p></div>'+
+			'<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[22], w: null, h: '300px' })+displayImages({src: s3_url+ipfsHashs[39], w: null, h: '300px' })+s_day_6_bis+'</p></div>'+
 			'<div>'+s_day_7+'</div>'+
-			'<div>'+s_day_7_p2+'<p>'+displayImages({src: s3_url+'room.jpg', w: '550px', h: null})+'</p></div>'+
+			'<div>'+s_day_7_p2+'<p>'+displayImages({src: s3_url+ipfsHashs[40], w: '550px', h: null})+'</p></div>'+
             '<div>'+s_week_2_p1+'</div>'+
-            '<div>'+displayImages({src: s3_url+'char.jpg', w: '550px', h: null})+"<p>Rassurant ou non d'avoir des camions de police de la sorte dans son quartier?</p></div>"+
+            '<div>'+displayImages({src: s3_url+ipfsHashs[7], w: '550px', h: null})+"<p>Rassurant ou non d'avoir des camions de police de la sorte dans son quartier?</p></div>"+
             '<div>'+s_week_2_p2+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+'univ.jpg', w: null, h: '550px' })+"</p><p>L'université nationale</p></div>"+
+            '<div><p>'+displayImages({src: s3_url+ipfsHashs[54], w: null, h: '550px' })+"</p><p>L'université nationale</p></div>"+
             '<div>'+s_week_2_p3+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+'barbele.jpg', w: null, h: '550px' })+"</p><p>Quand il n'y a pas de gardiens...</p></div>"+
+            '<div><p>'+displayImages({src: s3_url+ipfsHashs[2], w: null, h: '550px' })+"</p><p>Quand il n'y a pas de gardiens...</p></div>"+
             '<div>'+s_week_2_p4+'</div>'+
-            '<div>'+s_week_3_p1+'<p>'+displayImages({src: s3_url+'muscu.jpg', w: '400px', h: null})+'</p></div>'+
+            '<div>'+s_week_3_p1+'<p>'+displayImages({src: s3_url+ipfsHashs[32], w: '400px', h: null})+'</p></div>'+
             '<div>'+s_week_3_p2+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+'casa.jpg', w: '550px', h: null})+"</p><p>Un déjeuner à l'orphelinat. Ambience chaleureuse et décontractée. <br/>Idéal pour parfaire son espagnol.</p></div>"+
+            '<div><p>'+displayImages({src: s3_url+ipfsHashs[6], w: '550px', h: null})+"</p><p>Un déjeuner à l'orphelinat. Ambience chaleureuse et décontractée. <br/>Idéal pour parfaire son espagnol.</p></div>"+
             '<div>'+s_week_3_p3+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+'jvc.jpg', w: '550px', h: null})+'</p><p>Un café Juan Valdez au centre commercial Carullo le plus proche.</p></div>'+
+            '<div><p>'+displayImages({src: s3_url+ipfsHashs[24], w: '550px', h: null})+'</p><p>Un café Juan Valdez au centre commercial Carullo le plus proche.</p></div>'+
 '<div>'+s_week_4_p1+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+'masayastmrt.jpg', w: '550px', h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+ipfsHashs[28], w: '550px', h: null})+'</p></div>'+
              '<div>'+s_week_4_p2+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+'famille-santa.jpg', w: '550px', h: null})+'</p></div>'+
-             '<div>'+s_week_4_p3+'<p>'+displayImages({src: s3_url+'spider.jpg', w: '550px', h: null})+'</p></div>'+
-              '<div><p>'+displayImages({src: s3_url+'colibri.jpg', w: '550px', h: null})+'</p><p>Un colibri! (Au plein centre)</p></div>'+
-             '<div>'+s_week_4_p4+'<p>'+displayImages({src: s3_url+'douches-camping.jpg', w: '500px', h: null})+'</p></div>'+
-             '<div>'+s_week_4_p5+'<p style="display: flex">'+displayImages({src: s3_url+'elfi.jpg', w: null, h: '330px' })+displayImages({src: s3_url+'tayrona-sunrise.jpg', w: null, h: '330px' })+'</p></div>'+
-             '<div><p style="display: flex">'+displayImages({src: s3_url+'andrea.jpg', w: null, h: '350px' })+displayImages({src: s3_url+'kitchen.jpg', w: null, h: '350px' })+'</p>'+s_week_4_p6+'</div>'+
-              '<div><p style="display: flex">'+displayImages({src: s3_url+'senor-cartagena-1.jpg', w: null, h: '450px' })+displayImages({src: s3_url+'senor-cartagena-2.jpg', w: null, h: '450px'})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+ipfsHashs[15], w: '550px', h: null})+'</p></div>'+
+             '<div>'+s_week_4_p3+'<p>'+displayImages({src: s3_url+ipfsHashs[46], w: '550px', h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+ipfsHashs[9], w: '550px', h: null})+'</p><p>Un colibri! (Au plein centre)</p></div>'+
+             '<div>'+s_week_4_p4+'<p>'+displayImages({src: s3_url+ipfsHashs[13], w: '500px', h: null})+'</p></div>'+
+             '<div>'+s_week_4_p5+'<p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[14], w: null, h: '330px' })+displayImages({src: s3_url+ipfsHashs[50], w: null, h: '330px' })+'</p></div>'+
+             '<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[0], w: null, h: '350px' })+displayImages({src: s3_url+ipfsHashs[25], w: null, h: '350px' })+'</p>'+s_week_4_p6+'</div>'+
+              '<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[42], w: null, h: '450px' })+displayImages({src: s3_url+ipfsHashs[43], w: null, h: '450px'})+'</p></div>'+
              '<div>'+s_week_4_p7+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'chica-ctg.jpg', w: '550px', h: null})+'</p></div>'+
-             '<div><p style="display: flex">'+displayImages({src: s3_url+'cachao.jpg', w: null, h: '400px'})+displayImages({src: s3_url+'tienda-ctg.jpg', w: null, h: '400px' })+'</p></div>'+'<div><p>'+displayImages({src: s3_url+'ctg-by-night.jpg', w: '550px', h: null})+'</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[8], w: '550px', h: null})+'</p></div>'+
+             '<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[5], w: null, h: '400px'})+displayImages({src: s3_url+ipfsHashs[52], w: null, h: '400px' })+'</p></div>'+'<div><p>'+displayImages({src: s3_url+ipfsHashs[11], w: '550px', h: null})+'</p></div>'+
              '<div>'+s_week_5and6+'</div>'+
              '<div>'+s_week_5and6_p2+'</div>'+
              '<div>'+s_week_7and8+'</div>'+
              '<div>'+s_week_7and8_p2+'</div>'+
              '<div>'+s_5_days_in_mdl+'</div>'+
-             '<div><p style="display: flex">'+displayImages({src: s3_url+'nord-mdl.jpg', w: null, h: '375px' })+displayImages({src: s3_url+'office-mdl.jpg', w: null, h: '375px' })+'</p>'+s_5_days_in_mdl_p2+'</div>'+
+             '<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[35], w: null, h: '375px' })+displayImages({src: s3_url+ipfsHashs[36], w: null, h: '375px' })+'</p>'+s_5_days_in_mdl_p2+'</div>'+
              '<div>'+s_5_days_in_mdl_p3+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'jardin-bot.jpg', w: '550px', h: null})+'</p>'+s_5_days_in_mdl_p4+'</div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[23], w: '550px', h: null})+'</p>'+s_5_days_in_mdl_p4+'</div>'+
              '<div>'+s_5_days_in_mdl_p5+'</div>'+
-             '<div>'+displayImages({src: s3_url+'milena.jpg', w: '450px', h: null})+displayImages({src: s3_url+'hill-mdl.jpg', w: '450px', h: null})+'</div>'+
+             '<div>'+displayImages({src: s3_url+ipfsHashs[29], w: '450px', h: null})+displayImages({src: s3_url+ipfsHashs[20], w: '450px', h: null})+'</div>'+
              '<div>'+s_weekend_ss_in_ibg+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+'montagne-noirblanc.jpg', w: '550px' , h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+ipfsHashs[31], w: '550px' , h: null})+'</p></div>'+
              '<div>'+s_weekend_ss_in_ibg_p2+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+'people-nevados.jpg', w: null, h: '600px' })+'</p></div>'+
+            '<div><p>'+displayImages({src: s3_url+ipfsHashs[37], w: null, h: '600px' })+'</p></div>'+
              '<div>'+s_weekend_ss_in_ibg_p3+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+'montagne-nevados.jpg', w: '550px', h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+ipfsHashs[30], w: '550px', h: null})+'</p></div>'+
              '<div>'+s_weekend_ss_in_ibg_p4+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+'telepheric-nevados.jpg', w: '550px', h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+ipfsHashs[51], w: '550px', h: null})+'</p></div>'+
              '<div>'+s_weekend_ss_in_ibg_p5+s_weekend_ss_in_ibg_p6+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'ibg-trio.jpg', w: null, h: '600px' })+'</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[21], w: null, h: '600px' })+'</p></div>'+
              '<div>'+s_last_chapter+'</div>'+
              '<div>'+s_last_chapter_p2+'</div>'+
              '<div>'+s_last_chapter_p3+'</div>'+
-             '<div>'+s_amazon+displayImages({src: s3_url+'tanimboca.jpg', w: '550px' , h: null})+'</div>'+
+             '<div>'+s_amazon+displayImages({src: s3_url+ipfsHashs[49], w: '550px' , h: null})+'</div>'+
              '<div>'+s_amazon_p1+'</div>'+
              '<div>'+s_amazon_p2+'</div>'+
              '<div>'+s_amazon_p3+'</div>'+
              '<div>'+s_amazon_p4+'</div>'+
              '<div>'+s_amazon_p5+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'guides.jpg', w: '550px', h: null})+'</p><p>Les deux jeunes guides du parc Tanimboca.</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[19], w: '550px', h: null})+'</p><p>Les deux jeunes guides du parc Tanimboca.</p></div>'+
              '<div>'+s_amazon_p6+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'fille-puerto-narino.jpg', w: null, h: '480px' })+'</p><p>Fille de Puerto narino se protégeant du soleil avec un parapluie. L\'ombre sur le sol donne une idée de la position du soleil dans le ciel.</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[16], w: null, h: '480px' })+'</p><p>Fille de Puerto narino se protégeant du soleil avec un parapluie. L\'ombre sur le sol donne une idée de la position du soleil dans le ciel.</p></div>'+
              '<div>'+s_amazon_p7+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'puerto-narino.jpg', w: null, h: '480px' })+'</p><p>Vue depuis le mirador de Puerto narino.</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[38], w: null, h: '480px' })+'</p><p>Vue depuis le mirador de Puerto narino.</p></div>'+
              '<div>'+s_amazon_p8+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'sunset-amazon.jpg', w: '550px', h: null})+'</p><p>Le fameux gros cercle orange cramoisi.</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[47], w: '550px', h: null})+'</p><p>Le fameux gros cercle orange cramoisi.</p></div>'+
              '<div>'+s_amazon_p9+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'tabatinga.jpg', w: '550px', h: null})+'</p><p>L\'entrée de Tabatinga.</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[48], w: '550px', h: null})+'</p><p>L\'entrée de Tabatinga.</p></div>'+
              '<div>'+s_amazon_p10+'</div>'+
-             '<div>'+s_amazon_p11+'<p>'+displayImages({src: s3_url+'bracelet.jpg', w: '480px', h: null})+'</p></div>'+
+             '<div>'+s_amazon_p11+'<p>'+displayImages({src: s3_url+ipfsHashs[4], w: '480px', h: null})+'</p></div>'+
              '<div>'+s_amazon_p11_bis+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'noemie.jpg', w: null, h: '480px' })+'</p><p>Noémie, cuisinière d\'un restaurant du Km 11.</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[34], w: null, h: '480px' })+'</p><p>Noémie, cuisinière d\'un restaurant du Km 11.</p></div>'+
              '<div>'+s_amazon_p12+s_amazon_p13+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'dog-km11.jpg', w: null, h: '480px' })+'</p><p>La moitié des chiens du Km 11 sont boiteux, ecorchés et blessés par les véhicules qui passent. Celui-là ressemble presque à un coyote!</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+ipfsHashs[12], w: null, h: '480px' })+'</p><p>La moitié des chiens du Km 11 sont boiteux, ecorchés et blessés par les véhicules qui passent. Celui-là ressemble presque à un coyote!</p></div>'+
              '<div>'+s_biggest_surprises_p1+'</div>'+
              '<div>'+s_biggest_surprises_p2+'</div>'+
              '<div>'+s_biggest_surprises_p3+'</div>'+
-             '<div><p class="t"><u>Fin</u><a onclick="goToFirstPage();">(Retour à la 1ère page)</a></p><p>'+displayImages({src: s3_url+'ninas.jpg', w: null, h: '480px' })+'</p></div>');
+             '<div><p class="t"><u>Fin</u><a onclick="goToFirstPage();">(Retour à la 1ère page)</a></p><p>'+displayImages({src: s3_url+ipfsHashs[33], w: null, h: '480px' })+'</p></div>');
 
 // Wait until it renders
 
