@@ -1,5 +1,5 @@
 (function($) {
-
+const ipfsUrl = 'https://ipfs.infura.io/ipfs/'
 const s_p_1 = `<p>​¿<span class='coco'>Có</span>mo <span class='coco'>co</span>municarte mi <span class='coco'>co</span>mpasión?</p>`;
 
 const s_p_2 = `<p>​Te en<span class='coco'>co</span>ntré en una de las màs maravillosas <span class='coco'>co</span>linas de <span class='coco'>Co</span>lombia.</p>`;
@@ -30,10 +30,10 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: 660} 
           <img src="https://ipfs.infura.io/ipfs/QmNqJue3ZH1Sjf6xDhPyAV4pZxDtjYvSDbGDmbe3Ef91Gk" style="border: none; width: 600px;"/></p>
           </div>
             <div>${s_p_1}${s_p_2}${s_p_3}${s_p_4}${s_p_5}${s_p_6}${s_p_7}${s_p_8}${s_p_9}${s_p_10}${s_p_11}
-			           <p><audio style="margin-bottom: 15px;" src="https://doc-10-80-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/krqsaab1dmocb02omjhr9ng3p8l13j1v/1554465600000/17286551385290304284/*/0ByZkBrrzUJN_OHNvZS1SUXgzTFU" preload="none" type="audio/mp3" controls title="Nomad (Reprise)" /><br>Lars Bartkuhn, Nomad (Reprise)</p>
+			           <p><audio style="margin-bottom: 15px;" src="${ipfsUrl + 'QmbnWD3RaDWt6kPzcFoac7ZFVefgpXkrLFcujJxEgasQSS'}" preload="none" type="audio/mp3" controls title="Nomad (Reprise)" /><br>Lars Bartkuhn, Nomad (Reprise)</p>
           </div>
             <div><p><a href="#" onclick="goToFirstPage();">(Retourner à la première page.)</a></p>
-			<p><img src="https://ipfs.infura.io/ipfs/QmUJCupQ6jKb7VCF9o2zXRdPMJtpr6nh9preqCsy5yePkn" style="width: 400px; border: 1px solid #ccc; border-radius: 2px; padding: 5px;" /></p>
+			<p><img src="${ipfsUrl + 'QmUJCupQ6jKb7VCF9o2zXRdPMJtpr6nh9preqCsy5yePkn'}" style="width: 400px; border: 1px solid #ccc; border-radius: 2px; padding: 5px;" /></p>
     </div>`);
 
 // Wait until it renders

@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en" class="noie">
 <head>
-<title>La philosophie du monde</title>
+<title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=1200" />
 <link rel="icon" type="image/png" href="../../images/icon.png" />
-<link type="text/css" rel="stylesheet" href="css/jquery.ui.css"/>
-<link type="text/css" rel="stylesheet" href="css/default.css"/>
-<script type="text/javascript" src="extras/all.js"></script>
-<script type="text/javascript" src="lib/turn.min.js"></script>
-<script type="text/javascript" src="lib/zoom.min.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/jquery.ui.css"/>
+<link type="text/css" rel="stylesheet" href="../css/default.css"/>
+<script type="text/javascript" src="../extras/all.js"></script>
+<script type="text/javascript" src="../lib/turn.min.js"></script>
+<script type="text/javascript" src="../lib/zoom.min.js"></script>
 <style type="text/css">
 html, body{ height: 100%; }
 
@@ -32,17 +32,14 @@ body{ font-family: alamain1; font-size: 15px; background-color: black; text-alig
 </head>
 <body onload="showSwipable();">
 <div class="sample" id="sample-viewer">
-	<!-- <a>Run code</a>-->
 </div>
 <script type="text/javascript">
-
-function goToLastPage()
-{
+const splitPathName = location.pathname.split('/')
+document.title = splitPathName[splitPathName.length-2].replace(/-/g,' ')
+function goToLastPage(){
     var i_last_page = $(".sample-flipbook").turn("pages");
 
-   var timer = setInterval(function()
-    {
-
+   var timer = setInterval(function(){
         $(".sample-flipbook").turn("next");
 
             if ($(".sample-flipbook").turn("page") === (i_last_page))
@@ -50,24 +47,18 @@ function goToLastPage()
               window.clearInterval(timer);
               //$(".sample-flipbook").turn("options", {turnCorners: "tl,tr"});
             }
-
     }, 100);
-
+}
+function goToFirstPage(){
+        $(".sample-flipbook").turn('page', 1);
 }
 
-function goToFirstPage()
-    {
-        $(".sample-flipbook").turn('page', 1);
-    }
-
-function showSwipable()
-    {
+function showSwipable() {
         $('.sample-flipbook').turn("peel", "tr");
-    }
-
+}
 yepnope({
 	test : Modernizr.csstransforms,
-	nope : ['lib/turn.html4.min.js', 'css/jquery.ui.html4.css']
+	nope : ['../lib/turn.html4.min.js', '../css/jquery.ui.html4.css']
 });
 
 $(document).ready(function()
@@ -75,8 +66,8 @@ $(document).ready(function()
 	$(this).hide();
 	yepnope({
 		test : Modernizr.csstransforms,
-		load: ['samples/basic/js/basic.js', 'samples/basic/css/basic.css'],
-		nope: 'samples/basic/css/basic.html4.css?'+Math.round(Math.random()*100)
+		load: ['basic.js', '../samples/basic/css/basic.css'],
+		nope: '../samples/basic/css/basic.html4.css?'+Math.round(Math.random()*100)
 	});
 });
 </script>
