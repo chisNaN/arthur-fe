@@ -1,5 +1,4 @@
 (function($) {
-
 const ipfsHttpsEndpoint = 'https://ipfs.infura.io/ipfs/'
 const hashs = [
     "QmYSQWB7S9TgiXrNWDzM4Z5HZZ2J7LrbwX1r48wjjUa1fe",
@@ -8,7 +7,7 @@ const hashs = [
     "QmQEKhTMs5Rn1zk2Z6aG7rR6qscJbpX5G5g6hjiCueGMjK",
     "QmNsu7ZUVTpikLnaV8LAm9p36d3NBLdJ8t74AkH5psBE2k",
     "QmXX7mm9qhdRRqdpydGq5JEjmQxpDd7K7bRqKghnk9CxPn",
-    "QmTohg1QfGxUoniDbsqv46fGXa8mpjhVQnzFUgs4oqaa87",
+    "Qme4psQBUuJa5i3Q7TKsiGxkEzrRehjUm7qBMWwEzMDBhw",
     "QmYHoqTxuqZmmxzSMs7RrN75979TE54o64XJYeLkQo8Ad5",
     "QmXnGQF85AHvcNrqfgaRxeWbM6pu7QYK7E2kb4u2jEsXMz",
     "QmZQ6Ngtwpe6m5k4x5BQkEuxN8ZoxmjTi7NvabE7j3ost9",
@@ -22,7 +21,7 @@ const hashs = [
     "QmTHDtxepUs1fTSsuxjWzFudajSjcQrp5cc3vPewx67cqi",
     "QmXQgw14ArtQML5D72qinFYe7ZxmmcyVTEzi12uiUfAfMG",
     "Qma2jEst6ppfnHCAiWptboomtq1u7YmL7aes6odieYrzrd",
-    "QmawqUK9P9tgqNm4vEF5HFHzMjuK9UzXiSfTo982a5fGgf",
+    "QmUDfamerFBfxpKHr3BtgRTxJksXmXpy7mWPcWPG2xLZcQ",
     "QmVBFUtkCKDhYJDciHMT4Zozpz4BcesFJ15UrAQbd1es3f",
     "QmbZPcfozQwxLi54VE5KXUv9FhQzBV2TUswqMRXwX6MsUs",
     "QmUAid9QqQp2DrtxEDo9mPiM6Anr4hQQFyxVfuXrPfwQ26",
@@ -54,7 +53,7 @@ const hashs = [
 		{ artist: 'Kommode', title: 'Lady-logic', descr: 'Genius of Eirik Glambek Bøe.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Donald Byrd', title: 'I feel like loving you today', descr: 'Donald byrd trumpet on a stunning Isaac Hayes production.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Safri Duo', title: 'Baya Baya', descr: 'Percussions', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Lars Bartkuhn', title: 'Tokyo Burning', descr: 'Dynamic groove from german multi-instrumentist', name: ipfsHttpsEndpoint+hashs[i++]},
+		{ artist: 'Lars Bartkuhn', title: ' Pyramids (Part I)', descr: 'Dynamic groove from german multi-instrumentist', name: ipfsHttpsEndpoint+hashs[i++]},
 		];
 	const bestSongs1 = [{artist: 'Zero7', title: 'Morning Song', descr: 'A faithful expression of what one can feel during the morning.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Muki', title: 'Quiet Riot', descr: 'A good introductive James Bond song.', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -71,7 +70,7 @@ const hashs = [
 		{ artist: 'Celso Fonseca', title: 'Ficar', descr: 'A modern, original and soulful MPB', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Kings of Convenience', title: 'Summer On The Westhill', descr: 'Meditative and nostalgic folk from Norway', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Manual and Syntaks', title: 'A Perfect Solitude', descr: 'One can feel like in "Atlantis" listening this track', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Hammock', title: 'This Is Not Enough', descr: 'Very "visual" music, one can feel the light of high northern areas.', name: ipfsHttpsEndpoint+hashs[i++]},
+		{ artist: 'Hammock', title: 'Snowburn', descr: 'Very "visual" music, one can feel the light of high northern areas.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Isabelle Antena', title: 'My lexicon', descr: 'Soulful mediterranean bossanova', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Nuyorican Soul (with George Benson)', title: 'You Can Do It (Baby)', descr: 'An "orgasmic" guitar track', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Phoneheads &amp; the Düsseldorf Symphonic Orchestra', title: 'Subject Beautiful', descr: 'Another powerful and immersive 007 song. (Enjoy the voice of Cleveland Watkiss)', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -123,7 +122,7 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
 
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
-		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (34 years old)</p>
+		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (35 years old)</p>
 				${htmlOutput0}</div>
         <div>${htmlOutput1}</div>
         <div>${htmlOutput2}</div>
