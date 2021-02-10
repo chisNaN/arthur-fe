@@ -73,7 +73,7 @@ const s_miyazkian_villages = `<p class='t'><u>Endroits Miyazakien</u></p><p><a h
 
 const daysInLife = `<p class='t'><u>Ces jours qui ont marqué ma petite<br><br>existence...</u></p><p>- Quand j'ai vu le lecteur mini-cd de Sony. Je me suis dis « il me faut ce truc! »</p>
 <p>- Mes premiers téléchargements de musique grâce au logiciel peer to peer Kazaa.</p><p>- Mes premiers cours de philosophie avec François Tenaud.</p>
-<p>- Le jour des attentats du 11 septembre 2001. Ces images surréalistes à la télé!</p><p>- Le jour du second décès dans ma famille.</p><p>- Mes premières compositions M.I.D.I. sous Cubase avec le piano électronique de ma mère.</p>
+<p>- Le jour des attentats du 11 septembre 2001. Ces images surréalistes à la télé!</p><p>- Le jour du décès de mon père.</p><p>- Mes premières compositions M.I.D.I. sous Cubase avec le piano électronique de ma mère.</p>
 <p>- Mon premier saut en parachute en tandem (avec <a href='https://www.youtube.com/watch?v=lDsN8a6hBCE' target='_blank'>Mike Brooke</a>).</p><p>- Le soir et la nuit du passage à l'année 2010...</p>`;
 
 const s_my_dreams = "<p class='t'><u>Quelques rêves...</u></p><p>- Observer les 'doigts de dieux' dans la tornado alley aux USA</p><p>- Observer la terre depuis l'epsace</p><p>- Un week-end dans un phare ou dans un sous-marin.</p>";
