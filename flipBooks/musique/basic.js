@@ -42,6 +42,6 @@ $('<div />', {'class': 'sample-flipbook'})
 	<div>${music2}</div>
   <div>${music3}</div>`);
 
-$('.sample-flipbook').turn({ width: 1300, height: 900, autoCenter: true, shadows: $.isTouch, acceleration: $.isTouch });
+$('.sample-flipbook').turn({ width: 1300, height: '95%', autoCenter: true, shadows: $.isTouch, acceleration: $.isTouch });
 
 })(jQuery);
