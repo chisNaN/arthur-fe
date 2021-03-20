@@ -13,7 +13,7 @@ class MusicLib {
       if (library) {
         library = JSON.parse(library)
       } else {
-        const url = 'https://ipfs.infura.io/ipfs/QmWaRo4ev9DsqcA9BhUy4uLabQcW2e3tiF7C7PEDe3cTGC'
+        const url = 'https://ipfs.infura.io/ipfs/QmRCExDB4UG2dY3Y433atf8y9h4tfbmfmRugSMcNbrpdFA'
         library = await (await fetch(url)).json()
         localStorage.setItem('musicLib', JSON.stringify(library))
       }
