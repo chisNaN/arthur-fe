@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>gdrive mp3 player</title>
+<style type="text/css">
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+	body {
+		background-color: black;
+		color: white;
+    height: 100%;
+	}
+  div {
+    display: flex;
+  }
+form {
+	display: flex;
+  width: 100%;
+	}
+  a{ text-decoration: none; color: cornflowerblue; }
+  select {
+    height: 100%;
+    background-color: black;
+    color: white;
+    width: 100%
+  }
+  #main {
+    flex-flow: row;
+    height: 100%;
+  }
+  #left {
+    width: 33%;
+    flex-flow: column;
+  }
+  #right{
+    width: 66%;
+  }
+  #output {
+    flex-flow: column;
+  }
+  #informations {
+    flex-flow: column;
+  }
+  #rightChild {
+    flex-direction: column;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+  <div id="main">
+    <div id="left">
+      <div><h1>Welcome</h1></div>
+      <font style="cursor: pointer; display: none;" color="red" onclick="localStorage.clear(); location.reload()">Reload library and refresh!</font>
+      <br>
+      <div>
+        All tracks are played randomly by default.<br>
+        Once you select manually a track from the right panel it will read it automatically.<br>
+        But after your selected track has finished to read <br>
+        it will return to read from randoms tracks that HAVE NOT been read yet!
+      </div>
+      <marquee></marquee>
+    	<div id="player" style="display: none;">
+        <audio controls type="audio/mp3"></audio>
+        <a href="#">
+          <img src="https://ipfs.infura.io/ipfs/Qma9hHTu6tgq1USZLBUzup5BuHToEhFyYa5aXMuLvzUdDL" style="width: 55px; border-radius: 20px; background-color: white;" />
+        </a>
+      </div>
+      <div id="informations">
+        <h3>More informations about current track?</h3>
+        <a href="https://t.me/auddbot?start=api" target="_blank">Get an api token from audd</a><br>
+        Want to know more about <a href="https://audd.io/" target="_blank">audd.io</a><br>
+        <div style="flex-flow: row;">
+          <input type="text" id="token" placeholder="your audd token" >
+          <button>Try to get more informations</button><br>
+        </div>
+      </div>
+    </div>
+    <div id="right">
+      <form>
+        <div id="rightChild">
+          <input type="search" style="height: 20px;" list="tracks" placeholder="Search a track name">
+          <datalist id="tracks"></datalist>
+          <div id="output"></div>
+        </div>
+      </form>
+    </div>
+</div>
+<script src="script.js" charset="utf-8"></script>
+</body>
+</html>
