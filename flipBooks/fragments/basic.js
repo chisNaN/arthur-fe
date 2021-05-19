@@ -108,7 +108,9 @@ const lastChapter = `<p class='t'><u>A mon propos</u></p><p>Mon cynisme est la m
 <p>Parfois je me dis que mon trouble est la meilleure chose qui me soit arrivée dans la vie: sans lui elle n'aurait sûrement pas eu autant d'intensité et de créativité!</p>
 <p>Je suis homosexuel psychiquement, hétérosexuel physiquement.</p><p>C'est plutôt ce que les autres disent de moi dans mon dos qui m'intéresserait de savoir...</p>
 <p>Je m'intéresserais plus aux choses qu'aux gens.</p><p>Sur mon épitaphe: 'Music must travel (Marcel Tabuteau).'</p><p>Au fond je suis marié depuis mes 15-16 ans environ: au Rach 3!</p>
-<p>Google est mon meilleur ami, la musique est ma femme et la philosophie mon garde-fou.</p><p>'Le poète se souvient du futur': Dans une vie future je vivrai une histoire avec une paisa au Brésil. À plusieurs reprises déjà, dans cette vie cela a failli se produire...</p><p><br><a href='#' onclick='goToFirstPage();'>(Retour à la 1ère page)</a></p>`;
+<p>Google est mon meilleur ami, la musique est ma femme et la philosophie mon garde-fou.</p><p>'Le poète se souvient du futur': Dans une vie future je vivrai une histoire avec une paisa au Brésil. À plusieurs reprises déjà, dans cette vie cela a failli se produire...</p>
+<p>"Il y a ceux qui disparaissent avant de mourrir" (H.MURAKAMI) et je disparais dans un solipsisme musicale hypermnésique</p>
+<p><br><a href='#' onclick='goToFirstPage();'>(Retour à la 1ère page)</a></p>`;
 
 const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'} }).appendTo($('#sample-viewer'));
 
