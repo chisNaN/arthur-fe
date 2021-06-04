@@ -5,7 +5,7 @@ const p1 = `<p>La mort nous donne cette sensation vertigineuse en ce que c’est
 <p>L'idée est plutôt de constater que c'est toujours autrui qui peut témoigner de notre propre mort mais jamais nous-même et en définitive, chacun meurt avec l’ignorance (et sans la satisfaction) de se savoir mort </p>
 <p>Par ailleurs, c’est le statut épistémologique de la «réalité» de la CONSCIENCE elle-même qui en est troublé car la conscience fonctionne vraiment sur le mode de l’illusion  (ou du rêve comme bon nombre d’écrivains l’ont dit) dans le sens où l’on ne peut pas «POUR SOI» expérimenter la différence entre être mort et en vie (car l’on sait pertinemment que lorsqu’on meurt le monde continue d’exister sans sa conscience)</p>
 <p>Si on peut «assister virtuellement» à sa naissance enregistrée en vidéo par exemple, la mort est bien la seule fin qu’on n’expérimente pas.</p>
-<p>La connaissance de la différence entre être en vie et être mort est complètement pour les autres et pas pour soi.</p>
+<p>La connaissance de la différence entre être en vie et être mort est complètement pour les autres et pas pour soi-même.</p>
 <p>La question n’est pas pourquoi il y a t il quelque chose plutôt que rien mais est ce que ce quelque chose va durer pour toujours?</p>
 <p>Si oui alors vivre sur le mode de la conscience humaine est ce expérimenter l infini ?</p>`;
 
