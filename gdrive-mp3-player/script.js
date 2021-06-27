@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       document.querySelector('#left').style.width = '50%'
       document.querySelector('#right').style.width = '50%'
     }
-    // --------- --------- LISTENERS --------- ---------
+    // --------- --------- audio LISTENERS --------- ---------
     audio.addEventListener('ended', async _ => {
       try {
         console.warn('song ended')
@@ -82,6 +82,26 @@ document.addEventListener('DOMContentLoaded', async _ => {
         console.warn(e)
       }
     }) // end ended
+    audio.addEventListener('play', e => {
+      try {
+        const jacket = document.querySelector('.jacket')
+        if (jacket) {
+          jacket.style.animationPlayState = "running"
+        }
+      } catch (e) {
+        console.warn(e)
+      }
+    })
+    audio.addEventListener('pause', e => {
+      try {
+        const jacket = document.querySelector('.jacket')
+        if (jacket) {
+          jacket.style.animationPlayState = "paused"
+        }
+      } catch (e) {
+        console.warn(e)
+      }
+    })
     document.querySelector('a').addEventListener('click', async e => {
       try {
         document.querySelector('marquee').innerHTML = 'Wait please...'
