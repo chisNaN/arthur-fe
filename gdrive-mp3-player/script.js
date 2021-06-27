@@ -156,16 +156,20 @@ document.addEventListener('DOMContentLoaded', async _ => {
             let html = ''
             for (const [k, v] of Object.entries(json.result)) {
               if (typeof v === 'string') {
-                html += `${k}&nbsp;${v}<br>`
+                if (k === 'song_link' && v.match(/HTTP/i)) {
+                  html += `<u>${k}</u>&nbsp;<a href="${v}" target="_blank">${v}</a><br>`
+                } else {
+                  html += `<u>${k}</u>&nbsp;${v}<br>`
+                }
               } else {
                 /*if (k === 'apple_music') {
                   html += ``
                   break;
                 } else */if (k === 'deezer') {
-                  html += `<img src="${v.album.cover_medium}" />`
+                  html += `<img class="jacket" src="${v.album.cover_medium}" />`
                   break
                 } else if (k === 'spotify') {
-                  html += `<img src="${v.album.images[1].url}" />`
+                  html += `<img class="jacket" src="${v.album.images[1].url}" />`
                 }
               }
             }
