@@ -194,6 +194,9 @@ document.addEventListener('DOMContentLoaded', async _ => {
               }
             }
             document.querySelector('#output').innerHTML = html
+            if (document.querySelector('audio').paused) {
+              document.querySelector('.jacket').style.animationPlayState = "paused"
+            }
           } else {
             document.querySelector('#output').innerHTML = '<h2 style="color: red;">Could not find results!</h2>'
           }
