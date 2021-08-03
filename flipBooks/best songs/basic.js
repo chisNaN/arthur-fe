@@ -33,7 +33,7 @@ const hashs = [
     "QmSj6zWPLLBKNokFEgHein88TySr7GuFeMeKT9TH4ibZDd",
     "QmUTVdDuS5yVzS4kWp5eVLETUZkXhTZ8w77zZmmKrVEHPv",
     "QmdeA52ugEypoxorcA3ZVK9LWKAfJhCskCjvJuV4UnHUkm",
-    "QmfJnFkjqC7HGie6q7jpdbvz6hU32DnTFwqVGev4Zs8hd2",
+    "QmXYbitP46vQYHhvwWrAQJgJF1bKDdQr4F5D6uZMcxbs7b",
     "QmRDWLVdtWLdBmWEedWfvBGZocv2wuriCfCfdxFbqKtx62",
     "Qmf7jz4LB3NdHHrZ61Zg9wCqeWoux4UrVJp9eAPYaq9vSu",
     "Qmda636PrZLN4HpfBGoVaQY6ptEGufTwEZoUqurPDR8zNe",
@@ -43,7 +43,8 @@ const hashs = [
     "QmUL9yeJcXfYgQWXiwrE42RQsNdJoCBXPBZt2rrM3kPZG9",
     "QmQefYKnvxDP3XB41SHQinktR8YymcHQ9DoRccKDoP6wbV",
     "QmZiwZLFrV46Sg5KKD7dkbGYk8J2Bh2CiKNErK7bUEF9nW",
-    "QmUYFbkA2eiD1pSv4QjbLUybvsifGBMYMyBZVndaLkJmvY"
+    "QmUYFbkA2eiD1pSv4QjbLUybvsifGBMYMyBZVndaLkJmvY",
+    "QmW9sehV64wud2D7EAs5n6G5hcs2mqz9bypTQiGf1VJor7"
   ]
   // alert(hashs.length)
   let i = 0
@@ -84,7 +85,7 @@ const hashs = [
 {artist: 'ReJazz', title: 'At First Glance', descr: 'Matthias Vogt and his band', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Makoto', title: 'Time (Kyoto Jazz Massive Remix)', descr: 'soulful and groovy KJM remix with C.Watkiss voice', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'City of Satellites', title: 'Skeletons (Manual Remix)', descr: 'One of the best Manual (Jonas Munk) Remix', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Spotlights', title: 'Seismic', descr: 'Most "explosive" track ever heard!', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Spotlights', title: 'Far from falling', descr: 'Most "explosive" track ever heard!', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Sparklehorse', title: 'Cow', descr: 'Our world is sadder and less beautiful without Mark Linkous', name: ipfsHttpsEndpoint+hashs[i++]}
 ]
 
@@ -94,9 +95,11 @@ const lastPage = [{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 
 {artist: 'Still Corners', title: 'The trip', descr: 'New start in life feeling', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'The vogado projects', title: 'Mas Fuerte Que El Sol', descr: 'Late summer track', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Moe Hairlines', title: 'What We Had Loved', descr: 'Nostalgia of loneliness', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Tassel and Naturel', title: 'Smile', descr: 'Soulful drum and bass', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Tassel and Naturel', title: 'Smile', descr: 'Soulful bossa n bass', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Kid Loco', title: 'A Grand Love Theme', descr: 'French "Gliding" Trip-hop', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Modaji', title: 'Belleville', descr: 'Modaji of Bogota', name: ipfsHttpsEndpoint+hashs[i++]}]
+
+const newLastPage = [{artist: 'Fourplay', title: '101 Eastbound', descr: 'Probably the best Fourplay track', name: ipfsHttpsEndpoint+hashs[i++]}, ]
 
 let htmlOutput0 = bestSongs0.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
@@ -118,6 +121,10 @@ let htmlOutput4 = lastPage.map(o => {
   return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>'
 }).join('')
 
+let htmlOutput5 = newLastPage.map(o => {
+  return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>'
+}).join('')
+
 const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%' } }).appendTo($('#sample-viewer'));
 
 	$('<div />', {'class': 'sample-flipbook'})
@@ -127,7 +134,8 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
         <div>${htmlOutput1}</div>
         <div>${htmlOutput2}</div>
         <div>${htmlOutput3}</div>
-				<div>${htmlOutput4}</div>`);
+				<div>${htmlOutput4}</div>
+        <div>${htmlOutput5}</div>`);
 
   $('.sample-flipbook').turn({
   	width: 1300,
