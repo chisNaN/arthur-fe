@@ -65,8 +65,29 @@ document.addEventListener('DOMContentLoaded', async _ => {
       return `<option>${trackName}</option>`
     }).join('')
     document.querySelector('datalist').innerHTML = options
-    const { matches } = window.matchMedia("(min-width: 1000px)")
-    if (matches) {
+    const mediaQuery = window.matchMedia("(min-width: 1000px)")
+    // const { matches } = window.matchMedia("(min-width: 1000px)")
+    mediaQuery.addEventListener('change', ({ matches }) => {
+      const select = document.querySelector('select')
+      if (matches) {
+        if (!select) {
+          document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple></select>')
+          document.querySelector('select').innerHTML = options
+          select.addEventListener('click', async e => {
+            try {
+              await loadTrack2(e.currentTarget.selectedIndex)
+            } catch (e) {
+              console.warn(e)
+            }
+          }) // end click
+        } else {
+          select.style.display = 'block'
+        }
+      } else {
+        select.style.display = 'none'
+      }
+    })
+    if (mediaQuery.matches) {
       document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple></select>')
       document.querySelector('select').innerHTML = options
     } else {
@@ -127,14 +148,14 @@ document.addEventListener('DOMContentLoaded', async _ => {
       }
     }) // end keyup
     // this function SHOULD play a track from ALL copied library
-    if (matches) {
+    if (mediaQuery.matches) {
       document.querySelector('select').addEventListener('click', async e => {
         try {
           await loadTrack2(e.currentTarget.selectedIndex)
         } catch (e) {
           console.warn(e)
         }
-      }) // end change
+      }) // end click
     }
     document.querySelector('form').addEventListener('submit', async e => {
       try {
