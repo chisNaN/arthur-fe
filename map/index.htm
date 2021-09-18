@@ -55,64 +55,51 @@ body{
   <body>
     <div id="map"></div>
     <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', () => {
-        if (self.fetch) {
+      document.addEventListener('DOMContentLoaded', async () => {
           const ipfsHttpEndpoint = 'https://ipfs.infura.io/ipfs/'
-      		const url = 'https://spreadsheets.google.com/feeds/list/1R5M5fODJVW_O5GqFYdYBzQTF_avcvuQdmAXuTsEWWZo/od6/public/values?alt=json';
-          fetch(url).then(r => r.json())
-          .then(r2 => {
-            const map = new google.maps.Map(document.getElementById("map"), {
+          const json = await (await fetch('https://script.google.com/macros/s/AKfycbx2ceSND0kL7_o3OSjlxCxbMxbFAj7e3j_fXnPwYJwiTZ9TewoOtgKPszthVsq6uHJs/exec') ).json()
+          const map = new google.maps.Map(document.getElementById("map"), {
         			center: new google.maps.LatLng(30, 30), zoom: 3, mapTypeId: 'roadmap'
         		});
         		const infoWindow = new google.maps.InfoWindow;
         		infoWindow.width = 400;
             const a = [];
             let html = '';
-            for (const p in r2.feed.entry) {
-      				//make link if there is an associated gal
-              const hrefs = r2.feed.entry[p]['gsx$_cpzh4']['$t'];
-              const posEqual = hrefs.indexOf('=');
-      				if (~posEqual) {
-                const beforeEqual = hrefs.substr(0, posEqual+1);
-                const afterEqual = hrefs.substr(posEqual+1);
-      					html = `<b><a target="_blank" href="${beforeEqual+encodeURIComponent(afterEqual)}" >${afterEqual}</a></b>`;
-      				}else{
-      					 html = `<b>${hrefs}</b>`;
-      				}
-              if (r2.feed.entry[p].gsx$_cre1l) {
-                if (r2.feed.entry[p].gsx$_cre1l.$t.includes(',')) {
-                  html += r2.feed.entry[p].gsx$_cre1l.$t.split(',').map((v, k) => {
-                    return `<br><a target="_blank" href="${ipfsHttpEndpoint + v}">music ${k + 1}</a>`
-                  }).join('')
-                } else {
-                  html += `<br><audio src="${ipfsHttpEndpoint + r2.feed.entry[p].gsx$_cre1l.$t}" preload="none" type="audio/mp3" controls>`
+            let i = 0
+            if (Array.isArray(json) && json.length > 0) {
+              for (const entry of json) {
+                i++;
+                const lat = entry[0]
+        				const lng = entry[1]
+        				const icon = {};
+                const hrefs= entry[2]
+                const posEqual = hrefs.indexOf('=');
+        				if (~posEqual) {
+                  const beforeEqual = hrefs.substr(0, posEqual+1);
+                  const afterEqual = hrefs.substr(posEqual+1);
+        					html = `<b><a target="_blank" href="${beforeEqual+encodeURIComponent(afterEqual)}" >${afterEqual}</a></b>`;
+        				}else{
+        					 html = `<b>${hrefs}</b>`;
+        				}
+                if (entry[3]) {
+                  if (entry[3].includes(',')) {
+                    html += entry[3].split(',').map((v, k) => {
+                      return `<br><a target="_blank" href="${ipfsHttpEndpoint + v}">music ${k + 1}</a>`
+                    }).join('')
+                  } else {
+                    html += `<br><audio src="${ipfsHttpEndpoint + entry[3]}" preload="none" type="audio/mp3" controls>`
+                  }
                 }
-              }
-      				//a.push({ lat: data.feed.entry[p]['gsx$_cn6ca']['$t'], lng: data.feed.entry[p]['gsx$_cokwr']['$t'], info:  data.feed.entry[p]['gsx$_cpzh4']['$t']});
-      				const lat = r2.feed.entry[p]['gsx$_cn6ca']['$t'];
-      				const lng = r2.feed.entry[p]['gsx$_cokwr']['$t'];
-      				const icon = {};
-      				const position = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-
-      				const marker = new google.maps.Marker({
-      					map,
-      					position,
-      					icon: icon.icon,
-      					shadow: icon.shadow
-      				});
-
-      				bindInfoWindow(marker, map, infoWindow, html);
-
-      				if(p === '0') {
-      					infoWindow.setContent(html);
-      					infoWindow.open(map, marker);
-      				}
-      			}
-          }).catch(console.warn);
-        } else {
-          alert('Your browser does not support fetch() global!');
-        }
-      });
+        				const position = new google.maps.LatLng(+lat, +lng);
+        				const marker = new google.maps.Marker({ map, position, /*icon: icon.icon, shadow: icon.shadow*/ });
+        				bindInfoWindow(marker, map, infoWindow, html);
+        				if(i === 1) {
+        					infoWindow.setContent(html);
+        					infoWindow.open(map, marker);
+        				}
+              } // end for
+            } // end if
+      }) // end DOMContentLoaded
     </script>
   </body>
 </html>
