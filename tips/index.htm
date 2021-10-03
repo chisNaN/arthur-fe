@@ -32,44 +32,50 @@
 <body>
 <h1>Contact me <a href="../contact">here</a> if you want to access to the contents of these tutos
 </h1>
-<h1 id="h"></h1>
-<div id="containerTips"></div>
+<h2></h2>
+<main></main>
 <script type="text/javascript" src="../inc/LS.js"></script>
 <script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', async () => {
 		try {
 			const tips = localStorage.getItem('tips');
 			if (tips) {
-				const parsedTips = JSON.parse(tips);
-				let html = '';
+				const json = JSON.parse(tips);
+				let html = 'NO TIPS';
+				if (json?.length > 0) {
+					document.querySelector('h2').innerHTML = json.length+' tip(s)';
+					localStorage.setItem('tips', JSON.stringify(json))
 
-				parsedTips.forEach((v, k) => {
-					if (k === 0) {
-						document.getElementById('h').innerHTML = parsedTips.length+' tip(s)';
+					for (const tip of json) {
+						html += `<div class="containers"><p><span style="font-size: 20px;" >${tip[0]}</span></p>
+							(${tip[1]})<br/>
+							</div>`;
 					}
-					html += `<div class="containers"><p><span style="font-size: 20px;" >${v.title}</span></p>
-					(${v.date})<br/>
-					<p><img src="https://s3-us-west-2.amazonaws.com/agreg0ire/website-datas/tips/${v.imgName}" style="border: none; max-height: 150px; max-width: 250px;"/></p></div>`;
-				});
+					document.querySelector('main').innerHTML = html;
+				} else {
+					document.querySelector('main').innerHTML = html;
 
-				document.getElementById('containerTips').innerHTML = html || "<h1>Did you try an unreachable id?</h1>" ;
+				}
 			} else {
-				const url = 'https://spreadsheets.google.com/feeds/list/123nOoeKpaURLZ49L3jP8SknfLZLwOdXPZPc9XHYovjw/od6/public/values?alt=json';
-				const response = await fetch(url);
-				const json = await response.json();
-				let html = '';
-				const a = [];
-				json.feed.entry.forEach((v, k) => {
-					a.push({ title: json.feed.entry[k]['gsx$_cn6ca']['$t'], date: json.feed.entry[k]['gsx$_cokwr']['$t'], imgName: json.feed.entry[k]['gsx$_cre1l']['$t']});
-						if (k === 0) {
-							document.getElementById('h').innerHTML = json.feed.entry.length+' tip(s)';
-						}
-						html += `<div class="containers"><p><span style="font-size: 20px;" >${json.feed.entry[k]['gsx$_cn6ca']['$t']}</span></p>
-						(${json.feed.entry[k]['gsx$_cokwr']['$t']})<br/>
-						<p><img src="https://s3-us-west-2.amazonaws.com/agreg0ire/website-datas/tips/${json.feed.entry[k]['gsx$_cre1l']['$t']}" style="border: none; max-height: 150px; max-width: 250px;"/></p></div>`;
-				});
-				document.getElementById('containerTips').innerHTML += html;
-				localStorage['tips'] = JSON.stringify(a);
+				const url = 'https://script.google.com/macros/s/AKfycbzFmryxLJcWCO9e7JqsRXUDlGD1qbNfLPTA4zYnNrKHnYd7631EpXYc7GB9h4e61Jerxw/exec';
+				const json = await (await fetch(url)).json();
+
+				let html = 'NO TIPS';
+				if (json?.length > 0) {
+					document.querySelector('h2').innerHTML = json.length+' tip(s)';
+					localStorage.setItem('tips', JSON.stringify(json))
+
+					for (const tip of json) {
+						html += `<div class="containers"><p><span style="font-size: 20px;" >${tip[0]}</span></p>
+							(${tip[1]})<br/>
+							</div>`;
+					}
+					document.querySelector('main').innerHTML = html;
+				} else {
+					document.querySelector('main').innerHTML = html;
+
+				}
+				
 			}
 		}catch(e) {
 			alert(e);

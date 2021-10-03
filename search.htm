@@ -78,29 +78,26 @@
 </head>
 <body>
 <div id="displayLines" ></div>
-<p id="output"><img src="images/spinner.gif" border="none" /></p>
+<main><img src="images/spinner.gif" border="none" /></main>
 <script type="text/javascript" src="inc/LS.js"></script>
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', () => {
 
-    const oOutput = document.getElementById('output');
-    const search = location.search.split('s=')[1].toLowerCase();
-
-    if(search.length > 2) {
+    const oOutput = document.querySelector('main');
+    const USP = new URLSearchParams(location.search)
+    const search = USP.get('s')
+    if(search?.length > 2) {
         let html = ''
         let html2 = '';
+      
 
-        fetch('https://spreadsheets.google.com/feeds/list/123nOoeKpaURLZ49L3jP8SknfLZLwOdXPZPc9XHYovjw/od6/public/values?alt=json').then(r => r.json())
+        fetch('https://script.google.com/macros/s/AKfycbzFmryxLJcWCO9e7JqsRXUDlGD1qbNfLPTA4zYnNrKHnYd7631EpXYc7GB9h4e61Jerxw/exec').then(r => r.json())
         .then(r2 => {
-            r2.feed.entry.forEach((v, k) => {
-            const title = v['gsx$_cn6ca']['$t'];// search in the title only
-            if(title.toLowerCase().includes(search)) {
-                html += '<br><a style="font-size: 20px;" href="tips/index.htm?id='+k+'" target="_blank" >'+title+'</a>';
+            r2.forEach((v, k) => {
+            if(v[0].toLowerCase().includes(search)) {
+                html += '<br><span>'+v[0]+'</span>';
             }
-            //return { title, date: v['gsx$_cokwr']['$t'], imgName: v['gsx$_cre1l']['$t'], text: v['gsx$_cpzh4']['$t']};
           }); // end of forEach
-
-          // localStorage['tips'] = JSON.stringify(a); //finally store in local storage to avoid querying again
 
           if (html) {
               oOutput.innerHTML = '<h1>Results for <u>'+search+'</u> in <a href="tips" target="_blank">/tips</a>.</h1>';
@@ -136,6 +133,7 @@
               }
             }).catch(e => console.warn(e));
           }).catch(e => console.warn(e)); // end first fetch
+          
     }else {
         oOutput.innerHTML = "Your search must be 3 chars length!";
     }
