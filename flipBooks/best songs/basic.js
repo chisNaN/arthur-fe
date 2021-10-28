@@ -16,7 +16,6 @@ const hashs = [
     "Qmc6DL26JphigXCyzHRxVc2mKPG2NXmH7YYZGmxwor1RaT",
     "Qma3MLp65Uy7a6S4NiZQXTfMLNJQhBTAGB2Mm3ikGj21b5",
     "QmYcGDBGmFfQSHFxGz8fL871Nq4PvRJTPryGHoT5iDMLTx",
-    "QmUQDHBeLWstRtu55SWTiTALTfEYQgohjY34LFEg67JHVc",
     "QmawB7KZYpCrdX54S6dCxfLMmtRr8wzHEEc5CQPdRCG5gq",
     "QmTHDtxepUs1fTSsuxjWzFudajSjcQrp5cc3vPewx67cqi",
     "QmXQgw14ArtQML5D72qinFYe7ZxmmcyVTEzi12uiUfAfMG",
@@ -25,7 +24,6 @@ const hashs = [
     "QmVBFUtkCKDhYJDciHMT4Zozpz4BcesFJ15UrAQbd1es3f",
     "QmbZPcfozQwxLi54VE5KXUv9FhQzBV2TUswqMRXwX6MsUs",
     "QmUAid9QqQp2DrtxEDo9mPiM6Anr4hQQFyxVfuXrPfwQ26",
-    "QmaMERaT8yqNGL3qrVnT8WtyXgVwGBdVyiPbB4nJKnviEQ",
     "QmRoKxtqjee1tcsNrvQKwW6mse4VyuHPmDGRu8XQVbtWZR",
     "QmPKwdhxKJwiMKATL8cy9dHoDLSzQdmpiN8GUj7yZ9eQ3V",
     "QmV9Py4eqFJhj3F9B28H4V53oXSAArD3EQmyMcgYqFHC2Y",
@@ -34,7 +32,6 @@ const hashs = [
     "QmUTVdDuS5yVzS4kWp5eVLETUZkXhTZ8w77zZmmKrVEHPv",
     "QmdeA52ugEypoxorcA3ZVK9LWKAfJhCskCjvJuV4UnHUkm",
     "QmXYbitP46vQYHhvwWrAQJgJF1bKDdQr4F5D6uZMcxbs7b",
-    "QmRDWLVdtWLdBmWEedWfvBGZocv2wuriCfCfdxFbqKtx62",
     "Qmf7jz4LB3NdHHrZ61Zg9wCqeWoux4UrVJp9eAPYaq9vSu",
     "Qmda636PrZLN4HpfBGoVaQY6ptEGufTwEZoUqurPDR8zNe",
 		"QmTHu2RNw3xewWbxiQyYvtL5zs4Tsr4ki53G7U3agB4BL9",
@@ -43,8 +40,12 @@ const hashs = [
     "QmUL9yeJcXfYgQWXiwrE42RQsNdJoCBXPBZt2rrM3kPZG9",
     "QmQefYKnvxDP3XB41SHQinktR8YymcHQ9DoRccKDoP6wbV",
     "QmZiwZLFrV46Sg5KKD7dkbGYk8J2Bh2CiKNErK7bUEF9nW",
+    "QmW9sehV64wud2D7EAs5n6G5hcs2mqz9bypTQiGf1VJor7",
+    "QmUQDHBeLWstRtu55SWTiTALTfEYQgohjY34LFEg67JHVc",
+    "QmaMERaT8yqNGL3qrVnT8WtyXgVwGBdVyiPbB4nJKnviEQ",
+    "QmRDWLVdtWLdBmWEedWfvBGZocv2wuriCfCfdxFbqKtx62",
     "QmUYFbkA2eiD1pSv4QjbLUybvsifGBMYMyBZVndaLkJmvY",
-    "QmW9sehV64wud2D7EAs5n6G5hcs2mqz9bypTQiGf1VJor7"
+    "Qmf6CTgBz26mRMgaew5eMMzHoiAQ4nDxXJZNvt9X5wWWUq"
   ]
   // alert(hashs.length)
   let i = 0
@@ -64,7 +65,6 @@ const hashs = [
 		{ artist: 'Musaria', title: 'Moment (Atjazz Remix)', descr: 'One of the best and most soulful AtJazz remix', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Down to the Bone', title: 'The Sweetness', descr: 'The last tube of DTTB', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Incognito', title: 'Marrakech', descr: 'An entrancing journey to Marrakech', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Crazy Penis', title: 'Last Knockers', descr: 'One of the best funky and groovy Crazy P tune', name: ipfsHttpsEndpoint+hashs[i++]},
 		];
 
 		const bestSongs2 = [{ artist: 'Donald Byrd', title: 'Design a Nation', descr: 'Gary bartz\'s improvisation on a Mizell brother\'s production', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -75,7 +75,6 @@ const hashs = [
 		{ artist: 'Isabelle Antena', title: 'My lexicon', descr: 'Soulful mediterranean bossanova', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Nuyorican Soul (with George Benson)', title: 'You Can Do It (Baby)', descr: 'An "orgasmic" guitar track', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Phoneheads &amp; the Düsseldorf Symphonic Orchestra', title: 'Subject Beautiful', descr: 'Another powerful and immersive 007 song. (Enjoy the voice of Cleveland Watkiss)', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Archive', title: 'Sleep', descr: 'Romantic and mind-blowing triphop/progressive rock', name: ipfsHttpsEndpoint+hashs[i++]},
 	];
 
 	const bonusTracks = [{artist: 'Ulrich Schnauss', title: 'No Further Ahead Than Today (2017 Edit)', descr: 'Ulrich Schnauss at his best', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -86,7 +85,6 @@ const hashs = [
 {artist: 'Makoto', title: 'Time (Kyoto Jazz Massive Remix)', descr: 'soulful and groovy KJM remix with C.Watkiss voice', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'City of Satellites', title: 'Skeletons (Manual Remix)', descr: 'One of the best Manual (Jonas Munk) Remix', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Spotlights', title: 'Far from falling', descr: 'Most "explosive" track ever heard!', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Sparklehorse', title: 'Cow', descr: 'Our world is sadder and less beautiful without Mark Linkous', name: ipfsHttpsEndpoint+hashs[i++]}
 ]
 
 const lastPage = [{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 lyrical track', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -96,10 +94,18 @@ const lastPage = [{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 
 {artist: 'The vogado projects', title: 'Mas Fuerte Que El Sol', descr: 'Late summer track', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Moe Hairlines', title: 'What We Had Loved', descr: 'Nostalgia of loneliness', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Tassel and Naturel', title: 'Smile', descr: 'Soulful bossa n bass', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Kid Loco', title: 'A Grand Love Theme', descr: 'French "Gliding" Trip-hop', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Modaji', title: 'Belleville', descr: 'Modaji of Bogota', name: ipfsHttpsEndpoint+hashs[i++]}]
+{artist: 'Kid Loco', title: 'A Grand Love Theme', descr: 'French "Gliding" Trip-hop', name: ipfsHttpsEndpoint+hashs[i++]}
+]
 
-const newLastPage = [{artist: 'Fourplay', title: '101 Eastbound', descr: 'Probably the best Fourplay track', name: ipfsHttpsEndpoint+hashs[i++]}, ]
+const newLastPage = [{artist: 'Fourplay', title: '101 Eastbound', descr: 'Probably the best Fourplay track', name: ipfsHttpsEndpoint+hashs[i++]},
+{ artist: 'Crazy Penis', title: 'Last Knockers', descr: 'One of the best funky and groovy Crazy P tune', name: ipfsHttpsEndpoint+hashs[i++]},
+{ artist: 'Archive', title: 'Sleep', descr: 'Romantic and mind-blowing triphop/progressive rock', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Sparklehorse', title: 'Cow', descr: 'Our world is sadder and less beautiful without Mark Linkous', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Modaji', title: 'Belleville', descr: 'Modaji of Bogota', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Lindsheaven Virtual Plaza', title: '無限のハイウェー', descr: 'From Stella Plage to Madeira', name: ipfsHttpsEndpoint+hashs[i++]}
+
+
+ ]
 
 let htmlOutput0 = bestSongs0.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
@@ -129,7 +135,7 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
 
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
-		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (35 years old)</p>
+		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (36 years old)</p>
 				${htmlOutput0}</div>
         <div>${htmlOutput1}</div>
         <div>${htmlOutput2}</div>
