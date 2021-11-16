@@ -1,17 +1,22 @@
-const googlePrefix = 'https://drive.google.com/uc?id='
-// const googlePostfix = '&export=download'
+let googlePrefix = 'https://drive.google.com/uc?id='
+googlePrefix = 'https://ipfs.infura.io/ipfs/'
+let url = ''
 document.addEventListener('DOMContentLoaded', async _ => {
   try {
     let notSplicedTracks = null
     let library = localStorage.getItem('lib')
     const audio = document.querySelector('audio')
-    const urlMacro = 'https://script.google.com/macros/s/AKfycbwYug5msnkvOt67uGxYaE3EVpxGq50dX4V-9WheJt08wqECIRy3/exec'
+    let urlMacro = 'https://script.google.com/macros/s/AKfycbwYug5msnkvOt67uGxYaE3EVpxGq50dX4V-9WheJt08wqECIRy3/exec'
+    urlMacro = googlePrefix + 'QmT8bz3GLwhGLKDc54Gkue7VPBtAgAdGA4QiAqZu2kFTan'
     let currentTrackIndex = 0
     const loadTrack = async () => {
       try {
         document.querySelector('#output').innerHTML = ''
         currentTrackIndex = ~~(Math.random() * library.length)
-        audio.src = googlePrefix + Object.values(library[currentTrackIndex])[0]
+        url = googlePrefix + Object.values(library[currentTrackIndex])[0]
+        const blob = await (await fetch(url)).blob()
+        //audio.src = googlePrefix + Object.values(library[currentTrackIndex])[0]
+        audio.src = URL.createObjectURL(blob)
         audio.load()
         audio.play()
         const trackName = Object.keys(library[currentTrackIndex])[0]
@@ -19,6 +24,20 @@ document.addEventListener('DOMContentLoaded', async _ => {
         document.title = trackName
         library.splice(currentTrackIndex, 1) // so we cannot repeat a track...
         console.warn(library[currentTrackIndex]) // to check if its a diff trick
+        // From remote host
+        if (jsmediatags) {
+          jsmediatags.read(blob, {
+            onSuccess: ({tags}) => {
+              if (tags.album) {
+                document.querySelector('marquee').innerHTML += `&nbsp;-&nbsp;${tags.album}`
+              }
+              if (tags.artist) {
+                document.querySelector('marquee').innerHTML += `&nbsp;-&nbsp;${tags.artist}`
+              }
+            },
+            onError: console.warn
+          })
+        } // end jsmediatags
       } catch (e) {
         console.warn(e)
       }
@@ -26,12 +45,28 @@ document.addEventListener('DOMContentLoaded', async _ => {
     const loadTrack2 = async index => {
       document.querySelector('#output').innerHTML = ''
       document.querySelector('marquee').innerHTML = 'Wait please...'
-      audio.src = googlePrefix + Object.values(notSplicedTracks[index])[0]
+      //audio.src = googlePrefix + Object.values(notSplicedTracks[index])[0]
+      url = googlePrefix + Object.values(notSplicedTracks[index])[0]
+      const blob = await (await fetch(url)).blob()
+      audio.src = URL.createObjectURL(blob)
       audio.load()
       audio.play()
       const trackName = Object.keys(notSplicedTracks[index])[0]
       document.querySelector('marquee').innerHTML = trackName
       document.title = trackName
+      if (jsmediatags) {
+        jsmediatags.read(blob, {
+          onSuccess: ({tags}) => {
+            if (tags.album) {
+              document.querySelector('marquee').innerHTML += `&nbsp;-&nbsp;${tags.album}`
+            }
+            if (tags.artist) {
+              document.querySelector('marquee').innerHTML += `&nbsp;-&nbsp;${tags.artist}`
+            }
+          },
+          onError: console.warn
+        })
+      } // end jsmediatags
     } // end loadTrack2
     if (!library) {
       document.querySelector('h1').innerHTML = 'Please wait for the library to load...'
@@ -187,12 +222,11 @@ document.addEventListener('DOMContentLoaded', async _ => {
         if (token.length) {
           document.querySelector('button').style.display = 'none'
           const body = new FormData
-          const idTrack = audio.src.substring(audio.src.indexOf('=') + 1, audio.src.indexOf('&'))
-          body.append('idTrack', idTrack)
-          body.append('token', token)
-          const r = await fetch(urlMacro, { method: 'post', body })
-          const json = await r.json()
-          console.log(json);
+          body.append('api_token', token)
+          body.append('return', 'timecode,apple_music,deezer,spotify')
+          body.append('url', url)
+          const json = await (await fetch('https://api.audd.io', { method: 'post', body })).json()
+          console.log('return from audd api ',json)
           if (json.status === 'success' && json.result) {
             let html = ''
             for (const [k, v] of Object.entries(json.result)) {
@@ -239,3 +273,11 @@ document.addEventListener('DOMContentLoaded', async _ => {
     }
   }
 }) // end DOMContentLoaded
+
+window.addEventListener("beforeunload", function (e) {
+  e.preventDefault()
+  var confirmationMessage = "\o/";
+
+  e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
+  return confirmationMessage;              // Gecko, WebKit, Chrome <34
+})
