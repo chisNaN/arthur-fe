@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
     const loadTrack = async () => {
       try {
         document.querySelector('#output').innerHTML = ''
+        document.querySelector('marquee').innerHTML = 'Wait please...'
         currentTrackIndex = ~~(Math.random() * library.length)
         url = googlePrefix + Object.values(library[currentTrackIndex])[0]
         const blob = await (await fetch(url)).blob()
@@ -160,7 +161,6 @@ document.addEventListener('DOMContentLoaded', async _ => {
     })
     document.querySelector('a').addEventListener('click', async e => {
       try {
-        document.querySelector('marquee').innerHTML = 'Wait please...'
         e.currentTarget.style.display = 'none'
         console.warn('click next track')
         await loadTrack()
@@ -173,7 +173,6 @@ document.addEventListener('DOMContentLoaded', async _ => {
       try {
         if (e.keyCode === 39) {
           document.querySelector('a').style.display = 'none'
-          document.querySelector('marquee').innerHTML = 'Wait please...'
           console.log('keycode', e.keyCode)
           await loadTrack()
           document.querySelector('a').style.display = 'inline'
