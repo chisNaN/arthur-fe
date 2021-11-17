@@ -15,7 +15,26 @@ document.addEventListener('DOMContentLoaded', async _ => {
         document.querySelector('marquee').innerHTML = 'Wait please...'
         currentTrackIndex = ~~(Math.random() * library.length)
         url = googlePrefix + Object.values(library[currentTrackIndex])[0]
-        const blob = await (await fetch(url)).blob()
+        //  const blob = await (await fetch(url)).blob()
+        const r = await fetch(url)
+        const type = r?.headers?.get("content-type") ?? 'audio/mpeg'
+        const total = r.headers.get('content-length')
+        const reader = r.body.getReader()
+        let receivedLength = 0 // received that many bytes at the moment
+        const chunks = [] // array of received binary chunks (comprises the body)
+        while(true) {
+          const {done, value} = await reader.read()
+          if (done) {
+              break;
+          }
+          chunks.push(value)
+          receivedLength += value.length
+          const percent = +((receivedLength / total) * 100).toFixed(2)
+          document.querySelector('marquee').innerHTML = `${percent} %`
+          console.log(`${percent} %`)
+        } // end while
+        const blob = new Blob(chunks, {type})
+        console.log('blob',blob);
         //audio.src = googlePrefix + Object.values(library[currentTrackIndex])[0]
         audio.src = URL.createObjectURL(blob)
         audio.load()
@@ -48,7 +67,26 @@ document.addEventListener('DOMContentLoaded', async _ => {
       document.querySelector('marquee').innerHTML = 'Wait please...'
       //audio.src = googlePrefix + Object.values(notSplicedTracks[index])[0]
       url = googlePrefix + Object.values(notSplicedTracks[index])[0]
-      const blob = await (await fetch(url)).blob()
+      //  const blob = await (await fetch(url)).blob()
+      const r = await fetch(url)
+      const type = r?.headers?.get("content-type") ?? 'audio/mpeg'
+      const total = r.headers.get('content-length')
+      const reader = r.body.getReader()
+      let receivedLength = 0 // received that many bytes at the moment
+      const chunks = [] // array of received binary chunks (comprises the body)
+      while(true) {
+        const {done, value} = await reader.read()
+        if (done) {
+            break;
+        }
+        chunks.push(value)
+        receivedLength += value.length
+        const percent = +((receivedLength / total) * 100).toFixed(2)
+        document.querySelector('marquee').innerHTML = `${percent} %`
+        console.log(`${percent} %`)
+      } // end while
+      const blob = new Blob(chunks, {type})
+      console.log('blob',blob);
       audio.src = URL.createObjectURL(blob)
       audio.load()
       audio.play()
