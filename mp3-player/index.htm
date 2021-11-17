@@ -16,6 +16,26 @@
  font-family: "WhippySnapped";
  src: url("WhippySnapped.otf");
 }
+@media (max-width: 800px) {
+  #left {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  #right{
+    display: none;
+  }
+}
+@media (min-width: 801px) and (max-width: 1400px) {
+  #left{
+    width: 66%;
+  }
+  #right{
+    width: 33%;
+    display: flex;
+  }
+ }
+
 marquee{
   font-family: '24display';
 }
@@ -28,11 +48,10 @@ html {
 		background-color: black;
 		color: white;
     height: 100%;
-    font-size: clamp(10px,5vw,50px);
+    font-size: clamp(30px,5vw,75px);
     font-family: WhippySnapped;
 	}
   audio{
-     height: 200px;
      max-width: 100%;
      margin: auto;
      object-fit: contain;
@@ -51,17 +70,15 @@ form {
     color: white;
     width: 100%
   }
-  #main {
+  main {
+    display: flex;
     flex-flow: row;
     height: 100%;
   }
   #left {
-    width: 33%;
     flex-flow: column;
   }
-  #right{
-    width: 66%;
-  }
+
   #output {
     flex-flow: column;
   }
@@ -70,7 +87,7 @@ form {
   }
   #rightChild {
     flex-direction: column;
-    width: 33%;
+    width: 100%;
   }
   .jacket {
 /*    position: absolute; */
@@ -87,11 +104,12 @@ border-radius: 50%;
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js" integrity="sha512-YsR46MmyChktsyMMou+Bs74oCa/CDdwft7rJ5wlnmDzMj1mzqncsfJamEEf99Nk7IB0JpTMo5hS8rxB49FUktQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-  <div id="main">
+  <main>
     <div id="left">
       <div><h1>Welcome</h1></div>
       <font style="cursor: pointer; display: none;" color="red" onclick="localStorage.clear(); location.reload()">Reload library and refresh!</font>
@@ -116,13 +134,13 @@ border-radius: 50%;
     <div id="right">
       <form>
         <div id="rightChild">
-          <input type="search" style="height: 20px;" list="tracks" placeholder="Search a track name">
+          <input type="search" style="width: 100%;" list="tracks" placeholder="Search a track name">
           <datalist id="tracks"></datalist>
           <div id="output"></div>
         </div>
       </form>
     </div>
-</div>
+</main>
 <script src="script.js" charset="utf-8"></script>
 </body>
 </html>

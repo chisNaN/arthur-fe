@@ -145,11 +145,11 @@ document.addEventListener('DOMContentLoaded', async _ => {
     document.querySelector('datalist').innerHTML = options
     const mediaQuery = window.matchMedia("(min-width: 1000px)")
     // const { matches } = window.matchMedia("(min-width: 1000px)")
-    mediaQuery.addEventListener('change', ({ matches }) => {
+  /*  mediaQuery.addEventListener('change', ({ matches }) => {
       const select = document.querySelector('select')
       if (matches) {
         if (!select) {
-          document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple style="font-family: WhippySnapped; font-size: clamp(10px,5vw,50px);"></select>')
+          document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple style="font-family: WhippySnapped; font-size: clamp(30px,5vw,75px);"></select>')
           document.querySelector('select').innerHTML = options
           select.addEventListener('click', async e => {
             try {
@@ -166,12 +166,12 @@ document.addEventListener('DOMContentLoaded', async _ => {
       }
     })
     if (mediaQuery.matches) {
-      document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple style="font-family: WhippySnapped; font-size: clamp(10px,5vw,50px);"></select>')
+      document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple style="font-family: WhippySnapped; font-size: clamp(30px,5vw,75px);"></select>')
       document.querySelector('select').innerHTML = options
     } else {
-      document.querySelector('#left').style.width = '50%'
-      document.querySelector('#right').style.width = '50%'
-    }
+      // document.querySelector('#left').style.width = '50%'
+      // document.querySelector('#right').style.width = '50%'
+    }*/
     // --------- --------- audio LISTENERS --------- ---------
     audio.addEventListener('ended', async _ => {
       try {
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       }
     }) // end keyup
     // this function SHOULD play a track from ALL copied library
-    if (mediaQuery.matches) {
+    /*if (mediaQuery.matches) {
       document.querySelector('select').addEventListener('click', async e => {
         try {
           await loadTrack2(e.currentTarget.selectedIndex)
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
           console.warn(e)
         }
       }) // end click
-    }
+    }*/
     document.querySelector('form').addEventListener('submit', async e => {
       try {
         e.preventDefault()
