@@ -1,13 +1,17 @@
 let googlePrefix = 'https://drive.google.com/uc?id='
 googlePrefix = 'https://ipfs.infura.io/ipfs/'
 let url = ''
+// As a global Object
+console.log('jsmediatags ' ,window.jsmediatags);
+//var jsmediatags = window.jsmediatags;
+
 document.addEventListener('DOMContentLoaded', async _ => {
   try {
     let notSplicedTracks = null
     let library = localStorage.getItem('lib')
     const audio = document.querySelector('audio')
     let urlMacro = 'https://script.google.com/macros/s/AKfycbwYug5msnkvOt67uGxYaE3EVpxGq50dX4V-9WheJt08wqECIRy3/exec'
-    urlMacro = googlePrefix + 'QmSqEwzZRKosKeguw1SMYW8B1oN9euuphiSCp1sjA7X7JJ'
+    urlMacro = googlePrefix + 'QmeT8CgaBxHGiguPE1h7CbyW44u5W7ioM1H8VG7UGqAALK'
     let currentTrackIndex = 0
     const loadTrack = async () => {
       try {
@@ -145,7 +149,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       const select = document.querySelector('select')
       if (matches) {
         if (!select) {
-          document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple></select>')
+          document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple style="font-family: WhippySnapped; font-size: clamp(10px,5vw,50px);"></select>')
           document.querySelector('select').innerHTML = options
           select.addEventListener('click', async e => {
             try {
@@ -162,7 +166,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       }
     })
     if (mediaQuery.matches) {
-      document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple></select>')
+      document.querySelector('form').insertAdjacentHTML('beforeend', '<select multiple style="font-family: WhippySnapped; font-size: clamp(10px,5vw,50px);"></select>')
       document.querySelector('select').innerHTML = options
     } else {
       document.querySelector('#left').style.width = '50%'
