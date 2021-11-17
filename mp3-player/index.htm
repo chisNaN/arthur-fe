@@ -16,7 +16,8 @@
  font-family: "WhippySnapped";
  src: url("WhippySnapped.otf");
 }
-@media (max-width: 800px) {
+/*@media (max-width: 800px) {*/
+@media screen and (orientation: portrait) { /*and (max-width: 800px){*/
   #left {
     width: 100%;
     justify-content: center;
@@ -26,7 +27,7 @@
     display: none;
   }
 }
-@media (min-width: 801px) and (max-width: 1400px) {
+@media (min-width: 1000px) and (max-width: 1400px) {
   #left{
     width: 66%;
   }
@@ -44,13 +45,13 @@ html {
   margin: 0;
   padding: 0;
 }
-	body {
-		background-color: black;
-		color: white;
+  body {
+    background-color: black;
+    color: white;
     height: 100%;
     font-size: clamp(30px,5vw,75px);
     font-family: WhippySnapped;
-	}
+  }
   audio{
      max-width: 100%;
      margin: auto;
@@ -60,9 +61,9 @@ html {
     display: flex;
   }
 form {
-	display: flex;
+  display: flex;
   width: 100%;
-	}
+  }
   a{ text-decoration: none; color: cornflowerblue; }
   select {
     height: 100%;
@@ -116,7 +117,7 @@ border-radius: 50%;
       <br>
 
       <marquee></marquee>
-    	<div id="player" style="display: none;">
+      <div id="player" style="display: none;">
         <audio controls type="audio/mp3"></audio>
         <a href="#">
           <img src="https://ipfs.infura.io/ipfs/Qma9hHTu6tgq1USZLBUzup5BuHToEhFyYa5aXMuLvzUdDL" style="width: 100px; border-radius: 20px; background-color: white;" />
