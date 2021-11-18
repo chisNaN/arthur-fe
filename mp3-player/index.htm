@@ -26,6 +26,9 @@
   #right{
     display: none;
   }
+  #last{
+    display: none;
+  }
 }
 @media (min-width: 1000px) and (max-width: 1400px) {
   #left{
@@ -35,8 +38,22 @@
     width: 33%;
     display: flex;
   }
+  #last{
+    display: none;
+  }
  }
-
+ @media (min-width: 1401px) {
+   #left{
+     width: 50%;
+   }
+   #right{
+     width: 25%;
+     display: flex;
+   }
+   #last{
+     width: 25%;
+   }
+  }
 marquee{
   font-family: '24display';
 }
@@ -69,7 +86,9 @@ form {
     height: 100%;
     background-color: black;
     color: white;
-    width: 100%
+    width: 100%;
+    font-family: WhippySnapped;
+    font-size: clamp(30px,5vw,60px);
   }
   main {
     display: flex;
@@ -140,6 +159,9 @@ border-radius: 50%;
           <div id="output"></div>
         </div>
       </form>
+    </div>
+    <div id="last">
+      <select multiple></select>
     </div>
 </main>
 <script src="script.js" charset="utf-8"></script>

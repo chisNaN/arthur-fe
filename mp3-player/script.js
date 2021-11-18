@@ -143,6 +143,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       return `<option>${trackName}</option>`
     }).join('')
     document.querySelector('datalist').innerHTML = options
+    document.querySelector('select').innerHTML = options
     const mediaQuery = window.matchMedia("(min-width: 1000px)")
     // const { matches } = window.matchMedia("(min-width: 1000px)")
   /*  mediaQuery.addEventListener('change', ({ matches }) => {
@@ -275,7 +276,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
                 if (k === 'song_link' && v.match(/HTTP/i)) {
                   html += `<u>${k}</u>&nbsp;<a href="${v}" target="_blank">${v}</a><br>`
                 } else {
-                  html += `<u>${k}</u>&nbsp;${v}<br>`
+                  //html += `<u>${k}</u>&nbsp;${v}<br>`
                 }
               } else {
                 /*if (k === 'apple_music') {
