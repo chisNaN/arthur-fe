@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
         } // end while
         const blob = new Blob(chunks, {type})
         console.log('blob',blob);
+        document.querySelector('p').innerHTML = '<h1>PLAY</h1>'
         //audio.src = googlePrefix + Object.values(library[currentTrackIndex])[0]
         audio.src = URL.createObjectURL(blob)
         audio.load()
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       } // end while
       const blob = new Blob(chunks, {type})
       console.log('blob',blob);
+      document.querySelector('p').innerHTML = '<h1>PLAY</h1>'
       audio.src = URL.createObjectURL(blob)
       audio.load()
       audio.play()
@@ -184,6 +186,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
     }) // end ended
     audio.addEventListener('play', e => {
       try {
+        document.querySelector('p').innerHTML = '<h1>PAUSE</h1>'
         const jacket = document.querySelector('.jacket')
         if (jacket) {
           jacket.style.animationPlayState = "running"
@@ -194,6 +197,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
     })
     audio.addEventListener('pause', e => {
       try {
+        document.querySelector('p').innerHTML = '<h1>PLAY</h1>'
         const jacket = document.querySelector('.jacket')
         if (jacket) {
           jacket.style.animationPlayState = "paused"
@@ -314,6 +318,18 @@ document.addEventListener('DOMContentLoaded', async _ => {
       document.querySelector('h1').innerHTML = e.toString()
     }
   }
+  document.querySelector('p').addEventListener('click', async () => {
+    try {
+      const audio = document.querySelector('audio')
+      if (audio.paused) {
+        audio.play()
+        return
+      }
+      audio.pause()
+    } catch (e) {
+      console.warn(e)
+    }
+  })
 }) // end DOMContentLoaded
 
 window.addEventListener("beforeunload", function (e) {

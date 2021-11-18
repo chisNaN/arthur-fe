@@ -8,6 +8,15 @@
   padding: 0;
   margin: 0;
 }
+p {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 2px dashed red;
+  border-radius: 3px;
+  aspect-ratio: 1;
+  height: 200px;
+}
 @font-face {
  font-family: "24display";
  src: url("24-display.ttf") format("truetype");
@@ -23,10 +32,7 @@
     justify-content: center;
     align-items: center;
   }
-  #right{
-    display: none;
-  }
-  #last{
+  #last, #informations, #right, audio{
     display: none;
   }
 }
@@ -41,6 +47,9 @@
   #last{
     display: none;
   }
+  p{
+    display: none;
+  }
  }
  @media (min-width: 1401px) {
    #left{
@@ -53,10 +62,14 @@
    #last{
      width: 37%;
    }
+   p {
+     display: none;
+   }
   }
 marquee{
   font-family: '24display';
 }
+
 html {
   height: 100%;
   margin: 0;
@@ -66,7 +79,7 @@ html {
     background-color: black;
     color: white;
     height: 100%;
-    font-size: clamp(30px,5vw,75px);
+    font-size: clamp(45px,5vw,75px);
     font-family: WhippySnapped;
   }
   audio{
@@ -134,10 +147,11 @@ border-radius: 50%;
       <div><h1>Welcome</h1></div>
       <font style="cursor: pointer; display: none;" color="red" onclick="localStorage.clear(); location.reload()">Reload library and refresh!</font>
       <br>
-
       <marquee></marquee>
       <div id="player" style="display: none;">
         <audio controls type="audio/mp3"></audio>
+        <p>
+        </p>
         <a href="#">
           <img src="https://ipfs.infura.io/ipfs/Qma9hHTu6tgq1USZLBUzup5BuHToEhFyYa5aXMuLvzUdDL" style="width: 100px; border-radius: 20px; background-color: white;" />
         </a>
