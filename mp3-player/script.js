@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
     let currentTrackIndex = 0
     const loadTrack = async () => {
       try {
+        document.querySelector('#btn-next').style.display = 'none'
         document.querySelector('#output').innerHTML = ''
         document.querySelector('marquee').innerHTML = 'Wait please...'
         currentTrackIndex = ~~(Math.random() * library.length)
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
         audio.src = URL.createObjectURL(blob)
         audio.load()
         audio.play()
+        document.querySelector('#btn-next').style.display = 'inline-block'
         const trackName = Object.keys(library[currentTrackIndex])[0]
         document.querySelector('marquee').innerHTML = trackName
         document.title = trackName
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       }
     } // end loadTrack
     const loadTrack2 = async index => {
+      document.querySelector('#btn-next').style.display = 'none'
       document.querySelector('#output').innerHTML = ''
       document.querySelector('marquee').innerHTML = 'Wait please...'
       //audio.src = googlePrefix + Object.values(notSplicedTracks[index])[0]
@@ -96,6 +99,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       audio.src = URL.createObjectURL(blob)
       audio.load()
       audio.play()
+      document.querySelector('#btn-next').style.display = 'inline-block'
       const trackName = Object.keys(notSplicedTracks[index])[0]
       document.querySelector('marquee').innerHTML = trackName
       document.title = trackName
