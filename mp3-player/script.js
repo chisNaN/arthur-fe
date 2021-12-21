@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
     let library = localStorage.getItem('lib')
     const audio = document.querySelector('audio')
     let urlMacro = 'https://script.google.com/macros/s/AKfycbwYug5msnkvOt67uGxYaE3EVpxGq50dX4V-9WheJt08wqECIRy3/exec'
-    urlMacro = googlePrefix + 'QmdNqQ8DiRK1MrwJTKxQctpcWrkzVrjEGqpyuMHn4hx3US'
+    urlMacro = googlePrefix + 'QmWTsv6wWyBfxsH3sFj8YKk45T4fwsApT2b5BwVPFUTwph'
     let currentTrackIndex = 0
     const loadTrack = async () => {
       try {
