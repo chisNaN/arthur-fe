@@ -45,7 +45,8 @@ const hashs = [
     "QmaMERaT8yqNGL3qrVnT8WtyXgVwGBdVyiPbB4nJKnviEQ",
     "QmRDWLVdtWLdBmWEedWfvBGZocv2wuriCfCfdxFbqKtx62",
     "QmUYFbkA2eiD1pSv4QjbLUybvsifGBMYMyBZVndaLkJmvY",
-    "Qmf6CTgBz26mRMgaew5eMMzHoiAQ4nDxXJZNvt9X5wWWUq"
+    "Qmf6CTgBz26mRMgaew5eMMzHoiAQ4nDxXJZNvt9X5wWWUq",
+    "QmYs3ihJkHxwp3i99RJ3GkWY5FF6ZDeds5KYvWfigRer5V"
   ]
   // alert(hashs.length)
   let i = 0
@@ -54,28 +55,32 @@ const hashs = [
 		{ artist: 'Beth Hirsch', title: 'Wholehearted', descr: 'Warm bossanova from AIR singer', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Kommode', title: 'Lady-logic', descr: 'Genius of Eirik Glambek Bøe.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Donald Byrd', title: 'I feel like loving you today', descr: 'Donald byrd trumpet on a stunning Isaac Hayes production.', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Safri Duo', title: 'Baya Baya', descr: 'Percussions', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Lars Bartkuhn', title: ' Pyramids (Part I)', descr: 'Dynamic groove from german multi-instrumentist', name: ipfsHttpsEndpoint+hashs[i++]},
 		];
-	const bestSongs1 = [{artist: 'Zero7', title: 'Morning Song', descr: 'A faithful expression of what one can feel during the morning.', name: ipfsHttpsEndpoint+hashs[i++]},
+	const bestSongs1 = [		{ artist: 'Safri Duo', title: 'Baya Baya', descr: 'Percussions', name: ipfsHttpsEndpoint+hashs[i++]},
+  		{ artist: 'Lars Bartkuhn', title: ' Pyramids (Part I)', descr: 'Dynamic groove from german multi-instrumentist', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Zero7', title: 'Morning Song', descr: 'A faithful expression of what one can feel during the morning.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Muki', title: 'Quiet Riot', descr: 'A good introductive James Bond song.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'DJ Cam', title: 'Bounce', descr: 'One of the smartest bassline ever heard.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Fragmentorchestra', title: 'Metropolis', descr: 'A very warm and sunny smooth jazz.', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Taxi', title: 'People Come Running (Needs Remix)', descr: 'My national anthem. Lively, joyful and simple melodies.', name: ipfsHttpsEndpoint+hashs[i++]},
+
+		];
+
+		const bestSongs2 = [{ artist: 'Taxi', title: 'People Come Running (Needs Remix)', descr: 'My national anthem. Lively, joyful and simple melodies.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Musaria', title: 'Moment (Atjazz Remix)', descr: 'One of the best and most soulful AtJazz remix', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Down to the Bone', title: 'The Sweetness', descr: 'The last tube of DTTB', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Incognito', title: 'Marrakech', descr: 'An entrancing journey to Marrakech', name: ipfsHttpsEndpoint+hashs[i++]},
-		];
-
-		const bestSongs2 = [{ artist: 'Donald Byrd', title: 'Design a Nation', descr: 'Gary bartz\'s improvisation on a Mizell brother\'s production', name: ipfsHttpsEndpoint+hashs[i++]},
+    { artist: 'Donald Byrd', title: 'Design a Nation', descr: 'Gary bartz\'s improvisation on a Mizell brother\'s production', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Celso Fonseca', title: 'Ficar', descr: 'A modern, original and soulful MPB', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Kings of Convenience', title: 'Summer On The Westhill', descr: 'Meditative and nostalgic folk from Norway', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Manual and Syntaks', title: 'A Perfect Solitude', descr: 'One can feel like in "Atlantis" listening this track', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Hammock', title: 'Snowburn', descr: 'Very "visual" music, one can feel the light of high northern areas.', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Isabelle Antena', title: 'My lexicon', descr: 'Soulful mediterranean bossanova', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Nuyorican Soul (with George Benson)', title: 'You Can Do It (Baby)', descr: 'An "orgasmic" guitar track', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Phoneheads &amp; the Düsseldorf Symphonic Orchestra', title: 'Subject Beautiful', descr: 'Another powerful and immersive 007 song. (Enjoy the voice of Cleveland Watkiss)', name: ipfsHttpsEndpoint+hashs[i++]},
 	];
+  const bestSongs3 =  [
+    { artist: 'Kings of Convenience', title: 'Summer On The Westhill', descr: 'Meditative and nostalgic folk from Norway', name: ipfsHttpsEndpoint+hashs[i++]},
+    { artist: 'Manual and Syntaks', title: 'A Perfect Solitude', descr: 'One can feel like in "Atlantis" listening this track', name: ipfsHttpsEndpoint+hashs[i++]},
+    { artist: 'Hammock', title: 'Snowburn', descr: 'Very "visual" music, one can feel the light of high northern areas.', name: ipfsHttpsEndpoint+hashs[i++]},
+    { artist: 'Isabelle Antena', title: 'My lexicon', descr: 'Soulful mediterranean bossanova', name: ipfsHttpsEndpoint+hashs[i++]},
+    { artist: 'Nuyorican Soul (with George Benson)', title: 'You Can Do It (Baby)', descr: 'An "orgasmic" guitar track', name: ipfsHttpsEndpoint+hashs[i++]},
+    { artist: 'Phoneheads &amp; the Düsseldorf Symphonic Orchestra', title: 'Subject Beautiful', descr: 'Another powerful and immersive 007 song. (Enjoy the voice of Cleveland Watkiss)', name: ipfsHttpsEndpoint+hashs[i++]},
+
+  ]
 
 	const bonusTracks = [{artist: 'Ulrich Schnauss', title: 'No Further Ahead Than Today (2017 Edit)', descr: 'Ulrich Schnauss at his best', name: ipfsHttpsEndpoint+hashs[i++]},
 	{artist: 'Guitar', title: 'Heretogether', descr: 'Dreamy, utopian and melancholic melodies', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -83,28 +88,31 @@ const hashs = [
 {artist: 'The Lushlife Project', title: 'The Plastics Birds Part 2', descr: 'Late summer soulful deep house from Magyarorszag', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'ReJazz', title: 'At First Glance', descr: 'Matthias Vogt and his band', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Makoto', title: 'Time (Kyoto Jazz Massive Remix)', descr: 'soulful and groovy KJM remix with C.Watkiss voice', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'City of Satellites', title: 'Skeletons (Manual Remix)', descr: 'One of the best Manual (Jonas Munk) Remix', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Spotlights', title: 'Far from falling', descr: 'Most "explosive" track ever heard!', name: ipfsHttpsEndpoint+hashs[i++]},
 ]
 
-const lastPage = [{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 lyrical track', name: ipfsHttpsEndpoint+hashs[i++]},
+const lastPage = [{artist: 'City of Satellites', title: 'Skeletons (Manual Remix)', descr: 'One of the best Manual (Jonas Munk) Remix', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Spotlights', title: 'Far from falling', descr: 'Most "explosive" track ever heard!', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Brian Bennett', title: 'Image', descr: 'Another 007 lyrical track', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Talvin Singh', title: 'Butterfly', descr: 'Soulful indian vibes', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Alphonse Mouzon', title: 'Take Your Troubles Away', descr: '"Togetherness" track', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Still Corners', title: 'The trip', descr: 'New start in life feeling', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'The vogado projects', title: 'Mas Fuerte Que El Sol', descr: 'Late summer track', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Moe Hairlines', title: 'What We Had Loved', descr: 'Nostalgia of loneliness', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Tassel and Naturel', title: 'Smile', descr: 'Soulful bossa n bass', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Kid Loco', title: 'A Grand Love Theme', descr: 'French "Gliding" Trip-hop', name: ipfsHttpsEndpoint+hashs[i++]}
 ]
 
-const newLastPage = [{artist: 'Fourplay', title: '101 Eastbound', descr: 'Probably the best Fourplay track', name: ipfsHttpsEndpoint+hashs[i++]},
+const lastPagebis = [{artist: 'The vogado projects', title: 'Mas Fuerte Que El Sol', descr: 'Late summer track', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Moe Hairlines', title: 'What We Had Loved', descr: 'Nostalgia of loneliness', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Tassel and Naturel', title: 'Smile', descr: 'Soulful bossa n bass', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Kid Loco', title: 'A Grand Love Theme', descr: 'French "Gliding" Trip-hop', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: 'Fourplay', title: '101 Eastbound', descr: 'Probably the best Fourplay track', name: ipfsHttpsEndpoint+hashs[i++]},
 { artist: 'Crazy Penis', title: 'Last Knockers', descr: 'One of the best funky and groovy Crazy P tune', name: ipfsHttpsEndpoint+hashs[i++]},
+
+]
+
+const newLastPage = [
 { artist: 'Archive', title: 'Sleep', descr: 'Romantic and mind-blowing triphop/progressive rock', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Sparklehorse', title: 'Cow', descr: 'Our world is sadder and less beautiful without Mark Linkous', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Modaji', title: 'Belleville', descr: 'Modaji of Bogota', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Lindsheaven Virtual Plaza', title: '無限のハイウェー', descr: 'From Stella Plage to Madeira', name: ipfsHttpsEndpoint+hashs[i++]}
-
-
+{artist: 'Lindsheaven Virtual Plaza', title: '無限のハイウェー', descr: 'From Stella Plage to Madeira', name: ipfsHttpsEndpoint+hashs[i++]}, {
+  artist: "Youssou N'Dour and Neneh Cherry", title: ' 7 seconds', descr: 'Meditative relaxing track', name: ipfsHttpsEndpoint+hashs[i++]}
  ]
 
 let htmlOutput0 = bestSongs0.map(o => {
@@ -119,11 +127,19 @@ let htmlOutput2 =bestSongs2.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
 }).join('');
 
+let htmlOutput2bis =bestSongs3.map(o => {
+	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
+}).join('');
+
 let htmlOutput3 =bonusTracks.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
 }).join('');
 
 let htmlOutput4 = lastPage.map(o => {
+  return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>'
+}).join('')
+
+let htmlOutput4bis = lastPagebis.map(o => {
   return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>'
 }).join('')
 
@@ -139,8 +155,10 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
 				${htmlOutput0}</div>
         <div>${htmlOutput1}</div>
         <div>${htmlOutput2}</div>
+        <div>${htmlOutput2bis}</div>
         <div>${htmlOutput3}</div>
 				<div>${htmlOutput4}</div>
+				<div>${htmlOutput4bis}</div>
         <div>${htmlOutput5}</div>`);
 
   $('.sample-flipbook').turn({
