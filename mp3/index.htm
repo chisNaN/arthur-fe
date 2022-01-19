@@ -33,13 +33,13 @@ body
 
 a{ font-weight:bold; color: #FF0080; }
 
-#main{ position: absolute; width: 100%; top: 5px; text-align: center; }
+main{ position: absolute; width: 100%; top: 5px; text-align: center; }
 
-#titles{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px; margin-top: 30px; border-radius: 3px; background-color: #ffffff; opacity: 0.7; }
+#titles{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px; margin-top: 10px; border-radius: 3px; background-color: #ffffff; opacity: 0.7; }
 
-#presentation{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px;  margin-top: 30px; border-radius: 3px; background-color: #ffffff; opacity: 0.7; }
+#presentation{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px;  margin-top: 10px; border-radius: 3px; background-color: #ffffff; opacity: 0.7; }
 
-#flashContent{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px; margin-top: 30px; border-radius: 3px; background-color: #ffffff; }
+#flashContent{ margin-left: auto; margin-right: auto; padding: 10px;  width: 700px; margin-top: 10px; border-radius: 3px; background-color: #ffffff; }
 
 </style>
 <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
@@ -50,21 +50,28 @@ Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').instal
 </head>
 <body>
 <canvas id="canvas"><h1>Your browser does not support canvas</h1></canvas>
-<div id="main">
+<main>
 	<div id="titles">
-		<h2>You can buy a first EP at <a href="https://aziora.bandcamp.com" target="_blank">Bandcamp</a></h2>
+		<h2>You can &nbsp; listen at <a href="https://aziora.bandcamp.com" target="_blank">Bandcamp</a></h2>
 	</div>
 	<div id="presentation" >
 		<p id="">
 			<i>"I have always loved music that has both elements: melancholy and sadness as a description of the current situation you are in,
-				but at the same time a hopeful, utopian element that reminds you of the possibility of a different life."</i><br><br>
+				but at the same time a hopeful, utopian element that reminds you of the possibility of a different life."</i>
 				 (<a href="https://en.wikipedia.org/wiki/Ulrich_Schnauss" target="_blank">Ulrich Schnauss</a>)
 				 <br>
 		</p>
 	</div>
 		<div id="flashContent">
-<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/55194964&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-</div>
-</div>
+			<p style="margin-bottom: 10px;">
+				<button type="button" style="position: relative;" onclick="document.querySelector('video').play()">PLAY video</button>&nbsp;&nbsp;&nbsp;
+						<button type="button" style="position: absolute;"  onclick="document.querySelector('video').pause()">STOP video</button> <br>
+</p>
+			<video height="600px" autoplay controls>
+          <source src="https://ipfs.infura.io/ipfs/QmRr8H2zkjwqqZynTFEuDFQ5GvJ3HmcHwVBzYNbNKdFhDK" type="video/mp4" />
+      </video>
+<!-- <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/55194964&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe> -->
+	</div>
+</main>
 </body>
 </html>
