@@ -7,7 +7,7 @@ const hashs = [
     "QmQEKhTMs5Rn1zk2Z6aG7rR6qscJbpX5G5g6hjiCueGMjK",
     "QmNsu7ZUVTpikLnaV8LAm9p36d3NBLdJ8t74AkH5psBE2k",
     "QmXX7mm9qhdRRqdpydGq5JEjmQxpDd7K7bRqKghnk9CxPn",
-    "Qme4psQBUuJa5i3Q7TKsiGxkEzrRehjUm7qBMWwEzMDBhw",
+    "QmUCksGwctKC3WodZiVFaGFzrvN2MN5FWkay2GDzpLg61k",
     "QmYHoqTxuqZmmxzSMs7RrN75979TE54o64XJYeLkQo8Ad5",
     "QmXnGQF85AHvcNrqfgaRxeWbM6pu7QYK7E2kb4u2jEsXMz",
     "QmZQ6Ngtwpe6m5k4x5BQkEuxN8ZoxmjTi7NvabE7j3ost9",
@@ -57,7 +57,7 @@ const hashs = [
 		{ artist: 'Donald Byrd', title: 'I feel like loving you today', descr: 'Donald byrd trumpet on a stunning Isaac Hayes production.', name: ipfsHttpsEndpoint+hashs[i++]},
 		];
 	const bestSongs1 = [		{ artist: 'Safri Duo', title: 'Baya Baya', descr: 'Percussions', name: ipfsHttpsEndpoint+hashs[i++]},
-  		{ artist: 'Lars Bartkuhn', title: ' Pyramids (Part I)', descr: 'Dynamic groove from german multi-instrumentist', name: ipfsHttpsEndpoint+hashs[i++]},
+  		{ artist: 'Soshi Takeda', title: 'Deep breath', descr: 'Soulful balearic from japan', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Zero7', title: 'Morning Song', descr: 'A faithful expression of what one can feel during the morning.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Muki', title: 'Quiet Riot', descr: 'A good introductive James Bond song.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'DJ Cam', title: 'Bounce', descr: 'One of the smartest bassline ever heard.', name: ipfsHttpsEndpoint+hashs[i++]},
