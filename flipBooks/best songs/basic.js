@@ -46,7 +46,8 @@ const hashs = [
     "QmRDWLVdtWLdBmWEedWfvBGZocv2wuriCfCfdxFbqKtx62",
     "QmUYFbkA2eiD1pSv4QjbLUybvsifGBMYMyBZVndaLkJmvY",
     "Qmf6CTgBz26mRMgaew5eMMzHoiAQ4nDxXJZNvt9X5wWWUq",
-    "QmYs3ihJkHxwp3i99RJ3GkWY5FF6ZDeds5KYvWfigRer5V"
+    "QmYs3ihJkHxwp3i99RJ3GkWY5FF6ZDeds5KYvWfigRer5V",
+    "QmeueyAjNiKagQM2wxamRc7H6Sutw7DjYH3Vh5PBZMkn5J"
   ]
   // alert(hashs.length)
   let i = 0
@@ -111,8 +112,9 @@ const newLastPage = [
 { artist: 'Archive', title: 'Sleep', descr: 'Romantic and mind-blowing triphop/progressive rock', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Sparklehorse', title: 'Cow', descr: 'Our world is sadder and less beautiful without Mark Linkous', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Modaji', title: 'Belleville', descr: 'Modaji of Bogota', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: 'Lindsheaven Virtual Plaza', title: '無限のハイウェー', descr: 'From Stella Plage to Madeira', name: ipfsHttpsEndpoint+hashs[i++]}, {
-  artist: "Youssou N'Dour and Neneh Cherry", title: ' 7 seconds', descr: 'Meditative relaxing track', name: ipfsHttpsEndpoint+hashs[i++]}
+{artist: 'Lindsheaven Virtual Plaza', title: '無限のハイウェー', descr: 'From Stella Plage to Madeira', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: "Youssou N'Dour and Neneh Cherry", title: 'amigo-carlos-marcos-valle-celso-fonseca', descr: 'Brazilian eternal trip', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: "Vartan J. Tonoyan", title: ' 7 seconds', descr: 'Meditative relaxing track', name: ipfsHttpsEndpoint+hashs[i++]}
  ]
 
 let htmlOutput0 = bestSongs0.map(o => {
