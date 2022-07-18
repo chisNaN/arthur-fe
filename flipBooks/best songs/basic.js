@@ -113,8 +113,8 @@ const newLastPage = [
 {artist: 'Sparklehorse', title: 'Cow', descr: 'Our world is sadder and less beautiful without Mark Linkous', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Modaji', title: 'Belleville', descr: 'Modaji of Bogota', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Lindsheaven Virtual Plaza', title: '無限のハイウェー', descr: 'From Stella Plage to Madeira', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: "Youssou N'Dour and Neneh Cherry", title: 'amigo-carlos-marcos-valle-celso-fonseca', descr: 'Brazilian eternal trip', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: "Vartan J. Tonoyan", title: ' 7 seconds', descr: 'Meditative relaxing track', name: ipfsHttpsEndpoint+hashs[i++]}
+{artist: "Youssou N'Dour and Neneh Cherry", title: 'amigo-carlos-marcos-valle-celso-fonseca', descr: 'Meditative relaxing track', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: "Vartan J. Tonoyan", title: ' 7 seconds', descr: 'MBrazilian eternal trip', name: ipfsHttpsEndpoint+hashs[i++]}
  ]
 
 let htmlOutput0 = bestSongs0.map(o => {
