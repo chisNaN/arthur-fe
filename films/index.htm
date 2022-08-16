@@ -133,7 +133,7 @@
       <video controls></video>
       <h1>If the streaming is not starting <br>
         please <a id="film" target="_blank">DOWNLOAD the movie</a><br>
-        with<a href="https://webtorrent.io/desktop" target="_blank" ><img src="https://ipfs.infura.io/ipfs/QmNaCgr5w825Hb8496qjd8ZGfQqkqLgB4Wc3wD7RhoZwbN" style="border: none; width: 200px;" /></a>
+        with<a href="https://webtorrent.io/desktop" target="_blank" ><img src="https://chisnan.infura-ipfs.io/ipfs/QmNaCgr5w825Hb8496qjd8ZGfQqkqLgB4Wc3wD7RhoZwbN" style="border: none; width: 200px;" /></a>
         client
       </h1>
       You will then <font color="red">seed thru webtorrent trackers</font> and
@@ -164,7 +164,7 @@
             if (v.images.poster && v.images.poster.includes('http')) {
               poster = v.images.poster.replace(/https/i, 'http');
             } else {
-              poster = 'https://ipfs.infura.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9';
+              poster = 'https://chisnan.infura-ipfs.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9';
             }
             const title = v.title.length > 15 ? `${v.title.substr(0, 13)}...` : v.title;
             if(v.torrents.en['720p']) {
@@ -283,7 +283,7 @@
               if (curr.medium_cover_image && curr.medium_cover_image.includes('http') ) {
                 acc += `<img src="${curr.medium_cover_image}" />`
               }else {
-                acc += '<img src="https://ipfs.infura.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9" />'
+                acc += '<img src="https://chisnan.infura-ipfs.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9" />'
               }
               return acc += `</a><br><a href="#" onclick="startStream('${curr.title}', 'magnet:?xt=urn:btih:${movie.hash}')">WebTorrent Player</a></div>`
             }, new String()) // end of reduce
@@ -306,7 +306,7 @@
                 if(v.p && v.p.includes('http')) {
                   img = v.p
                 }else{
-                  img = 'https://ipfs.infura.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9'
+                  img = 'https://chisnan.infura-ipfs.io/ipfs/QmSKgGpoC77WfAZScZHLkbZyK5JT2xKeLBrDzY9RUbhoV9'
                 }
                 console.log('img ', img);
                 return `<div style="margin: 5px;">${title}<br>

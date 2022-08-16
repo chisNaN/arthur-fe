@@ -38,7 +38,7 @@
     "Qmdom8Ud1gxwTWEtJEo1wRbVToREMhjV2BbPrfbUceVEt7",
     "QmYfnPGEpsLS7AF3nLs6KZpep8CUbPJKMa2w67kzwMWaWK"
   ]
-  const html = ipfsHashs.map(v => `<div><img src="https://ipfs.infura.io/ipfs/${v}" /></div>`).join('');
+  const html = ipfsHashs.map(v => `<div><img src="https://chisnan.infura-ipfs.io/ipfs/${v}" /></div>`).join('');
   const container = $('<div />', {css: {margin: 'auto', width: 1575, height: '100%'} }).appendTo($('#sample-viewer'));
 
   $('<div />', {'class': 'sample-flipbook'}).appendTo(container).html(html);

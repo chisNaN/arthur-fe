@@ -104,7 +104,7 @@ body{
     </div>
     <script type="text/javascript">
       document.addEventListener('DOMContentLoaded', async () => {
-          const ipfsHttpEndpoint = 'https://ipfs.infura.io/ipfs/'
+          const ipfsHttpEndpoint = 'https://chisnan.infura-ipfs.io/ipfs/'
           const json = await (await fetch('https://script.google.com/macros/s/AKfycbx2ceSND0kL7_o3OSjlxCxbMxbFAj7e3j_fXnPwYJwiTZ9TewoOtgKPszthVsq6uHJs/exec') ).json()
           const map = new google.maps.Map(document.getElementById("map"), {
         			center: new google.maps.LatLng(30, 30), zoom: 3, mapTypeId: 'roadmap'
