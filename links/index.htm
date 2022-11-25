@@ -107,7 +107,7 @@ console.log(urls.length);
   document.addEventListener('DOMContentLoaded', () => {
     document.body.innerHTML = urls.map((url, k) => {
       return `<div><a href="http://${url}" target="_blank">${url}</a><a href="http://${url}" target="_blank" >
-     <img src="https://chisnan.infura-ipfs.io/ipfs/${ipfsHashs[k]}" style="border: none; max-width: 300px;"/></a>
+     <img src="https://arturo.infura-ipfs.io/ipfs/${ipfsHashs[k]}" style="border: none; max-width: 300px;"/></a>
      `
    }).join('</div>')
   }); // end DOMContentLoaded

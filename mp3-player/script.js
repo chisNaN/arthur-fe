@@ -1,5 +1,5 @@
 let googlePrefix = 'https://drive.google.com/uc?id='
-googlePrefix = 'https://chisnan.infura-ipfs.io/ipfs/'
+googlePrefix = 'https://arturo.infura-ipfs.io/ipfs/'
 let url = ''
 // As a global Object
 console.log('jsmediatags ' ,window.jsmediatags);

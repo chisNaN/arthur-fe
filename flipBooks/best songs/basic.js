@@ -1,5 +1,5 @@
 (function($) {
-const ipfsHttpsEndpoint = 'https://chisnan.infura-ipfs.io/ipfs/'
+const ipfsHttpsEndpoint = 'https://arturo.infura-ipfs.io/ipfs/'
 const hashs = [
     "QmYSQWB7S9TgiXrNWDzM4Z5HZZ2J7LrbwX1r48wjjUa1fe",
     "QmSZjjpcJASxid1ZA9pcMiBRvo6JGdZrHy19gApkk3CGjx",

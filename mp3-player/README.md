@@ -1,6 +1,6 @@
 # gdrive-mp3-player
 
-![img](https://chisnan.infura-ipfs.io/ipfs/QmZTY6ezVb6KN7Wfqf1VL4Zz6yPjyRkeF48Rtpb99ugg5c)
+![img](https://arturo.infura-ipfs.io/ipfs/QmZTY6ezVb6KN7Wfqf1VL4Zz6yPjyRkeF48Rtpb99ugg5c)
 
 ### Instructions for Google appscript
 
