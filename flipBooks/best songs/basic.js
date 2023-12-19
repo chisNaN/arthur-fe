@@ -23,7 +23,7 @@ const hashs = [
     "QmUDfamerFBfxpKHr3BtgRTxJksXmXpy7mWPcWPG2xLZcQ",
     "QmVBFUtkCKDhYJDciHMT4Zozpz4BcesFJ15UrAQbd1es3f",
     "QmbZPcfozQwxLi54VE5KXUv9FhQzBV2TUswqMRXwX6MsUs",
-    "QmUAid9QqQp2DrtxEDo9mPiM6Anr4hQQFyxVfuXrPfwQ26",
+    "QmRKRuC3s6GDzkuDrxgh98TZBgsugoCBBx541LkHA7MsXw",
     "QmRoKxtqjee1tcsNrvQKwW6mse4VyuHPmDGRu8XQVbtWZR",
     "QmPKwdhxKJwiMKATL8cy9dHoDLSzQdmpiN8GUj7yZ9eQ3V",
     "QmV9Py4eqFJhj3F9B28H4V53oXSAArD3EQmyMcgYqFHC2Y",
@@ -79,7 +79,7 @@ const hashs = [
     { artist: 'Hammock', title: 'Snowburn', descr: 'Very "visual" music, one can feel the light of high northern areas.', name: ipfsHttpsEndpoint+hashs[i++]},
     { artist: 'Isabelle Antena', title: 'My lexicon', descr: 'Soulful mediterranean bossanova', name: ipfsHttpsEndpoint+hashs[i++]},
     { artist: 'Nuyorican Soul (with George Benson)', title: 'You Can Do It (Baby)', descr: 'An "orgasmic" guitar track', name: ipfsHttpsEndpoint+hashs[i++]},
-    { artist: 'Phoneheads &amp; the Düsseldorf Symphonic Orchestra', title: 'Subject Beautiful', descr: 'Another powerful and immersive 007 song. (Enjoy the voice of Cleveland Watkiss)', name: ipfsHttpsEndpoint+hashs[i++]},
+    { artist: 'Kokoroko', title: 'Dide O', descr: 'Soulful african vibes', name: ipfsHttpsEndpoint+hashs[i++]},
 
   ]
 
@@ -153,7 +153,7 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
 
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
-		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (36 years old)</p>
+		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (38 years old)</p>
 				${htmlOutput0}</div>
         <div>${htmlOutput1}</div>
         <div>${htmlOutput2}</div>
