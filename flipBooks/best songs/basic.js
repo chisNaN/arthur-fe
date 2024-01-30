@@ -47,7 +47,9 @@ const hashs = [
     "QmUYFbkA2eiD1pSv4QjbLUybvsifGBMYMyBZVndaLkJmvY",
     "Qmf6CTgBz26mRMgaew5eMMzHoiAQ4nDxXJZNvt9X5wWWUq",
     "QmYs3ihJkHxwp3i99RJ3GkWY5FF6ZDeds5KYvWfigRer5V",
-    "QmeueyAjNiKagQM2wxamRc7H6Sutw7DjYH3Vh5PBZMkn5J"
+    "QmeueyAjNiKagQM2wxamRc7H6Sutw7DjYH3Vh5PBZMkn5J",
+    "QmaMNnL6KGPFnZTv4urLByzfbuKL2NXbqpwd6NMCgvSPgV",
+    "QmZiwZLFrV46Sg5KKD7dkbGYk8J2Bh2CiKNErK7bUEF9nW",
   ]
   // alert(hashs.length)
   let i = 0
@@ -113,9 +115,13 @@ const newLastPage = [
 {artist: 'Sparklehorse', title: 'Cow', descr: 'Our world is sadder and less beautiful without Mark Linkous', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Modaji', title: 'Belleville', descr: 'Modaji of Bogota', name: ipfsHttpsEndpoint+hashs[i++]},
 {artist: 'Lindsheaven Virtual Plaza', title: '無限のハイウェー', descr: 'From Stella Plage to Madeira', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: "Youssou N'Dour and Neneh Cherry", title: 'amigo-carlos-marcos-valle-celso-fonseca', descr: 'Meditative relaxing track', name: ipfsHttpsEndpoint+hashs[i++]},
-{artist: "Vartan J. Tonoyan", title: ' 7 seconds', descr: 'MBrazilian eternal trip', name: ipfsHttpsEndpoint+hashs[i++]}
+{artist: "Youssou N'Dour and Neneh Cherry", title: '7 seconds', descr: 'Meditative relaxing track', name: ipfsHttpsEndpoint+hashs[i++]},
+{artist: "Vartan J. Tonoyan", title: 'Amigo Carlos', descr: 'MBrazilian eternal trip', name: ipfsHttpsEndpoint+hashs[i++]}
  ]
+
+const newLastPage2 = [
+  { artist: 'Air', title: 'All I need', descr: 'Soulful romantic french lofi', name: ipfsHttpsEndpoint+hashs[i++] },
+  {artist: 'Kid Loco', title: 'A grand love theme', descr: 'Meditative relaxing french triphop', name: ipfsHttpsEndpoint+hashs[i++]}]
 
 let htmlOutput0 = bestSongs0.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
@@ -149,6 +155,10 @@ let htmlOutput5 = newLastPage.map(o => {
   return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>'
 }).join('')
 
+let htmlOutput6 = newLastPage2.map(o => {
+  return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>'
+}).join('')
+
 const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%' } }).appendTo($('#sample-viewer'));
 
 	$('<div />', {'class': 'sample-flipbook'})
@@ -161,7 +171,8 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
         <div>${htmlOutput3}</div>
 				<div>${htmlOutput4}</div>
 				<div>${htmlOutput4bis}</div>
-        <div>${htmlOutput5}</div>`);
+        <div>${htmlOutput5}</div>
+        <div>${htmlOutput6}</div>`);
 
   $('.sample-flipbook').turn({
   	width: 1300,

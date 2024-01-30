@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', async _ => {
         document.querySelector('marquee').innerHTML = 'Wait please...'
         currentTrackIndex = ~~(Math.random() * library.length)
         url = googlePrefix + Object.values(library[currentTrackIndex])[0]
+        console.warn('library[currentTrackIndex] => ', library[currentTrackIndex])
+        console.warn('Object.values(library[currentTrackIndex])[0] : ', Object.values(library[currentTrackIndex])[0])
         //  const blob = await (await fetch(url)).blob()
         const r = await fetch(url)
         const type = r?.headers?.get("content-type") ?? 'audio/mpeg'
