@@ -102,7 +102,8 @@
           oOutput.innerHTML = '<h1>Results for <u>'+search+'</u> in <a href="tips" target="_blank">/tips</a>.</h1>';
           oOutput.innerHTML += html;
       }
-      const options = { method: 'GET', headers: {Authorization: 'Token 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'} }
+      
+      const options = { method: 'GET', headers: {Authorization: 'Token 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'} }
       const json2 = await ( await fetch('https://api.github.com/search/code?q='+search+'+in:file+language:js+repo:'+githubPseudo+'/arthur-fe', options)).json()
             
       if(json2.total_count > 0) {
