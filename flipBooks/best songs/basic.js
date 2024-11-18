@@ -49,7 +49,7 @@ const hashs = [
     "QmYs3ihJkHxwp3i99RJ3GkWY5FF6ZDeds5KYvWfigRer5V",
     "QmeueyAjNiKagQM2wxamRc7H6Sutw7DjYH3Vh5PBZMkn5J",
     "QmaMNnL6KGPFnZTv4urLByzfbuKL2NXbqpwd6NMCgvSPgV",
-    "QmZiwZLFrV46Sg5KKD7dkbGYk8J2Bh2CiKNErK7bUEF9nW",
+    "QmYHenkhwrQKaSoNx74xgudCjGY6gcLWL26TFMWTipJ2uU",
   ]
   // alert(hashs.length)
   let i = 0
@@ -121,7 +121,7 @@ const newLastPage = [
 
 const newLastPage2 = [
   { artist: 'Air', title: 'All I need', descr: 'Soulful romantic french lofi', name: ipfsHttpsEndpoint+hashs[i++] },
-  {artist: 'Kid Loco', title: 'A grand love theme', descr: 'Meditative relaxing french triphop', name: ipfsHttpsEndpoint+hashs[i++]}]
+  {artist: 'Freddyboy', title: 'Fool4U', descr: 'nostalgic dreampop', name: ipfsHttpsEndpoint+hashs[i++]}]
 
 let htmlOutput0 = bestSongs0.map(o => {
 	return '<p style="padding-top: 10px;">'+o.artist+', '+o.title+'<br><span style="font-style: italic; font-size: 12px;">'+o.descr+'</span><br><audio src="'+o.name+'" preload="none" type="audio/mp3"  controls title="'+o.title+'"></p>';
@@ -163,7 +163,7 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
 
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
-		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (38 years old)</p>
+		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (39 years old)</p>
 				${htmlOutput0}</div>
         <div>${htmlOutput1}</div>
         <div>${htmlOutput2}</div>
