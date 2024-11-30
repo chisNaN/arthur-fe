@@ -123,7 +123,7 @@ const newLastPage = [
 const newLastPage2 = [
   { artist: 'Air', title: 'All I need', descr: 'Soulful romantic french lofi', name: ipfsHttpsEndpoint+hashs[i++] },
   {artist: 'Freddyboy', title: 'Fool4U', descr: 'nostalgic dreampop', name: ipfsHttpsEndpoint+hashs[i++]},
-  {artist: 'Morcheeba', title: 'Undress Me Now', descr: 'Warm sunny romantic triphop', name: ipfsHttpsEndpoint+hashs[i++]},
+  {artist: 'Morcheeba', title: 'Undress Me Now', descr: 'Warm sunny romantic triphop', name: ipfsHttpsEndpoint+hashs[i++]}
   ]
 
 let htmlOutput0 = bestSongs0.map(o => {
