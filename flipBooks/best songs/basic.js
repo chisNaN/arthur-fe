@@ -1,5 +1,5 @@
 (function($) {
-const ipfsHttpsEndpoint = 'https://arturo.infura-ipfs.io/ipfs/'
+const ipfsHttpsEndpoint = 'https://chisnan.infura-ipfs.io/ipfs/'
 const hashs = [
     "QmYSQWB7S9TgiXrNWDzM4Z5HZZ2J7LrbwX1r48wjjUa1fe",
     "QmSZjjpcJASxid1ZA9pcMiBRvo6JGdZrHy19gApkk3CGjx",
@@ -12,7 +12,7 @@ const hashs = [
     "QmXnGQF85AHvcNrqfgaRxeWbM6pu7QYK7E2kb4u2jEsXMz",
     "QmZQ6Ngtwpe6m5k4x5BQkEuxN8ZoxmjTi7NvabE7j3ost9",
     "QmQMXEmeqBnJFisbQCPgLMJz8JQPELdK52idR1z9R3tfEZ",
-    "QmVnDDJCEzSaMZfv8mfxnXQp8a4GwM6oMavKXK4DC2KqhP",
+    "QmSN2QS9SMfWQjRukmGPhFobmYuEN9RTYtfheEUBYMzema",
     "Qmc6DL26JphigXCyzHRxVc2mKPG2NXmH7YYZGmxwor1RaT",
     "Qma3MLp65Uy7a6S4NiZQXTfMLNJQhBTAGB2Mm3ikGj21b5",
     "QmYcGDBGmFfQSHFxGz8fL871Nq4PvRJTPryGHoT5iDMLTx",
@@ -47,7 +47,7 @@ const hashs = [
     "QmUYFbkA2eiD1pSv4QjbLUybvsifGBMYMyBZVndaLkJmvY",
     "Qmf6CTgBz26mRMgaew5eMMzHoiAQ4nDxXJZNvt9X5wWWUq",
     "QmYs3ihJkHxwp3i99RJ3GkWY5FF6ZDeds5KYvWfigRer5V",
-    "QmeueyAjNiKagQM2wxamRc7H6Sutw7DjYH3Vh5PBZMkn5J",
+    "QmeQKugcpGKJkkYgSKsAcUhKwbPH5NxAGhMyq5Zodpb86f",
     "QmaMNnL6KGPFnZTv4urLByzfbuKL2NXbqpwd6NMCgvSPgV",
     "QmYHenkhwrQKaSoNx74xgudCjGY6gcLWL26TFMWTipJ2uU",
     "QmcKutcX99xorCM1T1tdtiuqf6ZfFjEgKEtxiNzx6smbWG",
