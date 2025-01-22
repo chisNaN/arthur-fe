@@ -15,7 +15,7 @@ const hashs = [
     "QmSN2QS9SMfWQjRukmGPhFobmYuEN9RTYtfheEUBYMzema",
     "Qmc6DL26JphigXCyzHRxVc2mKPG2NXmH7YYZGmxwor1RaT",
     "Qma3MLp65Uy7a6S4NiZQXTfMLNJQhBTAGB2Mm3ikGj21b5",
-    "QmYcGDBGmFfQSHFxGz8fL871Nq4PvRJTPryGHoT5iDMLTx",
+    "QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx",
     "QmawB7KZYpCrdX54S6dCxfLMmtRr8wzHEEc5CQPdRCG5gq",
     "QmTHDtxepUs1fTSsuxjWzFudajSjcQrp5cc3vPewx67cqi",
     "QmXQgw14ArtQML5D72qinFYe7ZxmmcyVTEzi12uiUfAfMG",
@@ -52,7 +52,7 @@ const hashs = [
     "QmYHenkhwrQKaSoNx74xgudCjGY6gcLWL26TFMWTipJ2uU",
     "QmcKutcX99xorCM1T1tdtiuqf6ZfFjEgKEtxiNzx6smbWG",
   ]
-  // alert(hashs.length)
+  // alert(hashs.length) QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
   let i = 0
   const bestSongs0 = [{artist: 'Binkbeats', title: 'Little Nerves (Live)', descr: 'Aerial lyric and powerful track.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Snarky Puppy', title: 'Skate U', descr: 'powerful Introductive track.', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -72,7 +72,7 @@ const hashs = [
 		const bestSongs2 = [{ artist: 'Taxi', title: 'People Come Running (Needs Remix)', descr: 'My national anthem. Lively, joyful and simple melodies.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Musaria', title: 'Moment (Atjazz Remix)', descr: 'One of the best and most soulful AtJazz remix', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Down to the Bone', title: 'The Sweetness', descr: 'The last tube of DTTB', name: ipfsHttpsEndpoint+hashs[i++]},
-		{ artist: 'Incognito', title: 'Marrakech', descr: 'An entrancing journey to Marrakech', name: ipfsHttpsEndpoint+hashs[i++]},
+		{ artist: 'Incognito', title: 'The principles of love', descr: 'Adventure in black sunshine', name: ipfsHttpsEndpoint+hashs[i++]},
     { artist: 'Donald Byrd', title: 'Design a Nation', descr: 'Gary bartz\'s improvisation on a Mizell brother\'s production', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Celso Fonseca', title: 'Ficar', descr: 'A modern, original and soulful MPB', name: ipfsHttpsEndpoint+hashs[i++]},
 	];
