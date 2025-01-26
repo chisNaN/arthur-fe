@@ -60,6 +60,7 @@
 h1 {
  font-size: clamp(20px, 5vw, 40px);
  text-align: center;
+ marin-left:50%;
 }
 
   </style>
@@ -84,7 +85,7 @@ h1 {
             console.log('lat : ', lat)
 
             // Ajouter un marqueur (optionnel)
-            const marker = L.marker([lat, long]).addTo(map).bindPopup(cityName) // Ajouter une popup au marqueur.openPopup();
+            const marker = L.marker([lat, long]).addTo(map).bindPopup(cityName.includes('photo') ? `<a href="${cityName}" target="_blank">Watch photos of ${cityName.substr(cityName.lastIndexOf('=') + 1)}</a>` : cityName) // Ajouter une popup au marqueur.openPopup();
           }
     // Initialiser la carte
 
