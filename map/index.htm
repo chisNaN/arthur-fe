@@ -1,60 +1,22 @@
-<!DOCTYPE html >
-<html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <link href="../images/icon.png" rel="icon" type="image/png"/>
-    <title>map</title>
-    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-    Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
-    </script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js&sensor=false"></script>
-    <script type="text/javascript">
-    const customIcons = {
-    	restaurant: {
-    		icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
-    		shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
-    	},
-    	bar: {
-    		icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
-    		shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
-    	}
-    };
-function bindInfoWindow(marker, map, infoWindow, html) {
-	google.maps.event.addListener(marker, 'click', function() {
-		infoWindow.setContent(html);
-		infoWindow.open(map, marker);
-	});
-}
-</script>
-<style type="text/css">
-@font-face
-{
-	font-family: "neuropol _x_free";
-	src: url("../fonts/neuropol _x_free.ttf") format('truetype');
-}
-
-*{ margin: 0px; padding: 0px; }
-
-html, body{ width: 100%; height: 100%; }
-
-body{
-	font-family: neuropol _x_free;
-	background-color: black;
-	color: white;
-}
-
-#map, #loader{
-	height: 100%;
-}
-
-#map {
-  display:flex;
-  justify-content: center;
-  align-items:center;
-}
-.loader,
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carte OpenStreetMap</title>
+  <!-- Inclure le CSS de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* Définir la taille de la carte */
+    html, body {
+      height: 100%;
+    }
+    #map {
+      display: flex;
+      height: 100%;
+      width: 100%;
+    }
+    .loader,
 .loader:after {
   border-radius: 50%;
   width: 10em;
@@ -95,58 +57,49 @@ body{
     transform: rotate(360deg);
   }
 }
+h1 {
+ font-size: clamp(20px, 5vw, 40px);
+ text-align: center;
+}
 
-</style>
-  </head>
-  <body>
-    <div id="map" >
-      <div class="loader">Loading...</div>
-    </div>
-    <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', async () => {
-          const ipfsHttpEndpoint = 'https://arturo.infura-ipfs.io/ipfs/'
-          const json = await (await fetch('https://script.google.com/macros/s/AKfycbx2ceSND0kL7_o3OSjlxCxbMxbFAj7e3j_fXnPwYJwiTZ9TewoOtgKPszthVsq6uHJs/exec') ).json()
-          const map = new google.maps.Map(document.getElementById("map"), {
-        			center: new google.maps.LatLng(30, 30), zoom: 3, mapTypeId: 'roadmap'
-        		});
-        		const infoWindow = new google.maps.InfoWindow;
-        		infoWindow.width = 400;
-            let html = '';
-            let i = 0
-            if (Array.isArray(json) && json.length > 0) {
-              for (const entry of json) {
-                i++;
-                const lat = entry[0]
-        				const lng = entry[1]
-        				const icon = {};
-                const hrefs= entry[2]
-                const posEqual = hrefs.indexOf('=');
-        				if (~posEqual) {
-                  const beforeEqual = hrefs.substr(0, posEqual+1);
-                  const afterEqual = hrefs.substr(posEqual+1);
-        					html = `<b><a target="_blank" href="${beforeEqual+encodeURIComponent(afterEqual)}" >${afterEqual}</a></b>`;
-        				}else{
-        					 html = `<b>${hrefs}</b>`;
-        				}
-                if (entry[3]) {
-                  if (entry[3].includes(',')) {
-                    html += entry[3].split(',').map((v, k) => {
-                      return `<br><a target="_blank" href="${ipfsHttpEndpoint + v}">music ${k + 1}</a>`
-                    }).join('')
-                  } else {
-                    html += `<br><audio src="${ipfsHttpEndpoint + entry[3]}" preload="none" type="audio/mp3" controls>`
-                  }
-                }
-        				const position = new google.maps.LatLng(+lat, +lng);
-        				const marker = new google.maps.Marker({ map, position, /*icon: icon.icon, shadow: icon.shadow*/ });
-        				bindInfoWindow(marker, map, infoWindow, html);
-        				if(i === 1) {
-        					infoWindow.setContent(html);
-        					infoWindow.open(map, marker);
-        				}
-              } // end for
-            } // end if
-      }) // end DOMContentLoaded
-    </script>
-  </body>
+  </style>
+</head>
+<body>
+  <!-- Conteneur pour la carte -->
+  <div id="map" >
+    <h1 >Loading...</h1>
+  </div>
+
+  <!-- Inclure le JavaScript de Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const map = L.map('map').setView([30, 2.3522],3); // Centrer sur Paris
+        const ipfsHttpEndpoint = 'https://arturo.infura-ipfs.io/ipfs/'
+        const json = await (await fetch('https://script.google.com/macros/s/AKfycbx2ceSND0kL7_o3OSjlxCxbMxbFAj7e3j_fXnPwYJwiTZ9TewoOtgKPszthVsq6uHJs/exec') ).json()
+          console.table(json)
+
+          for (const [lat, long, cityName, ipfsHash] of json) {
+            console.log('lat : ', lat)
+
+            // Ajouter un marqueur (optionnel)
+            const marker = L.marker([lat, long]).addTo(map).bindPopup(cityName) // Ajouter une popup au marqueur.openPopup();
+          }
+    // Initialiser la carte
+
+    
+
+    
+
+    // Ajouter une couche de tuiles OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributeurs'
+    }).addTo(map);
+      } catch (e) {
+        console.warn('error',e)
+      }
+    }) 
+  </script>
+</body>
 </html>
