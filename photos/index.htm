@@ -75,7 +75,7 @@
       const urlVars = new URLSearchParams(location.search)
       try {
         // const result = await remoteDB.allDocs()
-        const result = await fetch(`${ipfsUrl}QmenNUzZSAzgXzZJWtbTUtTMmHknk9we8cGmVEYP1gKHNT`)
+        const result = await fetch(`${ipfsUrl}QmdiGCvqedoeAZA4ZPUSgWQbmH16bbtVnziJSXmgqeqYnv`)
         json = await result.json()
         console.log('db ', json)
         document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
