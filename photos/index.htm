@@ -50,7 +50,8 @@
     // const URL = 'http://couchdb.ga:5984/galleries';
     // const remoteDB = new PouchDB(URL, { skip_setup: true });
     let json = ''
-    const ipfsUrl = 'https://chisnan.infura-ipfs.io/ipfs/'
+    var ipfsUrl = 'https://chisnan.infura-ipfs.io/ipfs/'
+    
     async function displayPictures(galName) {
       if(galName.trim() != '') {
         try{
@@ -70,12 +71,33 @@
         }
       }
     }
+    const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
+      try{
+        const otherINFURAEndpoints = ['https://chisnan.infura-ipfs.io/ipfs/','https://arturo.infura-ipfs.io/ipfs/','https://test.infura-ipfs.io/ipfs/']
+        const result = await fetch(`${otherINFURAEndpoints[incr]}QmRdViZbbQVZ97Ca58yyHBQomv9oQKfaffvkvVEsPvemrg`)
+        console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
+        if(incr === otherINFURAEndpoints.length -1){
+          console.warn('no more available ipfs endpoints')
+          return JSON.stringify({error : 'no more available ipfs endpoints'})
+        }
+        if(result.status !== 200) {
+          ipfsUrl = otherINFURAEndpoints[++incr]
+         return fetchAvailableIPFSInfuraEndpoint(incr)            
+        }
+        return result
+      }catch (err)
+      {
+        console.warn(err)
+        return JSON.stringify({error : err})
+      }
+
+    }
 
     document.addEventListener('DOMContentLoaded', async () => {
       const urlVars = new URLSearchParams(location.search)
       try {
         // const result = await remoteDB.allDocs()
-        const result = await fetch(`${ipfsUrl}QmRdViZbbQVZ97Ca58yyHBQomv9oQKfaffvkvVEsPvemrg`)
+        const result = await fetchAvailableIPFSInfuraEndpoint()
         json = await result.json()
         console.log('db ', json)
         document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
@@ -104,6 +126,7 @@
             cssEase: 'linear'
           });
       });
+      
     });
     document.querySelector('#copyCmd').addEventListener('click', e => {
       const downloadCode = document.querySelector('#downloadCode');
