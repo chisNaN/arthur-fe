@@ -73,7 +73,7 @@
     }
     const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
       try{
-        const otherINFURAEndpoints = ['chisnan','arturo','infourat','test']
+        const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
         const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmRdViZbbQVZ97Ca58yyHBQomv9oQKfaffvkvVEsPvemrg`)
         console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
         if(incr === otherINFURAEndpoints.length -1){
