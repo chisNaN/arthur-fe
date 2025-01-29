@@ -1,12 +1,33 @@
-(function($) {
+(async function($) {
+	var s3_url = 'https://arturo.infura-ipfs.io/ipfs/';
+	const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
+      try{
+        const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
+        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmeTpNYFSHvWVGU7sbrVGuqyhFTAK89g1BCtTqqZ4jCrFY`)
+        console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
+        if(incr === otherINFURAEndpoints.length -1){
+          console.warn('no more available ipfs endpoints')
+          return JSON.stringify({error : 'no more available ipfs endpoints'})
+        }
+        if(result.status !== 200) {
+          s3_url = `https://${otherINFURAEndpoints[++incr]}.infura-ipfs.io/ipfs/`
+         return fetchAvailableIPFSInfuraEndpoint(incr)            
+        }
+        return result
+      }catch (err)
+      {
+        console.warn(err)
+        return JSON.stringify({error : err})
+      }
+    }
 
 	function displayImages( p1_a_infos_img) {
 		return `<img src="${p1_a_infos_img.src}" style="border: 1px solid #ccc; border-radius: 5px; padding: 4px; height: ${p1_a_infos_img.height || 'auto'}; width: ${p1_a_infos_img.width || 'auto' }"/>`;
 	}
-
+	await fetchAvailableIPFSInfuraEndpoint()
 var B = 'Bogota';
 const ipfsHashs = ["QmeTpNYFSHvWVGU7sbrVGuqyhFTAK89g1BCtTqqZ4jCrFY","QmUgUtwcKEG3gf7GsAukF8ozThbEeND3Hp3C5MbDpwCGae","QmbYveXPifjs4PUytYrCGdcwhukXzuyZnKtAmwT3xWKejP","QmeMEUBJri52evzcw6Ru9Fw3eeXVgkSG2VAg8XMyUo6Wue","Qmah2PVcsrHRFJuehchPTbofbGaLgmtg9LifqQgSEeJDV2","QmdfMx2561kDPKNWcFKeCkBbxwxDoBsZwU72QspE3u7YYg","QmULP3PBSkWKoYmcYC1Ej3PzGPjTqiVJ1G6R1i4FGppttj","QmbhZEx11kFfJLT5dNfieywxdzDbWZudbcJehxNcPqFvXq","QmQZHcLFbgYWFMfMsg6SbtJzK28ssjUG9ZWiGTuFKgcTJF","QmSKec5CCffkfM5YXBNpyrZfc944hojmKNx5R9hUC82dFq","QmZDb4Lwj7jKxxf7wjaNcv1Tcc6UG24sXeF4sUDAhx1PL7","QmakrqFujPFzpfCyaVcsCh7uySBZ6P1rDynCNuYWqDbho9","QmQkqvMsTurxYez4cV1dvCKY45nimbUQaXHutrVR2eHcPU","QmNXcGWcURmoWN9roXxjJ5tCF6FErzEF6E1i2C77eYSCWt","QmUMWHr5XtqQeGsRgjTnXfdLKjpHtRfVqVoEkPKbSADYqq","QmZSNMfXS1qby2J1XaP1TA8AdH1GxNWNGcL8rK2R9VwaeR","QmXszZoYkNpAaCKeXjupw89CfPPMg55DW1MgX43n9cfGRr","QmWJAqcLvu9otMaiZT21M1DThFQvzNrDmWiabhePzbgufB","QmYPusgJP3KYYivH9sapMe2BQDpfVwFMFNSLeqRnsCAPdo","QmeYPRi9bGUrtb7Pz6DNHDeLCiWjn3LgbFaUs6NTRZWx5m","QmZkWnb3hXT9u2xaLvChtmwp5gLNV2PRjbqWq5BCzf7bU4","Qmen6i3ktysMUDW6ukRPM6Znx6GjptSxT8Tyu5Bd2J75EB","QmfV9FRgBqQaGG9nYHZE8mdW65p5rfiVaeUbF98sDtBoUN","QmaMt4wgaN55qfLbjujF5AKUTshfPR2guzt4UgkdBKXUk6","QmZzJGi78iiqE4FCJErP4HyqaNhttxHU3Q4cLwrXSvUZYa","Qmd51CA5Ga5B8HmTrCYVdeb2pksCCxbRFsw5Q4hYw4iHWD","QmQni7xUoL2dSPmNLg1iNRooKu7h4YHziX7yw673KnRAaR","QmdbkMJ1gFUk7gNPZP6ALrVE8ZseGc58NPfvX5uD76CH7i","Qmaray4cjH2cYBYkjcWgTCYBxY84oaQixhDk1Vq7NYj7NJ","QmcCNfmmDU6rPDPUXeWTn9VDRGhCky98jSt4bSdixX5TuA","Qmf3V76Yq2kxq8vuB5Re194EBY2nQLCawGbFitbQ3XT98D","QmZoWSVZvTMgoGeQnXiRoY4oYuySU1GHySwEDCxknLuea1","QmPT9HTVzrYAWhQ23r24G2oRrdWDBohkYibbiTYVn8LeDU","Qma7WHQ6ixgUuCtt4MDbwPfkgHWSVzJhDXLyXtLyfduycX","QmQ9jFu7axKzPqQQEZJtwcyFGYYaLknSmVhrcDjeuABLXe","QmWmSJivCi6XZfAQHPAjovmHxwm2vSyBCkzUXbyiKR8jK7","QmdZXpzk5P5Lp8W4zddW5P27WvBaFUrTbGFFJ3T92EA9vk","Qmde8icyLnkTGsP4H4pGcXapgjye8JLSVtyKz8BmptibDW","QmSV6JDoiezX7CNATPKgMWHPtTRQKLdDLLF4nCqYPhupNz","QmVfRQQ7Md6uC3YLdPcgyHU9EfYcb3Uc2eGZpmvH8rhRZM","QmNSspMb1igT7bcjhpE1DtwhoKysnHsRZ9RzLtmDnLtp3b","QmcgNszveKwBNWUUGSgid16wE5hApFF39knEe1NhkrHDSt","QmVuQ6qFwWmFmqiHKuyTHQGivtMfCukxXFLjdAzR2ce98b","QmR2gTXfXTzVDkY26A3z57Av9sipkCNYc5TXJpdCbfNjL9","QmZbTQKnY5UjdS3nLMVDEpRE4WxNTHR8UDP4xszhKc9L2M","QmZhZopoXsRGS8Yt9EznV9BQ4y6Tum1gDLFkYVHFFSVoKE","QmWmz6LVVDvrjcx29hkbGsbMbYavRxxabmxTwXkNFHjTrF","QmNNwEknB7BPdgz7bsH2bKYKDqgvWWfohNKfiinuw7Fxjj","QmSw4WNmV4RvB6Q1LkWMFXdnDUBUp4gkHntzFSmcxMj4ma","Qmb2r2wjrdQuAgE5VAnRwkKNdTdMiMjX2cnGQHyoFwZm2f","QmUGJQykiFPtEX8C99JRHL267FkpM5hK9KD2UAYzqCyAKK","QmQZ1rfpJrdVbRdSF2pTMx9aMmCTaNFcXjgfHGA5LT4qpo","QmSNnMGs9yND3QT3MuhJZaMJHxeeDCJ8tW64EMTTGocCCo","QmcLicHbxate3G5L1aCv9tduDivWo1g5rPKuLnNNwrizWM","Qmb9y11btTRaHqMH37aExeimFYy1RAhypoVn3oVoFV4Xqv","QmWVP7uxf3Ph4pi5ZU8Ss78ZCMeNseNMwxGND5b6swWnab"]
-var s3_url = 'https://arturo.infura-ipfs.io/ipfs/';
+
 
 var s_hammock_song_gdrive = 'https://arturo.infura-ipfs.io/ipfs/QmeBYoWFw5LVbVS7VesDmqmbWdV1wUGcer3ZNELB3HZ8LM';
 
