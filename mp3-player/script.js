@@ -4,6 +4,26 @@ let url = ''
 // As a global Object
 console.log('jsmediatags ' ,window.jsmediatags);
 //var jsmediatags = window.jsmediatags;
+ const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
+      try{
+        const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
+        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmTqFu8HtrSo2WEBXh3sXgNZF1ZMemDzjDVEqwfS9TnP77`)
+        console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
+        if(incr === otherINFURAEndpoints.length -1){
+          console.warn('no more available ipfs endpoints')
+          return JSON.stringify({error : 'no more available ipfs endpoints'})
+        }
+        if(result.status !== 200) {
+          googlePrefix = `https://${otherINFURAEndpoints[++incr]}.infura-ipfs.io/ipfs/`
+         return fetchAvailableIPFSInfuraEndpoint(incr)            
+        }
+        return result
+      }catch (err)
+      {
+        console.warn(err)
+        return JSON.stringify({error : err})
+      }
+    }
 
 document.addEventListener('DOMContentLoaded', async _ => {
   try {
@@ -11,7 +31,10 @@ document.addEventListener('DOMContentLoaded', async _ => {
     let library = localStorage.getItem('lib')
     const audio = document.querySelector('audio')
     let urlMacro = 'https://script.google.com/macros/s/AKfycbwYug5msnkvOt67uGxYaE3EVpxGq50dX4V-9WheJt08wqECIRy3/exec'
+    await fetchAvailableIPFSInfuraEndpoint()
+    console.log('googlePrefix inside DOMContentLoaded => ', googlePrefix)
     urlMacro = googlePrefix + 'QmTqFu8HtrSo2WEBXh3sXgNZF1ZMemDzjDVEqwfS9TnP77' //'QmeAGJLuCBmQerp1JiLKe3kWWn8yn3w7b7fk131yLiujf1'
+        //json = await result.json()
     let currentTrackIndex = 0
     const loadTrack = async () => {
       try {
@@ -38,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
           receivedLength += value.length
           const percent = +((receivedLength / total) * 100).toFixed(2)
           document.querySelector('marquee').innerHTML = `${percent} %`
-          console.log(`${percent} %`)
+          //console.log(`${percent} %`)
         } // end while
         const blob = new Blob(chunks, {type})
         console.log('blob',blob);
@@ -93,7 +116,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
         receivedLength += value.length
         const percent = +((receivedLength / total) * 100).toFixed(2)
         document.querySelector('marquee').innerHTML = `${percent} %`
-        console.log(`${percent} %`)
+        //console.log(`${percent} %`)
       } // end while
       const blob = new Blob(chunks, {type})
       console.log('blob',blob);
@@ -124,7 +147,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       const response = await fetch(urlMacro)
       library = await response.json()
       document.querySelector('h1').innerHTML = 'Library successfully loaded!'
-      console.log(library)
+      console.log('lib inside not lib loaded',library)
       localStorage.setItem('lib', JSON.stringify(library))
       // ------ need to make a REAL CLONE of all lib
       notSplicedTracks = [...library]
@@ -135,6 +158,7 @@ document.addEventListener('DOMContentLoaded', async _ => {
       // ------ need to make a REAL CLONE of all lib
       notSplicedTracks = [...library]
       loadTrack()
+      console.log('urlMacro inside else =>', urlMacro)
       fetch(urlMacro).then(r => r.json())
       .then(lib2 => {
         if (lib2.length !== notSplicedTracks.length) {
