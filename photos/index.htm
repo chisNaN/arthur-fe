@@ -55,7 +55,8 @@
     async function displayPictures(galName) {
       if(galName.trim() != '') {
         try{
-          const result = json.docs.find(v => v._id === galName)
+          //const result = json.docs.find(v => v._id === galName)
+          const result = json.find(v => v._id === galName)
           // const result = await remoteDB.get(galName);
           document.querySelector('#numPics').innerHTML = `${result.hashs.length} photo(s)`
           let htmlPics = ''
@@ -74,7 +75,7 @@
     const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
       try{
         const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
-        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmNZK6SiEumGsN2TLrfCWxXZPkFuHkWHL1kQEZmGTdGjAf`)
+        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmZusVZrf5dLpLzbc9L7EFnWDkCxfeAVHVezjYvXPVJygd`)
         console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
         if(incr === otherINFURAEndpoints.length -1){
           console.warn('no more available ipfs endpoints')
@@ -99,7 +100,8 @@
         const result = await fetchAvailableIPFSInfuraEndpoint()
         json = await result.json()
         console.log('db ', json)
-        document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
+        //document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
+        document.querySelector('select').innerHTML += json.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
         document.querySelector('select').style.display = 'block'
       } catch (e) {
         console.warn(e)
