@@ -75,7 +75,7 @@
     const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
       try{
         const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
-        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/Qmdxt36VHaHy4v51z7HHTi6MEvnNtJKvdourrRJtBGVUWX`)
+        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmZe5M9HEHk5BzPE7aabmeMS5DoYQzmjR1wfxkpCPfE9ur`)
         console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
         if(incr === otherINFURAEndpoints.length -1){
           console.warn('no more available ipfs endpoints')
