@@ -103,12 +103,13 @@
         //document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
         document.querySelector('select').innerHTML += json.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
         document.querySelector('select').style.display = 'block'
+        document.querySelector('select').value = 'Budapest'
       } catch (e) {
         console.warn(e)
         document.querySelector('h1').innerHTML = e.toString()
       }
       //console.log('decodeURIComponent(urlVars.get(gal) ', decodeURIComponent(urlVars.get('gal')));
-      displayPictures(urlVars.get('gal') || 'Paradiso')
+      displayPictures(urlVars.get('gal') || 'Budapest')
 
       document.querySelector('select').addEventListener('change', event => {
         displayPictures(event.target.value);
