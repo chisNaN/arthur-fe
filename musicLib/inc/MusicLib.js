@@ -5,22 +5,45 @@ class MusicLib {
     this.currentArtists = null;
     this.currentAlbums = null;
     this.currentTracks = null;
+    this.ipfsNode = null
   }
-
+  async fetchAvailableIPFSInfuraEndpoint(incr = 0) {
+      try{
+        const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
+        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmUHiJvKD8hDM82UHqBjhwHrf8ohZ13h13JUFYYwi8VK37`)
+        console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
+        if(incr === otherINFURAEndpoints.length -1){
+          console.warn('no more available ipfs endpoints')
+          return JSON.stringify({error : 'no more available ipfs endpoints'})
+        }
+        if(result.status !== 200) {
+          this.ipfsNode = `https://${otherINFURAEndpoints[++incr]}.infura-ipfs.io/ipfs/`
+         return fetchAvailableIPFSInfuraEndpoint(incr)            
+        }
+        return result
+      }catch (err)
+      {
+        console.warn(err)
+        return JSON.stringify({error : err})
+      }
+    }
   async loadJson() {
     try{
       let library = localStorage.getItem('musicLib')
       if (library) {
         library = JSON.parse(library)
       } else {
-        const url = 'https://arturo.infura-ipfs.io/ipfs/QmVb6Wrn2opm7ayb4m8aZ3KC6Ja4Vcey6CjVtXtuRsYwHi'
-        library = await (await fetch(url)).json()
+        const result = await this.fetchAvailableIPFSInfuraEndpoint()
+        const url = this.ipfsNode + 'QmUHiJvKD8hDM82UHqBjhwHrf8ohZ13h13JUFYYwi8VK37'
+        //library = await (await fetch(url)).json()
+        library = await result.json()
+        console.log('inside loadJson, library , ' ,library)
         localStorage.setItem('musicLib', JSON.stringify(library))
       }
       return this.json = library
     }catch(e){
      console.warn(e);
-     document.querySelector('top').innerHTML = e.toString()
+     document.querySelector('#top').innerHTML = e.toString()
     }
   }
 
