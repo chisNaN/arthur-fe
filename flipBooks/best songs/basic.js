@@ -1,5 +1,26 @@
-(function($) {
-const ipfsHttpsEndpoint = 'https://chisnan.infura-ipfs.io/ipfs/'
+(async function($) {
+let ipfsHttpsEndpoint = 'https://chisnan.infura-ipfs.io/ipfs/'
+const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
+      try{
+        const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
+        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmYSQWB7S9TgiXrNWDzM4Z5HZZ2J7LrbwX1r48wjjUa1fe`)
+        console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
+        if(incr === otherINFURAEndpoints.length -1){
+          console.warn('no more available ipfs endpoints')
+          return JSON.stringify({error : 'no more available ipfs endpoints'})
+        }
+        if(result.status !== 200) {
+          ipfsHttpsEndpoint = `https://${otherINFURAEndpoints[++incr]}.infura-ipfs.io/ipfs/`
+         return fetchAvailableIPFSInfuraEndpoint(incr)            
+        }
+        return result
+      }catch (err)
+      {
+        console.warn(err)
+        return JSON.stringify({error : err})
+      }
+    }
+    await fetchAvailableIPFSInfuraEndpoint()
 const hashs = [
     "QmYSQWB7S9TgiXrNWDzM4Z5HZZ2J7LrbwX1r48wjjUa1fe",
     "QmSZjjpcJASxid1ZA9pcMiBRvo6JGdZrHy19gApkk3CGjx",
