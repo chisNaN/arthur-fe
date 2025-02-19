@@ -72,6 +72,7 @@ const hashs = [
     "QmaMNnL6KGPFnZTv4urLByzfbuKL2NXbqpwd6NMCgvSPgV",
     "QmYHenkhwrQKaSoNx74xgudCjGY6gcLWL26TFMWTipJ2uU",
     "QmcKutcX99xorCM1T1tdtiuqf6ZfFjEgKEtxiNzx6smbWG",
+    "QmZ9pVrkkbzJa1xXZiSq867y4A2MShLzXoLDAMCEmUPs1e",
   ]
   // alert(hashs.length) QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
   let i = 0
@@ -144,7 +145,8 @@ const newLastPage = [
 const newLastPage2 = [
   { artist: 'Air', title: 'All I need', descr: 'Soulful romantic french lofi', name: ipfsHttpsEndpoint+hashs[i++] },
   {artist: 'Freddyboy', title: 'Fool4U', descr: 'nostalgic dreampop', name: ipfsHttpsEndpoint+hashs[i++]},
-  {artist: 'Morcheeba', title: 'Undress Me Now', descr: 'Warm sunny romantic triphop', name: ipfsHttpsEndpoint+hashs[i++]}
+  {artist: 'Morcheeba', title: 'Undress Me Now', descr: 'Warm sunny romantic triphop', name: ipfsHttpsEndpoint+hashs[i++]},
+  {artist: 'Jazztronik', title: 'Spur', descr: 'Soulful morning bossanova', name: ipfsHttpsEndpoint+hashs[i++]}
   ]
 
 let htmlOutput0 = bestSongs0.map(o => {
