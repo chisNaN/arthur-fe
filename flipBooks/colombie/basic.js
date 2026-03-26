@@ -174,10 +174,10 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'} 
 			'<div>'+s_day_3_bis+'</div>'+
 			'<div>'+s_day_4+'<p style="display: flex;">'+displayImages({src: s3_url+'06.jpg', w: null, h: '330px' })+displayImages({src: s3_url+'07.jpg', w: null, h: '330px' })+'</p></div>'+
 			'<div>'+s_day_4_bis+displayImages({src: s3_url+'08.jpg', w: '425px', h: null})+s_day_4_bis_p2+'</div>'+
-			'<div>'+s_day_5+displayImages({src: s3_url+ipfsHashs[27], w: '400px', h: null})+s_day_5_bis+'</div>'+
+			'<div>'+s_day_5+displayImages({src: s3_url+'09.jpg', w: '400px', h: null})+s_day_5_bis+'</div>'+
 			'<div>'+s_day_5_bis_p2+displayImages({src: s3_url+'10.jpg', w: null, h: '450px' })+'</div>'+
 			'<div>'+s_day_6+'</div>'+
-			'<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[22], w: null, h: '300px' })+displayImages({src: s3_url+ipfsHashs[39], w: null, h: '300px' })+s_day_6_bis+'</p></div>'+
+			'<div><p style="display: flex">'+displayImages({src: s3_url+'11.jpg', w: null, h: '300px' })+displayImages({src: s3_url+'12.jpg', w: null, h: '300px' })+s_day_6_bis+'</p></div>'+
 			'<div>'+s_day_7+'</div>'+
 			'<div>'+s_day_7_p2+'<p>'+displayImages({src: s3_url+'13.jpg', w: '550px', h: null})+'</p></div>'+
             '<div>'+s_week_2_p1+'</div>'+
@@ -252,7 +252,7 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'} 
              '<div>'+s_biggest_surprises_p1+'</div>'+
              '<div>'+s_biggest_surprises_p2+'</div>'+
              '<div>'+s_biggest_surprises_p3+'</div>'+
-             '<div><p class="t"><u>Fin</u><a onclick="goToFirstPage();">(Retour à la 1ère page)</a></p><p>'+displayImages({src: s3_url+ipfsHashs[33], w: null, h: '480px' })+'</p></div>');
+             '<div><p class="t"><u>Fin</u><a onclick="goToFirstPage();">(Retour à la 1ère page)</a></p><p>'+displayImages({src: s3_url+'56.jpg', w: null, h: '480px' })+'</p></div>');
 
 // Wait until it renders
 
