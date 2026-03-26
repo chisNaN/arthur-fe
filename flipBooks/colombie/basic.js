@@ -179,28 +179,28 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'} 
 			'<div>'+s_day_6+'</div>'+
 			'<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[22], w: null, h: '300px' })+displayImages({src: s3_url+ipfsHashs[39], w: null, h: '300px' })+s_day_6_bis+'</p></div>'+
 			'<div>'+s_day_7+'</div>'+
-			'<div>'+s_day_7_p2+'<p>'+displayImages({src: s3_url+ipfsHashs[40], w: '550px', h: null})+'</p></div>'+
+			'<div>'+s_day_7_p2+'<p>'+displayImages({src: s3_url+'13.jpg', w: '550px', h: null})+'</p></div>'+
             '<div>'+s_week_2_p1+'</div>'+
-            '<div>'+displayImages({src: s3_url+ipfsHashs[7], w: '550px', h: null})+"<p>Rassurant ou non d'avoir des camions de police de la sorte dans son quartier?</p></div>"+
+            '<div>'+displayImages({src: s3_url+'14.jpg', w: '550px', h: null})+"<p>Rassurant ou non d'avoir des camions de police de la sorte dans son quartier?</p></div>"+
             '<div>'+s_week_2_p2+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+ipfsHashs[54], w: null, h: '550px' })+"</p><p>L'université nationale</p></div>"+
+            '<div><p>'+displayImages({src: s3_url+'15.jpg', w: null, h: '550px' })+"</p><p>L'université nationale</p></div>"+
             '<div>'+s_week_2_p3+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+ipfsHashs[2], w: null, h: '550px' })+"</p><p>Quand il n'y a pas de gardiens...</p></div>"+
+            '<div><p>'+displayImages({src: s3_url+'16.jpg', w: null, h: '550px' })+"</p><p>Quand il n'y a pas de gardiens...</p></div>"+
             '<div>'+s_week_2_p4+'</div>'+
-            '<div>'+s_week_3_p1+'<p>'+displayImages({src: s3_url+ipfsHashs[32], w: '400px', h: null})+'</p></div>'+
+            '<div>'+s_week_3_p1+'<p>'+displayImages({src: s3_url+'17.jpg', w: '400px', h: null})+'</p></div>'+
             '<div>'+s_week_3_p2+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+ipfsHashs[6], w: '550px', h: null})+"</p><p>Un déjeuner à l'orphelinat. Ambience chaleureuse et décontractée. <br/>Idéal pour parfaire son espagnol.</p></div>"+
+            '<div><p>'+displayImages({src: s3_url+'18.jpg', w: '550px', h: null})+"</p><p>Un déjeuner à l'orphelinat. Ambience chaleureuse et décontractée. <br/>Idéal pour parfaire son espagnol.</p></div>"+
             '<div>'+s_week_3_p3+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+ipfsHashs[24], w: '550px', h: null})+'</p><p>Un café Juan Valdez au centre commercial Carullo le plus proche.</p></div>'+
+            '<div><p>'+displayImages({src: s3_url+'19.jpg', w: '550px', h: null})+'</p><p>Un café Juan Valdez au centre commercial Carullo le plus proche.</p></div>'+
 '<div>'+s_week_4_p1+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+ipfsHashs[28], w: '550px', h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+'20.jpg', w: '550px', h: null})+'</p></div>'+
              '<div>'+s_week_4_p2+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+ipfsHashs[15], w: '550px', h: null})+'</p></div>'+
-             '<div>'+s_week_4_p3+'<p>'+displayImages({src: s3_url+ipfsHashs[46], w: '550px', h: null})+'</p></div>'+
-              '<div><p>'+displayImages({src: s3_url+ipfsHashs[9], w: '550px', h: null})+'</p><p>Un colibri! (Au plein centre)</p></div>'+
-             '<div>'+s_week_4_p4+'<p>'+displayImages({src: s3_url+ipfsHashs[13], w: '500px', h: null})+'</p></div>'+
-             '<div>'+s_week_4_p5+'<p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[14], w: null, h: '330px' })+displayImages({src: s3_url+ipfsHashs[50], w: null, h: '330px' })+'</p></div>'+
-             '<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[0], w: null, h: '350px' })+displayImages({src: s3_url+ipfsHashs[25], w: null, h: '350px' })+'</p>'+s_week_4_p6+'</div>'+
+              '<div><p>'+displayImages({src: s3_url+'21.jpg', w: '550px', h: null})+'</p></div>'+
+             '<div>'+s_week_4_p3+'<p>'+displayImages({src: s3_url+'22.jpg', w: '550px', h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+'23.jpg', w: '550px', h: null})+'</p><p>Un colibri! (Au plein centre)</p></div>'+
+             '<div>'+s_week_4_p4+'<p>'+displayImages({src: s3_url+'24.jpg', w: '500px', h: null})+'</p></div>'+
+             '<div>'+s_week_4_p5+'<p style="display: flex">'+displayImages({src: s3_url+'25.jpg', w: null, h: '330px' })+displayImages({src: s3_url+'26.jpg', w: null, h: '330px' })+'</p></div>'+
+             '<div><p style="display: flex">'+displayImages({src: s3_url+'27.jpg', w: null, h: '350px' })+displayImages({src: s3_url+ipfsHashs[25], w: null, h: '350px' })+'</p>'+s_week_4_p6+'</div>'+
               '<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[42], w: null, h: '450px' })+displayImages({src: s3_url+ipfsHashs[43], w: null, h: '450px'})+'</p></div>'+
              '<div>'+s_week_4_p7+'</div>'+
              '<div><p>'+displayImages({src: s3_url+ipfsHashs[8], w: '550px', h: null})+'</p></div>'+
