@@ -210,21 +210,21 @@ var container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'} 
              '<div>'+s_week_7and8+'</div>'+
              '<div>'+s_week_7and8_p2+'</div>'+
              '<div>'+s_5_days_in_mdl+'</div>'+
-             '<div><p style="display: flex">'+displayImages({src: s3_url+ipfsHashs[35], w: null, h: '375px' })+displayImages({src: s3_url+ipfsHashs[36], w: null, h: '375px' })+'</p>'+s_5_days_in_mdl_p2+'</div>'+
+             '<div><p style="display: flex">'+displayImages({src: s3_url+'35.jpg', w: null, h: '375px' })+displayImages({src: s3_url+'36.jpg', w: null, h: '375px' })+'</p>'+s_5_days_in_mdl_p2+'</div>'+
              '<div>'+s_5_days_in_mdl_p3+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+ipfsHashs[23], w: '550px', h: null})+'</p>'+s_5_days_in_mdl_p4+'</div>'+
+             '<div><p>'+displayImages({src: s3_url+'37.jpg', w: '550px', h: null})+'</p>'+s_5_days_in_mdl_p4+'</div>'+
              '<div>'+s_5_days_in_mdl_p5+'</div>'+
-             '<div>'+displayImages({src: s3_url+ipfsHashs[29], w: '450px', h: null})+displayImages({src: s3_url+ipfsHashs[20], w: '450px', h: null})+'</div>'+
+             '<div>'+displayImages({src: s3_url+'38.jpg', w: '450px', h: null})+displayImages({src: s3_url+'39.jpg', w: '450px', h: null})+'</div>'+
              '<div>'+s_weekend_ss_in_ibg+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+ipfsHashs[31], w: '550px' , h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+'40.jpg', w: '550px' , h: null})+'</p></div>'+
              '<div>'+s_weekend_ss_in_ibg_p2+'</div>'+
-            '<div><p>'+displayImages({src: s3_url+ipfsHashs[37], w: null, h: '600px' })+'</p></div>'+
+            '<div><p>'+displayImages({src: s3_url+'41.jpg', w: null, h: '600px' })+'</p></div>'+
              '<div>'+s_weekend_ss_in_ibg_p3+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+ipfsHashs[30], w: '550px', h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+'42.jpg', w: '550px', h: null})+'</p></div>'+
              '<div>'+s_weekend_ss_in_ibg_p4+'</div>'+
-              '<div><p>'+displayImages({src: s3_url+ipfsHashs[51], w: '550px', h: null})+'</p></div>'+
+              '<div><p>'+displayImages({src: s3_url+'43.jpg', w: '550px', h: null})+'</p></div>'+
              '<div>'+s_weekend_ss_in_ibg_p5+s_weekend_ss_in_ibg_p6+'</div>'+
-             '<div><p>'+displayImages({src: s3_url+'46.jpg', w: null, h: '600px' })+'</p></div>'+
+             '<div><p>'+displayImages({src: s3_url+'44.jpg', w: null, h: '600px' })+'</p></div>'+
              '<div>'+s_last_chapter+'</div>'+
              '<div>'+s_last_chapter_p2+'</div>'+
              '<div>'+s_last_chapter_p3+'</div>'+
