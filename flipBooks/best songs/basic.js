@@ -81,9 +81,13 @@ let hashs = [
 // gdrive ids
    hashs = [
       '0ByZkBrrzUJN_Z21URndaVlY5ZW8',
+      '0ByZkBrrzUJN_LWtaWWpZcUI0RzQ',
+      '0ByZkBrrzUJN_M3NKMnVVdUNyQUE',
+      '11F8LKVtMVJoZNaCFQuKJW2yYHo968btu',
+      '1j-oHTwCbPzsUv_E4vAa2f_xRisl2eyIk',
       '',
     ]
-   alert(hashs) //QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
+   //alert(hashs) //QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
   let i = 0
   const bestSongs0 = [{artist: 'Binkbeats', title: 'Little Nerves (Live)', descr: 'Aerial lyric and powerful track.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Snarky Puppy', title: 'Skate U', descr: 'powerful Introductive track.', name: ipfsHttpsEndpoint+hashs[i++]},
