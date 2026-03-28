@@ -1,5 +1,7 @@
 (async function($) {
-let ipfsHttpsEndpoint = 'https://chisnan.infura-ipfs.io/ipfs/'
+  let ipfsHttpsEndpoint = 'https://chisnan.infura-ipfs.io/ipfs/'
+ ipfsHttpsEndpoint = 'https://deno-gdrive-dl-mp3.chisnan.deno.net?id='
+ /*
 const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
       try{
         const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
@@ -21,7 +23,9 @@ const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
       }
     }
     await fetchAvailableIPFSInfuraEndpoint()
-const hashs = [
+    */
+    
+let hashs = [
     "QmYSQWB7S9TgiXrNWDzM4Z5HZZ2J7LrbwX1r48wjjUa1fe",
     "QmSZjjpcJASxid1ZA9pcMiBRvo6JGdZrHy19gApkk3CGjx",
     "QmVvJdiLGThABSCRGY3vckF7vsG6aQziYD2m8E7T1AD6hX",
@@ -74,7 +78,12 @@ const hashs = [
     "QmcKutcX99xorCM1T1tdtiuqf6ZfFjEgKEtxiNzx6smbWG",
     "QmZ9pVrkkbzJa1xXZiSq867y4A2MShLzXoLDAMCEmUPs1e",
   ]
-  // alert(hashs.length) QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
+// gdrive ids
+   hashs = [
+      '0ByZkBrrzUJN_Z21URndaVlY5ZW8',
+      '',
+    ]
+   alert(hashs) //QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
   let i = 0
   const bestSongs0 = [{artist: 'Binkbeats', title: 'Little Nerves (Live)', descr: 'Aerial lyric and powerful track.', name: ipfsHttpsEndpoint+hashs[i++]},
 		{ artist: 'Snarky Puppy', title: 'Skate U', descr: 'powerful Introductive track.', name: ipfsHttpsEndpoint+hashs[i++]},
@@ -189,7 +198,7 @@ const container = $('<div />', {css: {margin: 'auto', width: 1300, height: '95%'
 
 	$('<div />', {'class': 'sample-flipbook'})
 		.appendTo(container)
-		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (39 years old)</p>
+		.html(`<div><p style="font-size: 30px; margin-top: 10%; margin-bottom: 50px;">"My" Best Songs (40 years old)</p>
 				${htmlOutput0}</div>
         <div>${htmlOutput1}</div>
         <div>${htmlOutput2}</div>
