@@ -91,6 +91,12 @@ let hashs = [
       '0ByZkBrrzUJN_ZVl1VjJ4XzlkbzQ',
       '0ByZkBrrzUJN_bkhVN1NSSloyd1U',
       '0ByZkBrrzUJN_Y3JSekJ6UERhTTg',
+      '0ByZkBrrzUJN_Y3pnWHZUYmFNelE',
+      '0ByZkBrrzUJN_ajBWRXhwVE5OX0U',
+      '0ByZkBrrzUJN_UzlSdm1GRGdIN0E',
+      '0ByZkBrrzUJN_aWhTSENYeWRQR2c',
+      '0ByZkBrrzUJN_bElqUXNuYXJjVWM',
+      '0ByZkBrrzUJN_TjVmblFvSk1tREk',
     ]
    //alert(hashs) //QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
   let i = 0
