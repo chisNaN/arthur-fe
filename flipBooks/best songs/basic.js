@@ -114,7 +114,13 @@ let hashs = [
       '1KVQBEDlryZU_OKwI1pjF8CapMp5BnOy9',
       '0ByZkBrrzUJN_aGxpdTZzZWlVVFk',
       '1Tr7DCDojkR50VLzL3-G9MmA8NNrnfICW',
-      '161PokE9RV1LrSL3fYOwfePNEaXcnR84L'
+      '161PokE9RV1LrSL3fYOwfePNEaXcnR84L',
+      '0ByZkBrrzUJN_RjN0eDlDNHYzUDQ',
+      '0ByZkBrrzUJN_ZWRFWTdWOE1GUFE',
+      '0ByZkBrrzUJN_cy1Uek9VaVNFMGM',
+      '0ByZkBrrzUJN_YU11ZndlTGJ5MHM',
+      '0ByZkBrrzUJN_OG9PSU5fMVhyeHc',
+      '0ByZkBrrzUJN_UktESk4yX3VUYTQ'
     ]
    //alert(hashs) //QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
   let i = 0
