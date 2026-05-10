@@ -7,6 +7,7 @@ class MusicLib {
     this.currentTracks = null;
     this.ipfsNode = null
   }
+  /*
   async fetchAvailableIPFSInfuraEndpoint(incr = 0) {
       try{
         const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
@@ -27,18 +28,38 @@ class MusicLib {
         return JSON.stringify({error : err})
       }
     }
+    */
+  async loadGzipJson() {
+
+    const response = await fetch('musicLib.json.gz');
+    const arrayBuffer = await response.arrayBuffer();
+    const compressed = new Uint8Array(arrayBuffer);
+    const jsonString = pako.ungzip(compressed, {
+      to: "string"
+    });
+    //const data = JSON.parse(jsonString);
+    //console.log(data);
+    return jsonString;
+
+}
   async loadJson() {
     try{
       let library = localStorage.getItem('musicLib')
-      if (library) {
-        library = JSON.parse(library)
-      } else {
-        const result = await this.fetchAvailableIPFSInfuraEndpoint()
-        const url = this.ipfsNode + 'QmUHiJvKD8hDM82UHqBjhwHrf8ohZ13h13JUFYYwi8VK37'
+
+      if (!library) {
+        const result = await this.loadGzipJson()
+        //const url = this.ipfsNode + 'QmUHiJvKD8hDM82UHqBjhwHrf8ohZ13h13JUFYYwi8VK37'
         //library = await (await fetch(url)).json()
-        library = await result.json()
-        console.log('inside loadJson, library , ' ,library)
-        localStorage.setItem('musicLib', JSON.stringify(library))
+        //library = await result.json()
+        library = JSON.parse(result)
+        console.log('inside loadJson')
+        //localStorage.setItem('musicLib', JSON.stringify(library))
+        localStorage.setItem('musicLib', result)
+        console.warn('library stored in LS')
+
+      } else {
+        console.warn('library musicLib found')
+        library = JSON.parse(library)
       }
       return this.json = library
     }catch(e){
