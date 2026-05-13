@@ -115,7 +115,7 @@
           //document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
           document.querySelector('select').innerHTML += galNames.map(v => `<option value="${v}">${v}`).join('</option>')
           document.querySelector('select').style.display = 'block'
-          document.querySelector('select').value = urlVars.get('gal') || 'quindio'
+          document.querySelector('select').value = urlVars.get('gal') || 'budapest'
         
         } else {
           console.warn(e)
@@ -127,9 +127,10 @@
         document.querySelector('h1').innerHTML = e.toString()
       }
       //console.log('decodeURIComponent(urlVars.get(gal) ', decodeURIComponent(urlVars.get('gal')));
-      displayPictures(urlVars.get('gal') || 'quindio')
+      displayPictures(urlVars.get('gal') || 'budapest')
 
       document.querySelector('select').addEventListener('change', event => {
+        console.log('event.target.value => ', event.target.value)
         displayPictures(event.target.value);
         document.querySelector('#pics').classList.remove('slick-initialized', 'slick-slider', 'slick-dotted');
       });
