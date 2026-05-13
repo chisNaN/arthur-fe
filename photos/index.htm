@@ -60,7 +60,6 @@
           //const result = json.docs.find(v => v._id === galName)
           //let result = json.find(v => v._id === galName)
           let result = json[galName]
-          console.log(result)
           // const result = await remoteDB.get(galName);
           document.querySelector('#numPics').innerHTML = `${result.length} photo(s)`
           let htmlPics = ''
@@ -107,6 +106,9 @@
 */
     document.addEventListener('DOMContentLoaded', async () => {
       const urlVars = new URLSearchParams(location.search)
+      console.warn('urlVars => ', urlVars)
+      console.log('urlVars.get(gal)', urlVars.get('gal'))
+      const urlGalName = urlVars.get('gal')
       try {
         const result = await fetch('photosLib.json')
         json = await result.json()
@@ -115,8 +117,12 @@
           //document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
           document.querySelector('select').innerHTML += galNames.map(v => `<option value="${v}">${v}`).join('</option>')
           document.querySelector('select').style.display = 'block'
-          document.querySelector('select').value = urlVars.get('gal') || 'budapest'
-        
+          if(urlGalName) {
+              document.querySelector('select').value = urlVars.get('gal').toLowerCase() || 'budapest'
+            } else{
+              document.querySelector('select').value = 'budapest'
+            }
+
         } else {
           console.warn(e)
           document.querySelector('h1').innerHTML = e.toString()
@@ -127,7 +133,11 @@
         document.querySelector('h1').innerHTML = e.toString()
       }
       //console.log('decodeURIComponent(urlVars.get(gal) ', decodeURIComponent(urlVars.get('gal')));
-      displayPictures(urlVars.get('gal') || 'budapest')
+      if (urlGalName) {
+          displayPictures(urlVars.get('gal').toLowerCase())
+      } else {
+          displayPictures('budapest')
+      }
 
       document.querySelector('select').addEventListener('change', event => {
         console.log('event.target.value => ', event.target.value)
