@@ -72,7 +72,7 @@
           */
           for(const [k, pic] of Object.entries(result)) {
             code += `wget ${ipfsUrl+pic} -O ${k+1}.jpg && `
-            htmlPics += `<div><a href="${ipfsUrl+pic}" target="_blank"><img style="max-height: 150px;" src="${ipfsUrl+pic}" /></a></div>`
+            htmlPics += `<div><a loading="lazy" decoding="async" href="${ipfsUrl+pic}" target="_blank"><img style="max-height: 150px;" src="${ipfsUrl+pic}" /></a></div>`
 
           }
           document.querySelector('#pics').innerHTML = htmlPics
