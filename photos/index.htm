@@ -57,10 +57,14 @@
       if(galName.trim() != '') {
         try{
           console.log('displayPictures')
-          //const result = json.docs.find(v => v._id === galName)
+          const allGallNames = Object.keys(json)
+          const urlGalExists = allGallNames.find(v => v == galName)
+          console.log('urlGalExists => ', urlGalExists)
           //let result = json.find(v => v._id === galName)
-          let result = json[galName]
-          // const result = await remoteDB.get(galName);
+          if(urlGalExists) {
+
+            let result = json[galName]
+            // const result = await remoteDB.get(galName);
           document.querySelector('#numPics').innerHTML = `${result.length} photo(s)`
           let htmlPics = ''
           let code = ''
@@ -77,6 +81,10 @@
           }
           document.querySelector('#pics').innerHTML = htmlPics
           document.querySelector('#downloadCode').value = code.substr(0, code.length - 4)
+          }else {
+              document.querySelector('#pics').innerHTML = '<h1><font color="red">This gallery name does not exist!</font></h1>'
+          }
+          
         }catch(e){
           console.warn(e)
         }
