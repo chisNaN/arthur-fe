@@ -109,10 +109,16 @@ class MusicLib {
   }
 
   searchArtist(artist) {
+    const oldCurrentArtists = this.currentArtists
     this.currentArtists = this.artists.filter(v => v[0].toLowerCase().includes(artist)).reduce((acc, curr) => {
       return Object.assign(acc, { [curr[0]]: curr[1] });
     }, {});
-    return Object.keys(this.currentArtists);
+    if (Object.keys(this.currentArtists).length === 0) {
+      this.currentArtists = oldCurrentArtists
+      return []
+    } else {
+      return Object.keys(this.currentArtists);
+    }
   }
 
   getTracks(searchedTrack = '', jsonSection = this.json) {
