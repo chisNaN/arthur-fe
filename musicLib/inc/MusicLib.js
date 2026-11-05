@@ -31,7 +31,7 @@ class MusicLib {
     */
   async loadGzipJson() {
 
-    const response = await fetch('musicLib.json.gz');
+    const response = await fetch('musicLib.json.gz', { cache: 'force-cache' });
     const arrayBuffer = await response.arrayBuffer();
     const compressed = new Uint8Array(arrayBuffer);
     const jsonString = pako.ungzip(compressed, {
@@ -43,30 +43,17 @@ class MusicLib {
 
 }
   async loadJson() {
-    try{
-      let library = localStorage.getItem('musicLib')
+  try {
+    // nettoyage de l'ancien cache devenu inutile (desktop où ça passait)
+    try { localStorage.removeItem('musicLib') } catch (e) {}
 
-      if (!library) {
-        const result = await this.loadGzipJson()
-        //const url = this.ipfsNode + 'QmUHiJvKD8hDM82UHqBjhwHrf8ohZ13h13JUFYYwi8VK37'
-        //library = await (await fetch(url)).json()
-        //library = await result.json()
-        library = JSON.parse(result)
-        console.log('inside loadJson')
-        //localStorage.setItem('musicLib', JSON.stringify(library))
-        localStorage.setItem('musicLib', result)
-        console.warn('library stored in LS')
-
-      } else {
-        console.warn('library musicLib found')
-        library = JSON.parse(library)
-      }
-      return this.json = library
-    }catch(e){
-     console.warn(e);
-     document.querySelector('#top').innerHTML = e.toString()
-    }
+    const result = await this.loadGzipJson()
+    return this.json = JSON.parse(result)
+  } catch (e) {
+    console.warn(e);
+    document.querySelector('#top').innerHTML = e.toString()
   }
+}
 
   displayArtistsByLetter(currentLetter) {
     const [, json] = Object.entries(this.json).find(v => v[0] === currentLetter);
