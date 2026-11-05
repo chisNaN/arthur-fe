@@ -1,6 +1,7 @@
 (async function($) {
   let ipfsHttpsEndpoint = 'https://chisnan.infura-ipfs.io/ipfs/'
  ipfsHttpsEndpoint = 'https://deno-gdrive-dl-mp3.chisnan.deno.net?id='
+ ipfsHttpsEndpoint = 'https://plum-wooden-rabbit-196.mypinata.cloud/ipfs/'
  /*
 const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
       try{
@@ -132,6 +133,60 @@ let hashs = [
       '0ByZkBrrzUJN_YnJydV8xRVlKYms',
       '0ByZkBrrzUJN_Y1J3dDNuZGsxQ2c'
     ]
+    //piñata hashs
+    hashs = [
+    "bafybeiacxduptroq7dopcmmnnodwou437k3f6k437llo45bd7dak2vxoy4",
+    "bafybeihy54otuzaxrhnhxvzptzhfrddysesu6ytkkf7lzqrl5ngdjpfubi",
+    "bafybeial2abgnfjs2pgxktxnpcqja7j34e4oy42dz7b6bceyhqo35vuefe",
+    "bafybeiaetelc7kvr6rb5eonmsengey7r2bdsjcvz23nsgmrz46vhuqxyiy",
+    "bafybeicqylrz7iiudibu6s6qezngoj4lnywwyiqyfuwxiagxbhe2uhn3ia",
+    "bafybeiee34lthkmva4u7g3pjbwn7lj5zg2pvtnaakzsbx6o74x44tnxn6a",
+    "bafybeigygxfmyv3zqsazbynujyz3ffi3ahqiza6un4p6t4gjron74vcuze",
+    "bafybeih65o65rfxuhathx5yjmt5iwgg3c4nsb5b7wvvoo2fxz7wuwzylyq",
+    "bafybeifauqkm554xgaalwtywrejdqdldq73cuwolcgzag4hhwmfi75pl5y",
+    "bafybeigq6hie72jr7smqy2t7kuidtqorxr4pqr3oien4offjdmtspdqucq",
+    "bafybeihgxik3wqpoz3kxe7tgf4ds3q4conrtucupdgaw3r5hgrey4bocqu",
+    "bafybeigcxdd4qm5jqfr2iwxhpr6zwqsjsaotbv5fn7vqgseadjtrmhudla",
+    "bafybeih5w2genjd4gdgg7i55joj6xujuiprn5zkkf7dzihluchq7mxapmu",
+    "bafybeicearjtc63ckave4pm6lvzwxsdw4xg27lsnbccxz7slflbohizhjm",
+    "bafybeiha5cain7vh6qqfa4xx5l5honb3r24xlzjwnpwsdxtrhckw3kujzu",
+    "bafybeie2vnntoxg4ue3fj6ezxgh5lpwpjd3ghq5xe2njnnhehegwsks4oa",
+    "bafybeicez6caybjfkza4p562jgjazrwxeyinequcavmh6pd35ibsbc35t4",
+    "bafybeifjqfdngwycr4stkz3y5vuugvwnv3v4ztrg2aakvw73pnsrt5pjjq",
+    "bafybeibxt73sfdpicbd4ffcnnkvwt7cak7uvqwcbion2feehiz5oe5omjq",
+    "bafybeido6knxjrkmfsvnedlqvg57uuvo6wejj2fs6gqpisqa4d5jsa5req",
+    "bafybeidn4tf3uhozim3m4rj6xczulvev6uav7hpwwhj5hpjki3ovsizhlm",
+    "bafybeiaakgdrtr3orrj4pzgyzplvnaxafiymdf3el7nv3dqj4sj4c72tam",
+    "bafybeigysaxxebtfnm5iczi3xahiy4vizqqu3rhmrutyy5nrydrepo7xbq",
+    "bafybeihtoclnsqbqb27ihexraxxfkoxjbt4ywg4brsqdmo766kusi4n6yu",
+    "bafybeicsojnb4qpvzldvwjj33pgulaabbrmm4zuzerzpwecuylcqobegrq",
+    "bafybeifebjthlsxdt5yw7cij6a3vgxbgo6lzs4zymeitinvhtq53ffup6e",
+    "bafybeibgfkyp5r25ylwnx546vanmcfeeywbw63tscwqxpvkaesqjt43mbu",
+    "bafybeicl6eg4b2gxhle5rjcx5yipduge4l7iexc6dyb6m5jepdmxrygilu",
+    "bafybeihxxvobdxpgko5hysnplts7gatpq663hxbrnmimpxv3fmoxnhyfma",
+    "bafybeibx5ztb4fq5tx6wz2yhf6u4b23hel6uztllemhielvczab4fw6iyu",
+    "bafybeigbpavgnnfcxfltydbf6wfo67ps2oef7rzxpfmlwcciijjjpdjzma",
+    "bafybeiflh75hicvbysvvai4ixaympsqncwqe6nhkalilyqakgzbv6etmyu",
+    "bafybeiaa7clrvgngbbpajezjymuu45ct2l6ch3dn7jpivuazbd7ipfhwk4",
+    "bafybeifp5nbaq2nmhdpr5l72kcvm6rtffwapuud67jvw2husfskxfd3sd4",
+    "bafybeihizotdeq5nbvizkt2bbub34vmv2zp4ikhskanbeyjebfjs5jpnxy",
+    "bafybeiejeb7hap7ehagtetkmtwtap663bw56obp5q5ujy5tktufakmm2ji",
+    "bafybeidfkuymi6rmzcxssiwp3wdvxejxwxeik45tk4dpbrgranq3f6k34y",
+    "bafybeihmx7qh7uhfxofun3rmfvrcva2667pbmrq4guvemv24cvj7it2oga",
+    "bafybeigklmgpncmtllmttylelezdbmb3mi43q3vtj7e7mchd2zt6d3eas4",
+    "bafybeighsyab6pqimmf2rrjhmfd3rxchmcd3sbqfhhpbxr4o2lvjfayx5i",
+    "bafybeiaavykte6rgpb7lp7dmnzbmmu7a44vjxlta5qhzq74zi2cgg4rw4e",
+    "bafybeialaec63jocje5nkjpxndmaf6gpvhq4beulawqlymun6tvoalbtvy",
+    "bafybeighgzfbimtqwwc7chthtpn5mwdgq6mtb7apypegtdlb6o4urscdam",
+    "bafybeidezx56muoiyxce5euc3v3be5om2mqnarw4umb5rvdg4i7mzhtxs4",
+    "bafybeics77vve3lwxjdedgu22oxd2dwkewphoj4cvmwc3tknqwszudfnam",
+    "bafybeibjjbi6iibsincw3gml2w6gkl577cdyg5aarx4rw5stkgnzibj3su",
+    "bafybeibhywul3ytekg4up3pzov6chtueq2n7m73wbdfomwl66xkhuvnva4",
+    "bafybeieagohgqh4phlmwsk4ooidhavklq2ak4urnteh6ojioeu7snizc7y",
+    "bafybeidvdv5lbuobfq7kv4papzekcdjwnswfdgkbuwcr2sbdnfgqmq2wiu",
+    "bafybeiegy746k5z72dt75hq66pco7knuof3nm44ewtjnmqunego776ujhm",
+    "bafybeifup25ckhqs3qg7gherqyle5xdp33rgkljdignp7foqv3izypl7mu"
+]
    //alert(hashs) //QmPGXZyjE2mkvT56GywXxTgGTmVw7jc838nmH6x8gyxfTx
   let i = 0
   const bestSongs0 = [{artist: 'Binkbeats', title: 'Little Nerves (Live)', descr: 'Aerial lyric and powerful track.', name: ipfsHttpsEndpoint+hashs[i++]},
