@@ -24,7 +24,7 @@ function doPost(e) {
     }
 
     if(!isEmptyField) {
-    MailApp.sendEmail({to: 'artgreg@outlook.fr',
+    MailApp.sendEmail({to: 'mail@domain.com',
                        subject: 'My website Contact form',
                        htmlBody: htmlBody
                       });

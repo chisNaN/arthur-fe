@@ -40,7 +40,7 @@
                   const { sha } = await pathInfo.json();
                   const octokit = new Octokit();
                   octokit.authenticate({ type: 'basic', username: 'chisNaN', password: document.querySelector('#githubPasswd').value.trim() });
-                  const author = { name: owner, email: 'artgreg@outlook.fr' };
+                  const author = { name: owner, email: 'mail@domain.com' };
                   const committer = author;
                   const config = { owner, repo, path,
                                   message: 'commit from musicLib admin',
