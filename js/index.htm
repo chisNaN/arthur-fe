@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <link rel="icon" href="../images/icon.png" type="image/png" />
+    <style media="screen">
+    html, body{ width: 100%; height: 100%; }
+
+    @font-face
+    {
+        font-family: "HirukoBlackAlternate";
+        src: url("../fonts/HirukoBlackAlternate.ttf") format('truetype');
+    }
+
+    body{
+      font-family: verdana;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      }
+      li{ margin-top: 20px;}
+
+      a{ text-decoration: none; color: cornflowerblue; }
+
+      #main{ margin-left: 20px; }
+
+      .red{ color: red; }
+    </style>
+    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+    </script>
+    <script type="text/javascript">
+    //fetch('https://api.ipify.org?format=json').then(r => r.json())
+   //.then(r => {
+    const payload = [ 'ip', 'user agent', 'rçèéñññef' ];
+    const headers = { method: 'POST', headers: {'Content-type': 'text/plain'}, body: JSON.stringify({ payload }) };
+     fetch('https://script.google.com/macros/s/AKfycbzwmw3enchmk0hXOH17jN1HqCoWgEJISo51_7z4rx-ckFTSjJ0j/exec', headers)
+     .then(r2 => r2.json()).then(r3 => console.log(r3)).catch(e => Raven.captureException(e));
+   //}).catch(e => Raven.captureException(e));
+
+    </script>
+  </head>
+  <body>
+    <div id="main">
+      <h2>Why JavaScript became THE actual (2017) standard web language?</h2>
+      <ul>
+        <li>
+         <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> was embedded as the browser client language in 1995. (Still it is the unique one!)
+        </li>
+        <li>
+         Since 2009 a new <span class="red">server backend</span> language, <a href="https://en.wikipedia.org/wiki/Node.js" target="_blank">Node.js</a> was built and is using JavaScript syntax
+        </li>
+        <li>
+         Since 2009 also JavaScript is the language base for <a href="https://en.wikipedia.org/wiki/Google_Apps_Script" target="_blank">Google Apps Script</a>
+        </li>
+        <li>
+         Since 2010 when the first commits of <a href="https://pouchdb.com/learn.html" target="_blank">PouchDB</a> occurred on Github, <br>
+        JavaScript <span class="red">can interact DIRECTLY into NoSQL databases</span> thus WITHOUT needing a server backend language.
+        </li>
+        <li>
+        In 2015 Facebook announced <a href="https://facebook.github.io/react-native/" target="_blank">React Native</a> libraries using JSX and JavaScript to <span class="red">build mobile NATIVE apps</span>
+        </li>
+      </ul>
+<hr/>
+<p>
+Once one knows an <a href="https://en.wikipedia.org/wiki/ECMAScript" target="_blank">ECMAScript</a> standard language <br>
+it is quite swift to get into another ES like languages such as ActionScript, JScript etc.
+</p>
+    </div>
+    <script type="text/javascript" src="../inc/LS.js"></script>
+  </body>
+</html>

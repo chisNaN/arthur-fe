@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MusicLib</title>
+    <link rel="stylesheet" type="text/css" href="inc/style.css">
+    <link href="../images/icon.png" rel="icon" type="image/png"/>
+    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+    </script>
+    <script type="text/javascript" src="inc/script.js"></script>
+</head>
+<body onload="numArtists();">
+<div id="containerProgress"><progress id="progress" value="0" max="100" ></progress><span id="percent"></span></div>
+<div id="top">
+    <div id="intro">
+        HQ Music Library (<span id="numArtists"></span> artists)
+    </div>
+    <div id="letters">
+    <a href="#" onclick="displayArtists('sharp', 'artists');">#</a>
+    <script type="text/javascript">
+        for(var letter=65;letter<91;letter++)
+        {
+            var _char = String.fromCharCode(letter);
+            document.writeln('&nbsp;<a href="#" onclick="displayArtists(this.innerHTML, \'artists\');">'+_char+'</a>');
+        }
+    </script>
+    </div>
+    <div id="search">
+      <a href="#" onclick="searchTracks(document.getElementById('track').value, '');">Search a track</a>
+        <input type="search" name="track" id="track" placeholder="Track or Artist Name"/>&nbsp;
+        <a href="#" onclick="searchArtist(document.getElementById('track').value);">Search an artist</a>
+    </div>
+</div>
+    <div id="subSections">
+        <div id="artists" class="border"></div>
+        <div id="moreInfos">
+            <div id="albums" class="border"></div>
+            <div id="tracks" class="border"></div>
+        </div>
+    </div>
+<script type="text/javascript" src="../inc/LS.js"></script>
+</body>
+</html>

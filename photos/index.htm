@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Galleries</title>
+    <style media="screen">
+      img{
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        padding: 5px;
+        margin: 10px;
+        max-width: 1280px;
+      }
+      #pics{
+        margin-left: 20px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+      }
+
+      a{
+        text-decoration: none;
+        color: cornflowerblue;
+      }
+      #top {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+  	<script type="text/javascript">
+  	Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+  	</script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/pouchdb@6.4.3/dist/pouchdb.min.js" crossorigin="anonymous"></script> -->
+  </head>
+  <body>
+    <div id="top">
+      <select style="display: none;"><option value="">-- choose --</option></select>&nbsp;<span id="numPics"></span>&nbsp;<a style="font-size: 30px;" href="#" id="startSlick">Start slideshow</a><br>
+    </div>
+    <input type="text" id="downloadCode" style="width: 500px;" />&nbsp;
+    <button type="button" id="copyCmd">Copy to clipboard</button>
+    <div id="pics" class="fade"></div>
+    <script type="text/javascript" src="../inc/LS.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <script type="text/javascript">
+    // const URL = 'http://couchdb.ga:5984/galleries';
+    // const remoteDB = new PouchDB(URL, { skip_setup: true });
+    let json = null
+    var ipfsUrl = 'https://chisnan.infura-ipfs.io/ipfs/'
+    ipfsUrl = 'https://i.ibb.co/'
+    
+    async function displayPictures(galName) {
+      if(galName.trim() != '') {
+        try{
+          console.log('displayPictures')
+          const allGallNames = Object.keys(json)
+          const urlGalExists = allGallNames.find(v => v == galName)
+          console.log('urlGalExists => ', urlGalExists)
+          //let result = json.find(v => v._id === galName)
+          if(urlGalExists) {
+
+            let result = json[galName]
+            // const result = await remoteDB.get(galName);
+          document.querySelector('#numPics').innerHTML = `${result.length} photo(s)`
+          let htmlPics = ''
+          let code = ''
+          /*result.hashs.forEach((hash, k) => {
+            htmlPics += `<div><a href="${ipfsUrl+hash}" target="_blank"><img style="max-height: 150px;" src="${ipfsUrl+hash}" /></a></div>`
+            code += `wget ${ipfsUrl+hash} -O ${k+1}.jpg && `
+            code += `wget -O ${k+1}.jpg && `
+          })
+          */
+          for(const [k, pic] of Object.entries(result)) {
+            //console.warn('k ', k, typeof k)
+            //code += `wget ${ipfsUrl+pic} -O ${+k + 1}.jpg && `
+            code += `curl -fL -o ${+k + 1}.jpg "${ipfsUrl+pic}" && `
+            htmlPics += `<div><a loading="lazy" decoding="async" href="${ipfsUrl+pic}" target="_blank"><img style="max-height: 150px;" src="${ipfsUrl+pic}" /></a></div>`
+
+          }
+          document.querySelector('#pics').innerHTML = htmlPics
+          document.querySelector('#downloadCode').value = code.substr(0, code.length - 4)
+          }else {
+              document.querySelector('#pics').innerHTML = '<h1><font color="red">This gallery name does not exist!</font></h1>'
+          }
+          
+        }catch(e){
+          console.warn(e)
+        }
+      }
+    }
+    /*
+    const fetchAvailableIPFSInfuraEndpoint = async  (incr = 0) => {
+      try{
+        const otherINFURAEndpoints = ['chisnan','infourat','test','arturo']
+        const result = await fetch(`https://${otherINFURAEndpoints[incr]}.infura-ipfs.io/ipfs/QmNnEyipbsfPXWd3kXn5Wm74J8Xf745CrpnGd579KKJePS`)
+        console.log('incr > otherINFURAEndpoints.length =', incr +'>'+ otherINFURAEndpoints.length)
+        if(incr === otherINFURAEndpoints.length -1){
+          console.warn('no more available ipfs endpoints')
+          return JSON.stringify({error : 'no more available ipfs endpoints'})
+        }
+        if(result.status !== 200) {
+          ipfsUrl = `https://${otherINFURAEndpoints[++incr]}.infura-ipfs.io/ipfs/`
+         return fetchAvailableIPFSInfuraEndpoint(incr)            
+        }
+        return result
+      }catch (err)
+      {
+        console.warn(err)
+        return JSON.stringify({error : err})
+      }
+    }
+*/
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlVars = new URLSearchParams(location.search)
+      console.warn('urlVars => ', urlVars)
+      console.log('urlVars.get(gal)', urlVars.get('gal'))
+      const urlGalName = urlVars.get('gal')
+      try {
+        const result = await fetch('photosLib.json')
+        json = await result.json()
+        const galNames = Object.keys(json)
+        if(Array.isArray(galNames)) {
+          //document.querySelector('select').innerHTML += json.docs.map(v => `<option value="${v._id}">${v._id}`).join('</option>')
+          document.querySelector('select').innerHTML += galNames.map(v => `<option value="${v}">${v}`).join('</option>')
+          document.querySelector('select').style.display = 'block'
+          if(urlGalName) {
+              document.querySelector('select').value = urlVars.get('gal').toLowerCase() || 'budapest'
+            } else{
+              document.querySelector('select').value = 'budapest'
+            }
+
+        } else {
+          console.warn(e)
+          document.querySelector('h1').innerHTML = e.toString()
+        }
+        
+      } catch (e) {
+        console.warn(e)
+        document.querySelector('h1').innerHTML = e.toString()
+      }
+      //console.log('decodeURIComponent(urlVars.get(gal) ', decodeURIComponent(urlVars.get('gal')));
+      if (urlGalName) {
+          displayPictures(urlVars.get('gal').toLowerCase())
+      } else {
+          displayPictures('budapest')
+      }
+
+      document.querySelector('select').addEventListener('change', event => {
+        console.log('event.target.value => ', event.target.value)
+        displayPictures(event.target.value);
+        document.querySelector('#pics').classList.remove('slick-initialized', 'slick-slider', 'slick-dotted');
+      });
+      document.querySelector('#startSlick').addEventListener('click', _ => {
+      document.querySelectorAll('img').forEach(v => {
+        v.style.removeProperty('max-height');
+        v.style.removeProperty('max-width');
+      });
+      $('.fade').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+          });
+      });
+      
+    });
+    document.querySelector('#copyCmd').addEventListener('click', e => {
+      const downloadCode = document.querySelector('#downloadCode');
+      const range = document.createRange();
+      range.selectNode(downloadCode);
+      window.getSelection().addRange(range);
+      try {
+        const successful = document.execCommand('copy');
+        const msg = successful ? 'successful' : 'unsuccessful';
+      } catch(err) {
+        console.log('Oops, unable to copy');
+      }finally{
+        window.getSelection().removeAllRanges();
+      }
+    });
+    </script>
+  </body>
+</html>

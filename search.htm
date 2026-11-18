@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="icon" type="image/png" href="images/icon.png" />
+    <style type="text/css" media="screen">
+
+        *{ margin: 0; padding: 0; }
+
+        @font-face
+        {
+            font-family: "HirukoBlackAlternate";
+            src: url("fonts/HirukoBlackAlternate.ttf") format('truetype');
+        }
+
+        body {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            font-family: 'HirukoBlackAlternate';
+            font-size: 20px;
+            background-color: white;
+            color: black;
+        }
+
+        a{ text-decoration: none; color: cornflowerblue;
+        }
+        #displayLines{
+            visibility: hidden; position: absolute; border-radius: 2px; background-color: #ccc; padding: 10px;
+        }
+
+        h1{ margin-top: 20px; }
+        </style>
+        <script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+        </script>
+        <script type="text/javascript" src="inc/github.js"></script>
+        <script type="text/javascript">
+        const githubRawUrl = 'https://raw.githubusercontent.com/'+githubPseudo+'/arthur-fe/master/';
+        const githubBlobUrl = 'https://github.com/'+githubPseudo+'/arthur-fe/blob/master/';
+
+        function showLine(fileUrl, search) {
+          const _event = window.event;
+
+            fetch(githubRawUrl+fileUrl).then(r => r.text())
+            .then(r2 => {
+              const lines = r2.split('\n');
+              let html = '';
+              lines.forEach((v, k) => {
+                if(lines[k].toLowerCase().includes(search)) {
+                  html += '<br><a href="'+githubBlobUrl+fileUrl+'#L'+(k+1)+'" target="_blank">line '+(k+1)+'</a>';
+                }
+              });
+
+              document.getElementById('displayLines').innerHTML = html;
+
+              with(document.getElementById('displayLines').style){
+                  visibility = 'visible';
+                  top = (_event.clientY-25)+'px';
+                  left = (_event.clientX+50)+'px';
+              }
+
+            }).catch(e => {
+              console.warn(e);
+              document.getElementById('displayLines').innerHTML = 'Error ' + e.toString();
+
+              with(document.getElementById('displayLines').style){
+                  visibility = 'visible';
+                  top = (_event.clientY-25)+'px';
+                  left = (_event.clientX+50)+'px';
+              }
+            });
+        }
+        </script>
+</head>
+<body>
+<div id="displayLines" ></div>
+<main><img src="images/spinner.gif" border="none" /></main>
+<script type="text/javascript" src="inc/LS.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', async () => {
+
+    try {
+      const oOutput = document.querySelector('main');
+      const USP = new URLSearchParams(location.search)
+      const search = USP.get('s')
+    if(search?.length > 2) {
+      let html = ''
+      let html2 = '';
+
+      const json1 =  await (await fetch('https://script.google.com/macros/s/AKfycbxT2He1cRtSpQpkcoqbnEeNEBz39-MhYAXCLh974u_HDYdaPr1FA8h9alCM14g6b4GpKA/exec')).json()
+      json1.forEach((v, k) => {
+        if(v[0].toLowerCase().includes(search)) {
+            html += '<br><span>'+v[0]+'</span>';
+        }
+      }); // end of forEach
+
+      if (html) {
+          oOutput.innerHTML = '<h1>Results for <u>'+search+'</u> in <a href="tips" target="_blank">/tips</a>.</h1>';
+          oOutput.innerHTML += html;
+      }
+      
+      const options = { method: 'GET', headers: {Authorization: 'Token'} }
+      const json2 = await ( await fetch('https://api.github.com/search/code?q='+search+'+in:file+language:js+repo:'+githubPseudo+'/arthur-fe', options)).json()
+            
+      if(json2.total_count > 0) {
+          html2 = '<h1>Results for <u>'+search+'</u> in files.</h1>';
+
+          json2.items.forEach((v, k) => {
+            let fileUrl = v.path;
+
+            if(fileUrl[0] === '/') {
+                fileUrl = fileUrl.substr(1);
+            }
+
+            html2 += '<br><a href="http://arthur.grégoi.re/'+fileUrl+'" target="_blank">'+fileUrl+'</a>';
+            html2 += '&nbsp; | <a href="'+githubRawUrl+fileUrl+'" target="_blank">raw content</a> on Github';
+            html2 += '&nbsp; | <span onclick="showLine(\''+fileUrl+'\', \''+search+'\');" style="cursor: pointer;">show line(s)</span>';
+          });
+      }
+      if(html || html2) {
+          //must remove spinner if no tips were found
+          // but only here time to make the 2 ajax cross domain
+          if(!html) {
+              oOutput.innerHTML = '';
+          }
+          oOutput.innerHTML += html2;
+      }else{
+          oOutput.innerHTML = "Oups it seems your search for <u>"+search+"</u> didn't yield any results!";
+      }
+    }else {
+        oOutput.innerHTML = "Your search must be 3 chars length!";
+    }
+  }catch(e) {
+    console.warn(e)
+    oOutput.innerHTML = e.toString()
+  }
+})
+</script>
+</body>
+</html>

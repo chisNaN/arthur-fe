@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <link href="../images/icon.png" rel="icon" type=""/>
+	<title>tips</title>
+  <style>
+    *{ margin: 0; padding: 0; }
+    body{
+        font-family: verdana;
+        font-size: 14px;
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+
+    a{
+        text-decoration: none; color: cornflowerblue;
+    }
+
+    h1{ font-size: 20px; }
+
+    #containerTips{ display: flex; flex-flow: row wrap; justify-content: center; align-items: center; }
+
+    .containers{ width: 300px; border-radius: 3px; border: 1px solid #ccc; margin: 10px; padding: 5px; }
+	</style>
+	<script src="https://cdn.ravenjs.com/3.16.0/raven.min.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	Raven.config('https://689312e36d1c4a00a2078f267250b14e@sentry.io/181578').install()
+	</script>
+</head>
+<body>
+<h1>Contact me <a href="../contact">here</a> if you want to access to the contents of these tutos
+</h1>
+<h2></h2>
+<main></main>
+<script type="text/javascript" src="../inc/LS.js"></script>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', async () => {
+		try {
+			const tips = localStorage.getItem('tips');
+			if (tips) {
+				const json = JSON.parse(tips);
+				let html = 'NO TIPS';
+				if (json?.length > 0) {
+					document.querySelector('h2').innerHTML = json.length+' tip(s)';
+					localStorage.setItem('tips', JSON.stringify(json))
+
+					for (const tip of json) {
+						html += `<div class="containers"><p><span style="font-size: 20px;" >${tip[0]}</span></p>
+							(${tip[1]})<br/>
+							</div>`;
+					}
+					document.querySelector('main').innerHTML = html;
+				} else {
+					document.querySelector('main').innerHTML = html;
+
+				}
+			} else {
+				const url = 'https://script.google.com/macros/s/AKfycbzFmryxLJcWCO9e7JqsRXUDlGD1qbNfLPTA4zYnNrKHnYd7631EpXYc7GB9h4e61Jerxw/exec';
+				const json = await (await fetch(url)).json();
+
+				let html = 'NO TIPS';
+				if (json?.length > 0) {
+					document.querySelector('h2').innerHTML = json.length+' tip(s)';
+					localStorage.setItem('tips', JSON.stringify(json))
+
+					for (const tip of json) {
+						html += `<div class="containers"><p><span style="font-size: 20px;" >${tip[0]}</span></p>
+							(${tip[1]})<br/>
+							</div>`;
+					}
+					document.querySelector('main').innerHTML = html;
+				} else {
+					document.querySelector('main').innerHTML = html;
+
+				}
+				
+			}
+		}catch(e) {
+			alert(e);
+		}
+	});
+</script>
+</body>
+</html>

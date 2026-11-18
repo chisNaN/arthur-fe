@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+	<head>
+		<title>e404</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="images/icon.png" rel="icon" type="image/png"/>
+		<style type="text/css" media="screen">
+
+			*{  margin: 0; padding: 0; }
+
+			@font-face
+			{
+				font-family: "olivier_demo";
+				src: url("fonts/olivier_demo.ttf") format('truetype');
+			}
+html, body
+{
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	font-family: 'olivier_demo';
+	text-align: center;
+	background-color: black;
+	color: white;
+}
+a{  text-decoration: none;  color: cornflowerblue; font-size: 40px; }
+
+			input{ width: 400px; height: 50px; font-size: 30px; }
+
+			p{ margin-top: 20px; }
+
+		</style>
+</head>
+<body>
+    <p style="text-align: center;">
+    <a href="javascript:history.go(-1)">Return to previous page</a>
+		<br>
+		<script type="text/javascript">
+			document.writeln('<a href="http://'+location.hostname+'/index.htm">Home page</a>');
+		</script>
+		</p>
+	<script type="text/javascript">
+		document.writeln('<form method="get" action="http://'+location.hostname+'/search.htm" name="searchform">');
+	</script>
+	<p style="text-align:center;">
+		<input type="text" placeholder="Lost? Feel free to search" name="s" autofocus/><br/>
+		</p>
+	</form>
+	<script type="text/javascript" src="inc/LS.js"></script>
+	</body>
+</html>
